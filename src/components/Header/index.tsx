@@ -1,6 +1,7 @@
 import starwars_logo from '../../assets/icons/starwars_logo.svg';
-import brazil_logo from '../../assets/icons/brazil_flag.svg';
-import sith_logo from '../../assets/icons/sith_logo.svg';
+import { ReactComponent as BrazilLogo } from '../../assets/icons/brazil_flag.svg';
+import { ReactComponent as JediLogo } from '../../assets/icons/jedi_logo.svg';
+
 import Navbar from '../Navbar';
 import * as S from './styles';
 
@@ -14,17 +15,19 @@ function Header() {
   }
   return (
     <S.Header>
-      <a href='#'>
-        <img width='110' height='80' src={starwars_logo} alt='starwars_logo' />
-      </a>
-      <Navbar />
+      <S.Link href='#'>
+        <img src={starwars_logo} alt='starwars_logo' />
+      </S.Link>
+      <S.NavbarContent>
+        <Navbar />
+      </S.NavbarContent>
       <S.Actions>
-        <S.IconButton onClick={() => changeTheme()}>
-          <img width='30' height='80' src={sith_logo} alt='sith_logo' />
-        </S.IconButton>
-        <S.IconButton onClick={() => changeLanguage()}>
-          <img width='30' height='80' src={brazil_logo} alt='brazil_logo' />
-        </S.IconButton>
+        <S.ThemeButton onClick={() => changeTheme()}>
+          <JediLogo />
+        </S.ThemeButton>
+        <S.LanguageButton onClick={() => changeLanguage()}>
+          <BrazilLogo />
+        </S.LanguageButton>
       </S.Actions>
     </S.Header>
   );
