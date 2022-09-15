@@ -3,6 +3,8 @@ import GlobalStyle from './styles/global';
 import Header from './components/Header';
 import usePersistedState from './utils/usePersistedState';
 import { THEMES } from './utils/themes_dict';
+import { Outlet } from 'react-router-dom';
+import { PageContainer } from './components/StyledComponents/styles';
 
 function App() {
   const [theme, setTheme] = usePersistedState('theme', 'sith');
@@ -22,6 +24,9 @@ function App() {
     <ThemeProvider theme={THEMES[theme]}>
       <GlobalStyle />
       <Header handleSetTheme={handleSetTheme} theme={theme} />
+      <PageContainer>
+        <Outlet />
+      </PageContainer>
     </ThemeProvider>
   );
 }
