@@ -4,7 +4,8 @@ import { device } from '~/utils/device_sizes';
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0 5%;
   background: var(--primary);
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
