@@ -1,46 +1,44 @@
 import { useState } from 'react';
-import sith_logo from '../../assets/icons/sith_logo.svg';
-import movie_icon from '../../assets/icons/movie_icon.svg';
-import brazil_flag from '../../assets/icons/brazil_flag.svg';
-import planet_icon from '../../assets/icons/planets_icon.svg';
-import species_icon from '../../assets/icons/species_icon.svg';
-import vehicle_icon from '../../assets/icons/vehicles_icon.svg';
-import starwars_logo from '../../assets/icons/starwars_logo.svg';
-import starship_icon from '../../assets/icons/starships_icon.svg';
-import character_icon from '../../assets/icons/characters_icon.svg';
-import * as S from './styles.ts';
+import { ReactComponent as MovieIcon } from '../../assets/icons/movie_icon.svg';
+import { ReactComponent as PlanetIcon } from '../../assets/icons/planets_icon.svg';
+import { ReactComponent as SpeciesIcon } from '../../assets/icons/species_icon.svg';
+import { ReactComponent as VehiclesIcon } from '../../assets/icons/vehicles_icon.svg';
+import { ReactComponent as StarshipsIcon } from '../../assets/icons/starships_icon.svg';
+import { ReactComponent as CharactersIcon } from '../../assets/icons/characters_icon.svg';
+
+import * as S from './styles';
 
 function Navbar() {
   const [selected, setSelected] = useState('Movies');
 
   const items = [
     {
-      icon: movie_icon,
+      icon: <MovieIcon />,
       text: 'Movies',
       text_pt: 'Filmes',
     },
     {
-      icon: planet_icon,
+      icon: <PlanetIcon />,
       text: 'Planets',
       text_pt: 'Planetas',
     },
     {
-      icon: starship_icon,
+      icon: <StarshipsIcon />,
       text: 'Starship',
       text_pt: 'Naves',
     },
     {
-      icon: species_icon,
+      icon: <SpeciesIcon />,
       text: 'Species',
       text_pt: 'Espécies',
     },
     {
-      icon: character_icon,
+      icon: <CharactersIcon />,
       text: 'Character',
       text_pt: 'Personagens',
     },
     {
-      icon: vehicle_icon,
+      icon: <VehiclesIcon />,
       text: 'Vehicles',
       text_pt: 'Veículos',
     },
@@ -57,9 +55,7 @@ function Navbar() {
               className={item.text === selected ? 'active' : ''}
             >
               <S.Link href='#'>
-                <S.IconContainer>
-                  <S.Icon src={item.icon} />
-                </S.IconContainer>
+                <S.IconContainer>{item.icon}</S.IconContainer>
                 <S.Text>{item.text}</S.Text>
               </S.Link>
             </S.Item>

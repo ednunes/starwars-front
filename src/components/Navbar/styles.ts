@@ -13,7 +13,7 @@ export const Container = styled.div`
 
   height: 80px;
   padding: 0 10px;
-  background: ${({ theme }) => theme.colors.background};
+  background: var(--primary);
 
   @media ${device.laptop} {
     height: 100px;
@@ -28,7 +28,7 @@ export const Nav = styled.nav`
   width: 100%;
   height: 50px;
   border-radius: 10px;
-  background: ${(props) => props.theme.colors.primary};
+  background: var(--background);
 
   @media ${device.laptop} {
     height: 60px;
@@ -65,7 +65,7 @@ export const Link = styled.a`
   flex-direction: column;
   width: 100%;
   text-align: center;
-  color: ${(props) => props.theme.colors.background};
+  color: var(--primary);
 `;
 
 export const IconContainer = styled.div`
@@ -75,11 +75,15 @@ export const IconContainer = styled.div`
   font-size: 1.5em;
   text-align: center;
   transition: 0.5s;
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   margin-bottom: 36px;
-  filter: saturate(100%) brightness(1000%) hue-rotate(0deg);
   transform: translate(8px, -10px);
+  border: 0;
+
+  svg {
+    fill: var(--text-color);
+  }
 
   @media ${device.laptop} {
     transform: translate(0, -10px);
@@ -87,15 +91,13 @@ export const IconContainer = styled.div`
 
   ${Item}.active ${Link} & {
     transform: translate(8px, -28px);
-    filter: saturate(0%) brightness(0%) hue-rotate(0deg);
+    svg {
+      fill: var(--title);
+    }
     @media ${device.laptop} {
       transform: translateY(-30px);
     }
   }
-`;
-export const Icon = styled.img`
-  width: 20px;
-  height: 20px;
 `;
 
 export const Text = styled.div`
@@ -105,7 +107,7 @@ export const Text = styled.div`
   font-family: 'RobotoRegular';
   letter-spacing: 0.05em;
   transform: translate(8px, 1.5em);
-  color: ${(props) => props.theme.colors.text};
+  color: var(--text-color);
 
   @media ${device.laptop} {
     font-size: 0.75em;
@@ -119,7 +121,7 @@ export const Indicator = styled.div`
   height: 50px;
   transition: 0.5s;
   border-radius: 50%;
-  background: ${(props) => props.theme.colors.terciary};
+  background: var(--secondary);
 
   @media ${device.laptop} {
     margin: 15px 0 0 12px;
@@ -135,7 +137,7 @@ export const Indicator = styled.div`
       height: 20px;
       background: transparent;
       border-top-right-radius: 20px;
-      box-shadow: 1px -10px 0 0 ${(props) => props.theme.colors.background};
+      box-shadow: 1px -10px 0 0 var(--primary);
     }
 
     ::after {
@@ -147,7 +149,7 @@ export const Indicator = styled.div`
       height: 20px;
       background: transparent;
       border-top-left-radius: 20px;
-      box-shadow: -1px -10px 0 0 ${(props) => props.theme.colors.background};
+      box-shadow: -1px -10px 0 0 var(--primary);
     }
   }
 `;
@@ -159,7 +161,7 @@ export const IndicatorContainer = styled.div`
   border-radius: 50%;
   width: 70px;
   height: 70px;
-  background: linear-gradient(transparent 50%, ${(props) => props.theme.colors.background} 50%);
+  background: linear-gradient(transparent 50%, var(--primary) 50%);
 
   ${Item}:nth-child(1).active ~ & {
     transform: translateX(calc(55px * 0));
