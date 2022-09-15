@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { device } from '../../utils/device_sizes';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   position: fixed;
@@ -56,7 +57,7 @@ export const Item = styled.li`
   }
 `;
 
-export const Link = styled.a`
+export const NavLink = styled(Link)`
   position: relative;
   display: flex;
   list-style: none;
@@ -89,7 +90,7 @@ export const IconContainer = styled.div`
     transform: translate(0, -10px);
   }
 
-  ${Item}.active ${Link} & {
+  ${Item}.active ${NavLink} & {
     transform: translate(8px, -28px);
     svg {
       fill: var(--title);

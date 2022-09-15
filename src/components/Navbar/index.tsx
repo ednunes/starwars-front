@@ -1,46 +1,48 @@
 import { useState } from 'react';
-import { ReactComponent as MovieIcon } from '../../assets/icons/movie_icon.svg';
-import { ReactComponent as PlanetIcon } from '../../assets/icons/planets_icon.svg';
-import { ReactComponent as SpeciesIcon } from '../../assets/icons/species_icon.svg';
-import { ReactComponent as VehiclesIcon } from '../../assets/icons/vehicles_icon.svg';
-import { ReactComponent as StarshipsIcon } from '../../assets/icons/starships_icon.svg';
-import { ReactComponent as CharactersIcon } from '../../assets/icons/characters_icon.svg';
+import { useLocation } from 'react-router-dom';
+import { ReactComponent as MovieIcon } from '../../assets/icons/navbar/movie_icon.svg';
+import { ReactComponent as PlanetIcon } from '../../assets/icons/navbar/planets_icon.svg';
+import { ReactComponent as SpeciesIcon } from '../../assets/icons/navbar/species_icon.svg';
+import { ReactComponent as VehiclesIcon } from '../../assets/icons/navbar/vehicles_icon.svg';
+import { ReactComponent as StarshipsIcon } from '../../assets/icons/navbar/starships_icon.svg';
+import { ReactComponent as CharactersIcon } from '../../assets/icons/navbar/characters_icon.svg';
 
 import * as S from './styles';
 
 function Navbar() {
-  const [selected, setSelected] = useState('Movies');
+  const location = useLocation();
+  const [selected, setSelected] = useState(location.pathname || '/movies/');
 
   const items = [
     {
       icon: <MovieIcon />,
       text: 'Movies',
-      text_pt: 'Filmes',
+      link: '/movies/',
     },
     {
       icon: <PlanetIcon />,
       text: 'Planets',
-      text_pt: 'Planetas',
+      link: '/planets/',
     },
     {
       icon: <StarshipsIcon />,
-      text: 'Starship',
-      text_pt: 'Naves',
+      text: 'Starships',
+      link: '/starships/',
     },
     {
       icon: <SpeciesIcon />,
       text: 'Species',
-      text_pt: 'Espécies',
+      link: '/species/',
     },
     {
       icon: <CharactersIcon />,
-      text: 'Character',
-      text_pt: 'Personagens',
+      text: 'Characters',
+      link: '/characters/',
     },
     {
       icon: <VehiclesIcon />,
       text: 'Vehicles',
-      text_pt: 'Veículos',
+      link: '/vehicles/',
     },
   ];
 
@@ -50,14 +52,14 @@ function Navbar() {
         <S.List>
           {items.map((item) => (
             <S.Item
-              key={item.text}
-              onClick={() => setSelected(item.text)}
-              className={item.text === selected ? 'active' : ''}
+              key={item.link}
+              onClick={() => setSelected(item.link)}
+              className={selected.includes(item.link) ? 'active' : ''}
             >
-              <S.Link href='#'>
+              <S.NavLink to={item.link}>
                 <S.IconContainer>{item.icon}</S.IconContainer>
                 <S.Text>{item.text}</S.Text>
-              </S.Link>
+              </S.NavLink>
             </S.Item>
           ))}
           <S.IndicatorContainer>
