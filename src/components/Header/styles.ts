@@ -5,7 +5,7 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: ${({ theme }) => theme.colors.background};
+  background: var(--primary);
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
   min-height: 70px;
@@ -28,7 +28,7 @@ export const LanguageButton = styled.button`
   width: 30px;
   min-height: 70x;
   border: none;
-  background-color: transparent;
+  background: transparent;
 `;
 
 export const ThemeButton = styled.button`
@@ -36,8 +36,8 @@ export const ThemeButton = styled.button`
   width: 30px;
   height: 30px;
   border: 0;
-  background: none;
-  fill: ${({ theme }) => theme.colors.secondary};
+  background: transparent;
+  fill: var(--secondary);
 
   &:hover {
     animation: pulse 1s infinite;
@@ -49,8 +49,7 @@ export const ThemeButton = styled.button`
       }
       50% {
         transform: scale(1.3);
-        box-shadow: 0 0 20px ${({ theme }) => theme.colors.secondary},
-          0 0 40px ${({ theme }) => theme.colors.secondary};
+        box-shadow: 0 0 20px var(--secondary), 0 0 40px var(--secondary);
       }
       100% {
         transform: scale(1);
@@ -67,4 +66,8 @@ export const Link = styled.a`
   @media ${device.laptop} {
     width: 110px;
   }
+`;
+
+export const LogoContainer = styled.div`
+  fill: var(--secondary);
 `;
