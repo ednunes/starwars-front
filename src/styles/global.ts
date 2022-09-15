@@ -11,6 +11,18 @@ export default createGlobalStyle`
     text-decoration: none;
   }
 
+  body {
+    background: ${({ theme }) => theme.colors.background};
+  }
+
+  :root {
+    --background: ${({ theme }) => theme.colors.background};
+    --primary: ${({ theme }) => theme.colors.primary};
+    --secondary: ${({ theme }) => theme.colors.secondary};
+    --text-color: ${({ theme }) => theme.colors.text};
+    --title-color: ${({ theme }) => theme.colors.title};
+  }
+
   @font-face {
     font-family: 'Starwars';
     src: url(${Starjedi}) format('truetype');
