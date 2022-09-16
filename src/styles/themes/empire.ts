@@ -1,5 +1,6 @@
 export default {
   name: 'empire',
+  side: 'dark',
   colors: {
     background: '#040B16',
     primary: '#0C2030',
@@ -7,7 +8,7 @@ export default {
     title: '#FFE300',
     text: '#FFFFFF',
     simple_text: '#FFFFFF',
-    shadowNeon: '#CD3743',
+    neon_hue: 360,
   },
   fonts: {
     title: 'Starwars',

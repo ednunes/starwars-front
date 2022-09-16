@@ -21,6 +21,7 @@ export default createGlobalStyle`
     --secondary: ${({ theme }) => theme.colors.secondary};
     --text-color: ${({ theme }) => theme.colors.text};
     --title-color: ${({ theme }) => theme.colors.title};
+    --neon-hue: ${({ theme }) => theme.colors.neon_hue};
   }
 
   @font-face {

@@ -1,5 +1,6 @@
 export default {
   name: 'jedi',
+  side: 'light',
   colors: {
     background: '#DCC6A0',
     primary: '#2D1711',
@@ -7,7 +8,7 @@ export default {
     title: '#48CB73',
     text: '#2D1711',
     simple_text: '#DCC6A0',
-    shadowNeon: '#48CB73',
+    neon_hue: 120,
   },
   fonts: {
     title: 'Starwars',

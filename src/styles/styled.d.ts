@@ -3,6 +3,7 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     name: string;
+    side: string;
     colors: {
       primary: string;
       secondary: string;
@@ -10,7 +11,7 @@ declare module 'styled-components' {
       text: string;
       simple_text: string;
       title: string;
-      shadowNeon: string;
+      neon_hue: string;
     };
     fonts: {
       title: string;
