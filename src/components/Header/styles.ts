@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { device } from '~/utils/device_sizes';
 
 export const Header = styled.header`
@@ -24,6 +24,21 @@ export const Actions = styled.header`
   height: 100%;
 `;
 
+const pulse = keyframes`
+  0% {
+    transform: scale(1);
+    box-shadow: 0;
+  }
+  50% {
+    transform: scale(1.3);
+    box-shadow: 0 0 20px var(--secondary), 0 0 40px var(--secondary);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0;
+  }
+`;
+
 export const LanguageButton = styled.button`
   cursor: pointer;
   width: 30px;
@@ -41,22 +56,8 @@ export const ThemeButton = styled.button`
   fill: var(--secondary);
 
   &:hover {
-    animation: pulse 1s infinite;
+    animation: ${pulse} 1s infinite;
     border-radius: 50%;
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-        box-shadow: 0;
-      }
-      50% {
-        transform: scale(1.3);
-        box-shadow: 0 0 20px var(--secondary), 0 0 40px var(--secondary);
-      }
-      100% {
-        transform: scale(1);
-        box-shadow: 0;
-      }
-    }
   }
 `;
 
