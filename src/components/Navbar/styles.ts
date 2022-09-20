@@ -7,6 +7,7 @@ export const Container = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 30;
 
   display: flex;
   align-items: center;
@@ -66,7 +67,7 @@ export const NavLink = styled(Link)`
   flex-direction: column;
   width: 100%;
   text-align: center;
-  color: var(--primary);
+  color: var(--secondary-color);
 `;
 
 export const IconContainer = styled.div`
@@ -83,7 +84,7 @@ export const IconContainer = styled.div`
   border: 0;
 
   svg {
-    fill: var(--text-color);
+    fill: var(--nav-text-color);
   }
 
   @media ${device.laptop} {
@@ -93,7 +94,7 @@ export const IconContainer = styled.div`
   ${Item}.active ${NavLink} & {
     transform: translate(8px, -28px);
     svg {
-      fill: var(--title);
+      fill: var(--nav-text-indicator-color);
     }
     @media ${device.laptop} {
       transform: translateY(-30px);
@@ -108,7 +109,7 @@ export const Text = styled.div`
   font-family: 'RobotoRegular';
   letter-spacing: 0.05em;
   transform: translate(8px, 1.5em);
-  color: var(--text-color);
+  color: var(--nav-text-color);
 
   @media ${device.laptop} {
     font-size: 0.75em;
