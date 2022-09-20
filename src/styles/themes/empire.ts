@@ -1,18 +1,21 @@
 export default {
   name: 'empire',
   side: 'dark',
-  colors: {
-    background: '#040B16',
-    primary: '#0C2030',
-    secondary: '#FFE300',
-    title: '#FFE300',
+  color: {
+    background: '#efdcdc',
+    primary: '#000000',
+    secondary: '#DE0000',
+    nav_text: '#000000',
+    nav_text_indicator: '#000000',
+    title: '#DE0000',
+    subtitle: '#DE0000',
+    link_text: '#FFFFFF',
     text: '#FFFFFF',
-    simple_text: '#FFFFFF',
     neon_hue: 360,
   },
-  fonts: {
+  font: {
     title: 'Starwars',
-    text: 'RobotoRegular',
+    text: 'RobotoBold',
     simple_text: 'RobotoLight',
   },
 };

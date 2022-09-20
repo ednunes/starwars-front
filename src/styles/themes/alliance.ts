@@ -1,18 +1,21 @@
 export default {
   name: 'alliance',
   side: 'light',
-  colors: {
-    background: '#F3F3F4',
-    primary: '#14B4D7',
-    secondary: '#FFC500',
+  color: {
+    background: '#FC2F00',
+    primary: '#EDF2EF',
+    secondary: '#FC2F00',
+    nav_text: '#FFFFFF',
+    nav_text_indicator: '#FFFFFF',
     title: '#0C2030',
-    text: '#14B4D7',
-    simple_text: '#FFFFFF',
+    subtitle: '#0C2030',
+    link_text: '#FFFFFF',
+    text: '#0C2030',
     neon_hue: 195,
   },
-  fonts: {
+  font: {
     title: 'Starwars',
-    text: 'RobotoRegular',
+    text: 'RobotoBold',
     simple_text: 'RobotoLight',
   },
 };
