@@ -1,7 +1,16 @@
-import { Title } from '~/components/StyledComponents/styles';
+import SpecieContent from '~/components/CardContents/SpecieContent';
+import CardList from '~/components/CardList';
+import { getSpecieList } from '~/utils/requests';
+import { SpecieCard } from '~/utils/types';
 
 function SpeciesPage() {
-  return <Title>Species Page</Title>;
+  function getCard(content: SpecieCard) {
+    return <SpecieContent content={content} />;
+  }
+
+  return (
+    <CardList text='species' getCard={getCard} formatData={getSpecieList} resource='species' />
+  );
 }
 
 export default SpeciesPage;
