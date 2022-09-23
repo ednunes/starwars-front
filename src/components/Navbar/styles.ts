@@ -50,7 +50,6 @@ export const Item = styled.li`
   position: relative;
   list-style: none;
   z-index: 1;
-  height: 70px;
   width: 60px;
 
   @media ${device.laptop} {
@@ -92,7 +91,7 @@ export const IconContainer = styled.div`
   }
 
   ${Item}.active ${NavLink} & {
-    transform: translate(8px, -28px);
+    transform: translate(9px, -32px);
     svg {
       fill: var(--nav-text-indicator-color);
     }

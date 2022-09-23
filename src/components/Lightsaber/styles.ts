@@ -4,7 +4,7 @@ export const Lightsaber = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: end;
-  height: 300px;
+  height: 90%;
   max-width: 0.75rem;
   width: 100%;
 `;

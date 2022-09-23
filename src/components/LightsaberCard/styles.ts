@@ -5,6 +5,7 @@ import { Blade, Lightsaber } from '../Lightsaber/styles';
 export const LightsaberCard = styled.div`
   display: flex;
   justify-content: content;
+  height: 100%;
 
   & > :first-child {
     align-self: start;
@@ -32,7 +33,6 @@ export const Card = styled.div`
 
   display: flex;
   flex-direction: column;
-  height: 100%;
 `;
 
 export const Title = styled.h2`
