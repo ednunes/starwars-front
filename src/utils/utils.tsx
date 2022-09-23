@@ -41,19 +41,19 @@ export const convertToKm = (value: number): number => {
   return `${value / 1000} Km`;
 };
 
-export const formatUrl = (resource, url = '') => {
+export const formatUrl = (resource: string, url = '') => {
   const id = url.match(/\d+/);
   const url_formated = `/${resource}/${id}`;
 
   return url_formated;
 };
 
-export const formatHeight = (height) => {
+export const formatHeight = (height: string) => {
   const new_height = Number.parseInt(height);
   return typeof new_height === 'number' && isFinite(new_height) ? `${new_height / 100} m` : height;
 };
 
-export const formatNumber = (number) => {
+export const formatNumber = (number: string) => {
   const new_number = Number.parseInt(number);
 
   return typeof new_number === 'number' && isFinite(new_number)
@@ -61,14 +61,14 @@ export const formatNumber = (number) => {
     : 'Unknown';
 };
 
-export const formatList = (list, default_value = 'N/A') => {
+export const formatList = (list: Array<any> = [], default_value = 'N/A') => {
   if (list.length === 0) {
     return default_value;
   }
   return list.join(', ');
 };
 
-export function getLink(link = { url: '' }, resource, label) {
+export function getLink(link = { url: '', name: '' }, resource: string, label: string) {
   const id = link.url.match(/\d+/);
   return (
     <Text key={resource}>
@@ -80,7 +80,7 @@ export function getLink(link = { url: '' }, resource, label) {
   );
 }
 
-export function getList(list = [], resource: string, item_key = 'name') {
+export function getList(list: Array<any> = [], resource: string, item_key = 'name') {
   if (list.length === 0) {
     return (
       <Text>
@@ -99,8 +99,8 @@ export function getList(list = [], resource: string, item_key = 'name') {
   });
 }
 
-export function getInformations(infos, data) {
-  return infos.map((info) => (
+export function getInformations(infos: any, data: any) {
+  return infos.map((info: any) => (
     <Text key={info.value}>
       <span>{info.label}</span>: <strong>{data[info.value]}</strong>
     </Text>

@@ -9,6 +9,12 @@ import PlanetsPage from './pages/Planets';
 import StarshipsPage from './pages/Starships';
 import SpeciesPage from './pages/Species';
 import VehiclesPage from './pages/Vehicles';
+import MoviePage from './pages/Movie';
+import CharacterPage from './pages/Character';
+import PlanetPage from './pages/Planet';
+import StarshipPage from './pages/Starship';
+import SpeciePage from './pages/Specie';
+import VehiclePage from './pages/Vehicle';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +45,30 @@ const router = createBrowserRouter([
       {
         element: <VehiclesPage />,
         path: 'vehicles/',
+      },
+      {
+        element: <MoviePage />,
+        path: 'movies/:movieId',
+      },
+      {
+        element: <CharacterPage />,
+        path: 'characters/:characterId',
+      },
+      {
+        element: <PlanetPage />,
+        path: 'planets/:planetId',
+      },
+      {
+        element: <StarshipPage />,
+        path: 'starships/:starshipId',
+      },
+      {
+        element: <SpeciePage />,
+        path: 'species/:specieId',
+      },
+      {
+        element: <VehiclePage />,
+        path: 'vehicles/:vehicleId',
       },
     ],
   },
