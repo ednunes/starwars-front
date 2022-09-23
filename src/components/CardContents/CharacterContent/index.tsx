@@ -1,9 +1,9 @@
 import { formatList, formatUrl } from '~/utils/utils';
 import * as Card from '~/components/LightsaberCard/styles';
 import PropTypes from 'prop-types';
-import { Character } from '~/utils/types';
+import { CharacterCard } from '~/utils/types';
 
-function CharacterContent({ character }: { character: Character }) {
+function CharacterContent({ character }: { character: CharacterCard }) {
   const formatted_url = formatUrl('characters', character.url);
 
   return (
