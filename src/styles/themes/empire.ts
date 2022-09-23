@@ -12,10 +12,14 @@ export default {
     link_text: '#FFFFFF',
     text: '#FFFFFF',
     neon_hue: 360,
+    button: '#000000',
+    button_text: '#000000',
+    input: '#000000',
+    input_text: '#000000',
   },
   font: {
     title: 'Starwars',
     text: 'RobotoBold',
-    simple_text: 'RobotoLight',
+    simple_text: 'RobotoRegular',
   },
 };

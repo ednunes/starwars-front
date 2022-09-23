@@ -1,8 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import Starjedi from '../assets/fonts/Starjedi.ttf';
-import RobotoRegular from '../assets/fonts/RobotoRegular.ttf';
-import RobotoLight from '../assets/fonts/RobotoLight.ttf';
 import RobotoBold from '../assets/fonts/RobotoBold.ttf';
+import RobotoRegular from '../assets/fonts/RobotoRegular.ttf';
 
 export default createGlobalStyle`
   * {
@@ -15,6 +14,7 @@ export default createGlobalStyle`
   body {
     font-size: 16px;
     background: ${({ theme }) => theme.color.background};
+    font-family: 'RobotoRegular';
   }
 
   :root {
@@ -31,9 +31,15 @@ export default createGlobalStyle`
     --nav-text-indicator-color: ${({ theme }) => theme.color.nav_text_indicator};
     --link-text-color: ${({ theme }) => theme.color.link_text};
 
+    --button-text-color: ${({ theme }) => theme.color.button_text};
+    --button-color: ${({ theme }) => theme.color.button};
+    --input-text-color: ${({ theme }) => theme.color.input_text};
+    --input-color: ${({ theme }) => theme.color.input};
+
+
     --font-primary: 'Starwars';
     --font-secondary: 'RobotoBold';
-    --font-terciary: 'RobotoLight';
+    --font-terciary: 'RobotoRegular';
   }
 
   @font-face {
@@ -45,12 +51,6 @@ export default createGlobalStyle`
   @font-face {
     font-family: 'RobotoBold';
     src: url(${RobotoBold}) format('truetype');
-    font-style: normal;
-    letter-spacing: 0.6px;
-  }
-  @font-face {
-    font-family: 'RobotoLight';
-    src: url(${RobotoLight}) format('truetype');
     font-style: normal;
     letter-spacing: 0.6px;
   }

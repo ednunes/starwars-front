@@ -15,6 +15,10 @@ declare module 'styled-components' {
       text: string;
       neon_hue: string;
       link_text: string;
+      button: string;
+      button_text: string;
+      input: string;
+      input_text: string;
     };
     font: {
       title: string;
