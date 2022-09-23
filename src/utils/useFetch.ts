@@ -15,16 +15,23 @@ const useFetch = (resource: string, initialData: any, formatData: any) => {
 
       try {
         const response = await api.get(url);
-        let response_data = response.data;
+        let responseData = response.data;
 
         if (!didCancel) {
           if (formatData) {
             const t0 = performance.now();
-            response_data = await formatData(response_data);
+            responseData = await formatData(responseData);
             const t1 = performance.now();
-            console.log(`Call to doSomething took ${t1 - t0} milliseconds.`);
+            console.log(`Call took ${t1 - t0} milliseconds.`);
           }
-          setData(response_data);
+
+          if (url.includes('page=')) {
+            const oldData = data?.results ? data.results : [];
+            const newData = { ...responseData, results: [...oldData, ...responseData.results] };
+            setData(newData);
+          } else {
+            setData(responseData);
+          }
           setIsLoading(false);
         }
       } catch (error) {
@@ -42,7 +49,7 @@ const useFetch = (resource: string, initialData: any, formatData: any) => {
     };
   }, [url]);
 
-  return [{ data, isLoading, isError }, setUrl];
+  return [{ data, isLoading, isError, url }, setUrl];
 };
 
 export default useFetch;
