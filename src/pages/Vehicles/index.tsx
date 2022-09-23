@@ -1,7 +1,16 @@
-import { Title } from '~/components/StyledComponents/styles';
+import VehicleContent from '~/components/CardContents/VehicleContent';
+import CardList from '~/components/CardList';
+import { getVehicleList } from '~/utils/requests';
+import { VehicleCard } from '~/utils/types';
 
 function VehiclesPage() {
-  return <Title>vehicles Page</Title>;
+  function getCard(content: VehicleCard) {
+    return <VehicleContent content={content} />;
+  }
+
+  return (
+    <CardList text='vehicles' getCard={getCard} formatData={getVehicleList} resource='vehicles' />
+  );
 }
 
 export default VehiclesPage;

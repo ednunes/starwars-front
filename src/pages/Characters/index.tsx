@@ -1,10 +1,10 @@
 import CharacterContent from '~/components/CardContents/CharacterContent';
 import CardList from '~/components/CardList';
 import { getCharacterList } from '~/utils/requests';
-import { Character } from '~/utils/types';
+import { CharacterCard } from '~/utils/types';
 
 function CharactersPage() {
-  function getCard(character: Character) {
+  function getCard(character: CharacterCard) {
     return <CharacterContent character={character} />;
   }
   return (
