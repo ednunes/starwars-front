@@ -21,7 +21,7 @@ export default function MoviePage() {
         <TitleContainer>
           <S.Column>
             <Title>{movie.title}</Title>
-            <span>Episode {convertNumberToRomanNumeral(movie.episode_id)}</span>
+            <S.Text>Episode {convertNumberToRomanNumeral(movie.episode_id)}</S.Text>
           </S.Column>
           <S.Column>
             <TitleDescription>EDITED AT: {movie.edited}</TitleDescription>

@@ -22,6 +22,8 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
+    "suppressImplicitAnyIndexErrors": true,
+    "noImplicitAny": false,
     "paths": {
       "~/*": ["src/*"]
     }

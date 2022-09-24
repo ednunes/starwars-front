@@ -7,12 +7,12 @@ import {
   getFormattedDateTime,
 } from './utils';
 
-export function expandList(list: any, attributes_list = []) {
-  const promises = list.map((resource: resource) => {
+export function expandList(list: any, attributes_list: any = []) {
+  const promises = list.map((resource: string) => {
     const promise = axios.get(resource).then((response) => {
       let expanded_data = response.data.name;
       if (attributes_list.length) {
-        expanded_data = attributes_list.reduce((acc, item) => {
+        expanded_data = attributes_list.reduce((acc: any, item: any) => {
           return { ...acc, [item]: response.data[item] };
         }, {});
       }
@@ -29,8 +29,8 @@ export async function expandLink(resource: string) {
     .then((response) => ({ name: response.data.name, url: response.data.url }));
 }
 
-export async function getCharacterList(characters) {
-  const expanded_results_promise = characters.results.map(async (character) => {
+export async function getCharacterList(characters: any) {
+  const expanded_results_promise = characters.results.map(async (character: any) => {
     const new_character = {
       url: character.url,
       name: character.name,
@@ -53,8 +53,8 @@ export async function getCharacterList(characters) {
   return character_list;
 }
 
-export async function getMovieList(movies) {
-  const expanded_results_promise = movies.results.map((movie) => {
+export async function getMovieList(movies: any) {
+  const expanded_results_promise = movies.results.map((movie: any) => {
     const new_movie = {
       url: movie.url,
       title: movie.title,
@@ -75,8 +75,8 @@ export async function getMovieList(movies) {
   return movie_list;
 }
 
-export async function getPlanetList(planets) {
-  const expanded_results_promise = planets.results.map((planet) => {
+export async function getPlanetList(planets: any) {
+  const expanded_results_promise = planets.results.map((planet: any) => {
     const new_planet = {
       url: planet.url,
       name: planet.name,
@@ -98,8 +98,8 @@ export async function getPlanetList(planets) {
   return planet_list;
 }
 
-export async function getSpecieList(species) {
-  const expanded_results_promise = species.results.map((specie) => {
+export async function getSpecieList(species: any) {
+  const expanded_results_promise = species.results.map((specie: any) => {
     const new_specie = {
       url: specie.url,
       name: specie.name,
@@ -121,15 +121,15 @@ export async function getSpecieList(species) {
   return specie_list;
 }
 
-export async function getStarshipList(starships) {
-  const expanded_results_promise = starships.results.map((starship) => {
+export async function getStarshipList(starships: any) {
+  const expanded_results_promise = starships.results.map((starship: any) => {
     const new_starship = {
       url: starship.url,
       name: starship.name,
       model: starship.model,
-      cost_in_credits: formatNumber(Number.parseFloat(starship.cost_in_credits)),
+      cost_in_credits: formatNumber(starship.cost_in_credits),
       hyperdrive_rating: starship.hyperdrive_rating,
-      length: `${formatNumber(Number.parseFloat(starship.length))} m`,
+      length: `${formatNumber(starship.length)} m`,
     };
     return new_starship;
   });
@@ -144,14 +144,15 @@ export async function getStarshipList(starships) {
   return starship_list;
 }
 
-export async function getVehicleList(vehicles) {
+export async function getVehicleList(vehicles: any) {
   const expanded_results_promise = vehicles.results.map((vehicle) => {
+    const length = formatNumber(vehicle.length);
     const new_vehicle = {
       url: vehicle.url,
       name: vehicle.name,
       model: vehicle.model,
-      length: `${formatNumber(Number.parseFloat(vehicle.length))} m`,
-      cost_in_credits: formatNumber(Number.parseFloat(vehicle.cost_in_credits)),
+      length: `${length} m`,
+      cost_in_credits: formatNumber(vehicle.cost_in_credits),
     };
     return new_vehicle;
   });
@@ -166,7 +167,7 @@ export async function getVehicleList(vehicles) {
   return vehicle_list;
 }
 
-export async function getMovie(movie) {
+export async function getMovie(movie: any) {
   const attributes_list = ['name', 'url'];
 
   const expanded_movie_promise = {
@@ -189,7 +190,7 @@ export async function getMovie(movie) {
   return expanded_movie_promise;
 }
 
-export async function getCharacter(character) {
+export async function getCharacter(character: any) {
   const attributes_list = ['name', 'url'];
 
   const expanded_character_promise = {
@@ -214,7 +215,7 @@ export async function getCharacter(character) {
   return expanded_character_promise;
 }
 
-export async function getPlanet(planet) {
+export async function getPlanet(planet: any) {
   const attributes_list = ['name', 'url'];
   const expanded_planet_promise = {
     url: planet.url,
@@ -236,7 +237,7 @@ export async function getPlanet(planet) {
   return expanded_planet_promise;
 }
 
-export async function getStarship(starship) {
+export async function getStarship(starship: any) {
   const attributes_list = ['name', 'url'];
   const expanded_starship_promise = {
     url: starship.url,
@@ -260,7 +261,7 @@ export async function getStarship(starship) {
   return expanded_starship_promise;
 }
 
-export async function getVehicle(vehicle) {
+export async function getVehicle(vehicle: any) {
   const attributes_list = ['name', 'url'];
   const expanded_vehicle_promise = {
     url: vehicle.url,
@@ -284,7 +285,7 @@ export async function getVehicle(vehicle) {
   return expanded_vehicle_promise;
 }
 
-export async function getSpecie(specie) {
+export async function getSpecie(specie: any) {
   const attributes_list = ['name', 'url'];
 
   const expanded_specie_promise = {

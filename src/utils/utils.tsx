@@ -37,7 +37,7 @@ export const convertNumberToRomanNumeral = (number = '') => {
   return romanNumeral;
 };
 
-export const convertToKm = (value: number): number => {
+export const convertToKm = (value: number): string => {
   return `${value / 1000} Km`;
 };
 
