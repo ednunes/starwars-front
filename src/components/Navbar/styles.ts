@@ -91,7 +91,7 @@ export const IconContainer = styled.div`
   }
 
   ${Item}.active ${NavLink} & {
-    transform: translate(9px, -32px);
+    transform: translate(8px, -32px);
     svg {
       fill: var(--nav-text-indicator-color);
     }

@@ -19,7 +19,7 @@ function PlanetContent({ content }: { content: PlanetCard }) {
     ];
     return infos.map((info: LabelInfo) => {
       return (
-        <Card.Text key={`planet_${data['value']}_${info.value}`}>
+        <Card.Text key={`planet_${data['info.value']}_${info.value}`}>
           <span>{info.label}</span>: {data[info.value]}
         </Card.Text>
       );
