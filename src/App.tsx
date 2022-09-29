@@ -3,11 +3,20 @@ import GlobalStyle from './styles/global';
 import Header from './components/Header';
 import usePersistedState from './utils/usePersistedState';
 import { THEMES } from './utils/themes_dict';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { PageContainer } from './components/StyledComponents/styles';
+import { useEffect } from 'react';
 
 function App() {
   const [theme, setTheme] = usePersistedState('theme', 'sith');
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === '/') {
+      return navigate('/movies/');
+    }
+  }, []);
 
   const handleSetTheme = () => {
     setTheme((theme: string) => {

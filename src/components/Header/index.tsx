@@ -30,7 +30,7 @@ function Header({ handleSetTheme, theme }: { handleSetTheme: () => void; theme: 
 
   return (
     <S.Header>
-      <S.Link href='#'>
+      <S.Link href='/movies/'>
         <S.LogoContainer>
           <StarwarsLogo />
         </S.LogoContainer>

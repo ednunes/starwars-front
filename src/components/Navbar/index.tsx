@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ReactComponent as MovieIcon } from '../../assets/icons/navbar/movie_icon.svg';
 import { ReactComponent as PlanetIcon } from '../../assets/icons/navbar/planets_icon.svg';
@@ -12,6 +12,10 @@ import * as S from './styles';
 function Navbar() {
   const location = useLocation();
   const [selected, setSelected] = useState(location.pathname || '/movies/');
+
+  useEffect(() => {
+    setSelected(location.pathname);
+  }, [location]);
 
   const items = [
     {
