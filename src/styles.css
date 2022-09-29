@@ -1,0 +1,147 @@
+.transition-page-appear {
+  mask-image: linear-gradient(to right, transparent 47.5%, #fff 52.5%);
+  mask-size: 210%;
+  mask-position: left;
+  -webkit-mask-image: linear-gradient(to right, transparent 47.5%, #fff 52.5%);
+  -webkit-mask-size: 210%;
+  -webkit-mask-position: left;
+}
+.transition-page-active {
+  mask-position: right;
+  -webkit-mask-position: right;
+  transition: -webkit-mask-position 2s linear;
+}
+
+.transition-page-enter {
+  mask-image: linear-gradient(to left, transparent 47.5%, #fff 52.5%);
+  mask-size: 0;
+  mask-position: right;
+  -webkit-mask-image: linear-gradient(to left, transparent 47.5%, #fff 52.5%);
+  -webkit-mask-size: 0;
+  -webkit-mask-position: right;
+  z-index: 1;
+}
+.transition-page-enter-active {
+  mask-position: left;
+  mask-size: 210%;
+  -webkit-mask-position: left;
+  -webkit-mask-size: 210%;
+  transition: -webkit-mask-position 2s linear;
+}
+
+.transition-page-exit {
+  mask-image: linear-gradient(to right, transparent 47.5%, #fff 52.5%);
+  mask-size: 210%;
+  mask-position: left;
+  -webkit-mask-image: linear-gradient(to right, transparent 47.5%, #fff 52.5%);
+  -webkit-mask-size: 210%;
+  -webkit-mask-position: left;
+  z-index: 30;
+  /* background: var(--primary); */
+}
+.transition-page-exit-active {
+  mask-position: right;
+  -webkit-mask-position: right;
+  transition: -webkit-mask-position 2s linear;
+  z-index: 30;
+  /* background: var(--secondary); */
+}
+.transition-page-exit-done {
+  transition: all 2s linear;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: -10deg;
+}
+
+@keyframes scene-transition {
+  from {
+    --angle: -10deg;
+  }
+  to {
+    --angle: 370deg;
+  }
+}
+
+.transition-appear {
+  z-index: -1;
+  mask-image: conic-gradient(
+      #fff 0deg,
+      #fff calc(var(--angle) - 10deg),
+      transparent calc(var(--angle) + 10deg),
+      transparent 360deg
+    ),
+    conic-gradient(transparent 340deg, #fff 360deg);
+  -webkit-mask-image: conic-gradient(
+      #fff 0deg,
+      #fff calc(var(--angle) - 10deg),
+      transparent calc(var(--angle) + 10deg),
+      transparent 360deg
+    ),
+    conic-gradient(transparent 340deg, #fff 360deg);
+}
+.transition-appear-active {
+  z-index: 1;
+  animation: scene-transition 2s linear forwards;
+}
+.transition-appear-done {
+  transition: all 2s linear;
+}
+
+.clock-enter {
+  z-index: -1;
+  mask-image: conic-gradient(
+      #fff 0deg,
+      #fff calc(var(--angle) - 10deg),
+      transparent calc(var(--angle) + 10deg),
+      transparent 360deg
+    ),
+    conic-gradient(transparent 340deg, #fff 360deg);
+  -webkit-mask-image: conic-gradient(
+      #fff 0deg,
+      #fff calc(var(--angle) - 10deg),
+      transparent calc(var(--angle) + 10deg),
+      transparent 360deg
+    ),
+    conic-gradient(transparent 340deg, #fff 360deg);
+  background: var(--primary);
+}
+.clock-enter-active {
+  z-index: 20;
+  animation: scene-transition 2s linear forwards;
+}
+.clock-enter-done {
+  transition: all 2s linear;
+}
+
+.clock-exit {
+  z-index: -1;
+  mask-image: conic-gradient(
+      #fff 0deg,
+      #fff calc(var(--angle) - 10deg),
+      transparent calc(var(--angle) + 10deg),
+      transparent 360deg
+    ),
+    conic-gradient(transparent 340deg, #fff 360deg);
+  -webkit-mask-image: conic-gradient(
+      #fff 0deg,
+      #fff calc(var(--angle) - 10deg),
+      transparent calc(var(--angle) + 10deg),
+      transparent 360deg
+    ),
+    conic-gradient(transparent 340deg, #fff 360deg);
+  background: var(--primary);
+}
+.clock-exit-active {
+  z-index: 20;
+  animation: scene-transition 2s linear forwards;
+}
+.clock-exit-done {
+  transition: all 2s linear;
+}
+
+.trans {
+  position: relative;
+}

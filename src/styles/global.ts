@@ -10,11 +10,25 @@ export default createGlobalStyle`
     box-sizing: border-box;
     text-decoration: none;
   }
+  
+  html {
+    height: 100%;
+  }
 
   body {
     font-size: 16px;
     background: ${({ theme }) => theme.color.background};
     font-family: 'RobotoRegular';
+    min-height: 100%;
+    height: auto;
+
+    transition: all 0.2s linear;
+  }
+
+  #root {
+    min-height: 100%;
+    height: auto;
+    transition: all 0.3s linear;
   }
 
   :root {

@@ -3,11 +3,26 @@ import styled from 'styled-components';
 import { device } from '~/utils/device_sizes';
 
 export const PageContainer = styled.div`
-  width: 90%;
+  position: relative;
+  width: 80%;
   margin: 10px auto 120px auto;
   @media ${device.laptop} {
     margin: 30px auto;
+    width: 90%;
   }
+`;
+export const PageContentContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+`;
+export const Page = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 300vh;
 `;
 
 export const Title = styled.h1`
