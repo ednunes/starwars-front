@@ -7,7 +7,7 @@ import {
   TitleDescription,
 } from '~/components/StyledComponents/styles';
 import { getMovie } from '~/utils/requests';
-import useFetch from '~/utils/useFetch';
+import useFetch from '~/hooks/useFetch';
 import * as S from './styles';
 import { convertNumberToRomanNumeral, getList } from '~/utils/utils';
 

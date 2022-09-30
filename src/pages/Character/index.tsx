@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import * as Global from '~/components/StyledComponents/styles';
 import { getCharacter } from '~/utils/requests';
 import { Character } from '~/utils/types';
-import useFetch from '~/utils/useFetch';
+import useFetch from '~/hooks/useFetch';
 import { getInformations, getLink, getList } from '~/utils/utils';
 import * as S from './styles';
 

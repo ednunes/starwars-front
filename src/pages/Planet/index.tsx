@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import * as Global from '~/components/StyledComponents/styles';
 import { getPlanet } from '~/utils/requests';
-import useFetch from '~/utils/useFetch';
+import useFetch from '~/hooks/useFetch';
 import * as S from './styles';
 import { getInformations, getList } from '~/utils/utils';
 
