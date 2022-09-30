@@ -2,6 +2,7 @@ import { formatList, formatUrl } from '~/utils/utils';
 import * as Card from '~/components/LightsaberCard/styles';
 import PropTypes from 'prop-types';
 import { CharacterCard } from '~/utils/types';
+import Translator from '~/utils/Translator';
 
 function CharacterContent({ character }: { character: CharacterCard }) {
   const formatted_url = formatUrl('characters', character.url);
@@ -10,29 +11,52 @@ function CharacterContent({ character }: { character: CharacterCard }) {
     <>
       <Card.Title>{character.name}</Card.Title>
       <Card.ContentContainer>
-        <Card.Subtitle>BIRTH</Card.Subtitle>
+        <Card.Subtitle>
+          <Translator>character.birth</Translator>
+        </Card.Subtitle>
         <Card.Text key={`${character.url}_planet`}>
-          <span>Planet</span>: {character.homeworld.name}
+          <span>
+            <Translator>pages.planet</Translator>
+          </span>
+          : {character.homeworld.name}
         </Card.Text>
         <Card.Text key={`${character.url}_birth_year`}>
-          <span>DATE</span>: {character.birth_year}
+          <span>
+            <Translator>character.date</Translator>
+          </span>
+          : {character.birth_year}
         </Card.Text>
 
-        <Card.Subtitle>FISIC DESCRIPTION</Card.Subtitle>
+        <Card.Subtitle>
+          <Translator>character.fisic_description</Translator>
+        </Card.Subtitle>
         <Card.Text key={`${character.url}_height`}>
-          <span>HEIGHT</span>: {character.height}
+          <span>
+            <Translator>generical.height</Translator>
+          </span>
+          : {character.height}
         </Card.Text>
         <Card.Text key={`${character.url}_species`}>
-          <span>Specie</span>: {formatList(character.species, 'Human')}
+          <span>
+            <Translator>pages.specie</Translator>
+          </span>
+          : {formatList(character.species, 'Human')}
         </Card.Text>
 
-        <Card.Subtitle>USED VEHICLES</Card.Subtitle>
+        <Card.Subtitle>
+          <Translator>character.used_vehicles</Translator>
+        </Card.Subtitle>
         <Card.Text key={`${character.url}_vehicles`}>
-          <span>Vehicles</span>: {formatList(character.vehicles, 'N/A')}
+          <span>
+            <Translator>pages.vehicles</Translator>
+          </span>
+          : {formatList(character.vehicles, 'N/A')}
         </Card.Text>
       </Card.ContentContainer>
 
-      <Card.LinkButton to={formatted_url}>Details</Card.LinkButton>
+      <Card.LinkButton to={formatted_url}>
+        <Translator>generical.details</Translator>
+      </Card.LinkButton>
     </>
   );
 }

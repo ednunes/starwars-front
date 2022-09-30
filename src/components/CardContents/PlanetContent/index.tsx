@@ -1,3 +1,4 @@
+import Translator from '~/utils/Translator';
 import { PlanetCard } from '~/utils/types';
 import { formatUrl } from '~/utils/utils';
 import * as Card from '../../LightsaberCard/styles';
@@ -12,15 +13,18 @@ function PlanetContent({ content }: { content: PlanetCard }) {
 
   function getInformations(data: PlanetCard) {
     const infos = [
-      { value: 'rotation_period', label: 'Rotation period' },
-      { value: 'orbital_period', label: 'Orbital period' },
-      { value: 'diameter', label: 'Diameter' },
-      { value: 'population', label: 'Population' },
+      { value: 'rotation_period', label: 'planet.rotation_period' },
+      { value: 'orbital_period', label: 'planet.orbital_period' },
+      { value: 'diameter', label: 'planet.diameter' },
+      { value: 'population', label: 'planet.population' },
     ];
     return infos.map((info: LabelInfo) => {
       return (
         <Card.Text key={`planet_${data['info.value']}_${info.value}`}>
-          <span>{info.label}</span>: {data[info.value]}
+          <span>
+            <Translator>{info.label}</Translator>
+          </span>
+          : {data[info.value]}
         </Card.Text>
       );
     });
@@ -30,11 +34,15 @@ function PlanetContent({ content }: { content: PlanetCard }) {
     <>
       <Card.Title>{content.name}</Card.Title>
       <Card.ContentContainer>
-        <Card.Subtitle>INFORMATIONS</Card.Subtitle>
+        <Card.Subtitle>
+          <Translator>generical.informations</Translator>
+        </Card.Subtitle>
         {getInformations(content)}
       </Card.ContentContainer>
 
-      <Card.LinkButton to={formatted_url}>Details</Card.LinkButton>
+      <Card.LinkButton to={formatted_url}>
+        <Translator>generical.details</Translator>
+      </Card.LinkButton>
     </>
   );
 }

@@ -1,3 +1,4 @@
+import Translator from '~/utils/Translator';
 import { StarshipCard } from '~/utils/types';
 import { formatUrl } from '~/utils/utils';
 import * as Card from '../../LightsaberCard/styles';
@@ -7,15 +8,18 @@ function StarshipContent({ content }: { content: StarshipCard }) {
 
   function getInformations(data: StarshipCard) {
     const infos = [
-      { value: 'model', label: 'Model' },
-      { value: 'hyperdrive_rating', label: 'Hyperdrive rating' },
-      { value: 'cost_in_credits', label: 'Cost in credits' },
-      { value: 'length', label: 'Length' },
+      { value: 'model', label: 'generical.model' },
+      { value: 'hyperdrive_rating', label: 'starship.hyperdrive_rating' },
+      { value: 'cost_in_credits', label: 'generical.cost_in_credits' },
+      { value: 'length', label: 'generical.length' },
     ];
     return infos.map((info) => {
       return (
         <Card.Text key={`Starship_${data[info.value]}_${info.value}`}>
-          <span>{info.label}</span>: {data[info.value]}
+          <span>
+            <Translator>{info.label}</Translator>
+          </span>
+          : {data[info.value]}
         </Card.Text>
       );
     });
@@ -25,11 +29,15 @@ function StarshipContent({ content }: { content: StarshipCard }) {
     <>
       <Card.Title>{content.name}</Card.Title>
       <Card.ContentContainer>
-        <Card.Subtitle>INFORMATIONS</Card.Subtitle>
+        <Card.Subtitle>
+          <Translator>generical.informations</Translator>
+        </Card.Subtitle>
         {getInformations(content)}
       </Card.ContentContainer>
 
-      <Card.LinkButton to={formatted_url}>Details</Card.LinkButton>
+      <Card.LinkButton to={formatted_url}>
+        <Translator>generical.details</Translator>
+      </Card.LinkButton>
     </>
   );
 }
