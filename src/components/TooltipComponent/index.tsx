@@ -1,7 +1,7 @@
 import * as Tooltip from '@radix-ui/react-tooltip';
 import * as S from './styles';
 
-export default function TooltipComponent({ trigger, content }: { trigger: any; content: string }) {
+export default function TooltipComponent({ trigger, content }: { trigger: any; content: any }) {
   return (
     <Tooltip.Provider delayDuration={0} skipDelayDuration={500}>
       <Tooltip.Root>

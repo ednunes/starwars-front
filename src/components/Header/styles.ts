@@ -24,21 +24,6 @@ export const Actions = styled.header`
   height: 100%;
 `;
 
-const pulse = keyframes`
-  0% {
-    transform: scale(1);
-    box-shadow: 0;
-  }
-  50% {
-    transform: scale(1.3);
-    box-shadow: 0 0 20px var(--secondary), 0 0 40px var(--secondary);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0;
-  }
-`;
-
 const rotate = keyframes`
   0% {
     transform: rotate(0deg);
@@ -52,20 +37,12 @@ const rotate = keyframes`
   }
 `;
 
-export const LanguageButton = styled.button`
-  cursor: pointer;
-  width: 30px;
-  min-height: 70x;
-  border: none;
-  background: transparent;
-`;
-
-export const ThemeButton = styled.button`
+export const ThemeButton = styled.div`
   cursor: pointer;
   width: 30px;
   height: 30px;
   border: 0;
-  background: transparent;
+  background: none;
   fill: var(--secondary);
 
   &:hover {
