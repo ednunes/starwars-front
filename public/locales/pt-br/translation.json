@@ -1,0 +1,14 @@
+{
+  "header": {
+    "theme": "Tema",
+    "language": "Linguagem"
+  },
+  "pages": {
+    "movies": "Filmes",
+    "planets": "Planetas",
+    "starships": "Naves",
+    "species": "Espécies",
+    "characters": "Personagens",
+    "vehicles": "Veículos"
+  }
+}
