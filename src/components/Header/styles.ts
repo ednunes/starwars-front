@@ -39,6 +39,19 @@ const pulse = keyframes`
   }
 `;
 
+const rotate = keyframes`
+  0% {
+    transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    box-shadow: 0 0 20px var(--secondary), 0 0 40px var(--secondary);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+    box-shadow: 0 0 20px var(--secondary), 0 0 40px var(--secondary);
+  }
+`;
+
 export const LanguageButton = styled.button`
   cursor: pointer;
   width: 30px;
@@ -56,7 +69,7 @@ export const ThemeButton = styled.button`
   fill: var(--secondary);
 
   &:hover {
-    animation: ${pulse} 1s infinite;
+    animation: ${rotate} 2s infinite;
     border-radius: 50%;
   }
 `;

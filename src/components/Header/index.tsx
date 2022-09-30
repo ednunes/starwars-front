@@ -5,6 +5,7 @@ import Navbar from '../Navbar';
 import * as S from './styles';
 import { LANGUAGES_ICONS } from '~/utils/languages_icons';
 import usePersistedState from '~/utils/usePersistedState';
+import Tooltip from '../TooltipComponent';
 
 Header.propTypes = {
   handleSetTheme: PropTypes.func,
@@ -39,10 +40,20 @@ function Header({ handleSetTheme, theme }: { handleSetTheme: () => void; theme: 
         <Navbar />
       </S.NavbarContent>
       <S.Actions>
-        <S.ThemeButton onClick={() => changeTheme()}>{THEMES_ICONS[theme]}</S.ThemeButton>
-        <S.LanguageButton onClick={() => changeLanguage()}>
-          {LANGUAGES_ICONS[language]}
-        </S.LanguageButton>
+        <Tooltip
+          content='Theme'
+          trigger={
+            <S.ThemeButton onClick={() => changeTheme()}>{THEMES_ICONS[theme]}</S.ThemeButton>
+          }
+        />
+        <Tooltip
+          content='Language'
+          trigger={
+            <S.LanguageButton onClick={() => changeLanguage()}>
+              {LANGUAGES_ICONS[language]}
+            </S.LanguageButton>
+          }
+        />
       </S.Actions>
     </S.Header>
   );
