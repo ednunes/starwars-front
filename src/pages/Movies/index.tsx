@@ -8,7 +8,9 @@ function MoviesPage() {
     return <MovieContent content={content} />;
   }
 
-  return <CardList text='movies' getCard={getCard} formatData={getMovieList} resource='films' />;
+  return (
+    <CardList text='pages.movies' getCard={getCard} formatData={getMovieList} resource='films' />
+  );
 }
 
 export default MoviesPage;

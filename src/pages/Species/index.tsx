@@ -9,7 +9,12 @@ function SpeciesPage() {
   }
 
   return (
-    <CardList text='species' getCard={getCard} formatData={getSpecieList} resource='species' />
+    <CardList
+      text='pages.species'
+      getCard={getCard}
+      formatData={getSpecieList}
+      resource='species'
+    />
   );
 }
 

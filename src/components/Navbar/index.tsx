@@ -8,6 +8,7 @@ import { ReactComponent as StarshipsIcon } from '../../assets/icons/navbar/stars
 import { ReactComponent as CharactersIcon } from '../../assets/icons/navbar/characters_icon.svg';
 
 import * as S from './styles';
+import Translator from '~/utils/Translator';
 
 function Navbar() {
   const location = useLocation();
@@ -20,32 +21,32 @@ function Navbar() {
   const items = [
     {
       icon: <MovieIcon />,
-      text: 'Movies',
+      text: 'pages.movies',
       link: '/movies/',
     },
     {
       icon: <PlanetIcon />,
-      text: 'Planets',
+      text: 'pages.planets',
       link: '/planets/',
     },
     {
       icon: <StarshipsIcon />,
-      text: 'Starships',
+      text: 'pages.starships',
       link: '/starships/',
     },
     {
       icon: <SpeciesIcon />,
-      text: 'Species',
+      text: 'pages.species',
       link: '/species/',
     },
     {
       icon: <CharactersIcon />,
-      text: 'Characters',
+      text: 'pages.characters',
       link: '/characters/',
     },
     {
       icon: <VehiclesIcon />,
-      text: 'Vehicles',
+      text: 'pages.vehicles',
       link: '/vehicles/',
     },
   ];
@@ -62,7 +63,9 @@ function Navbar() {
             >
               <S.NavLink to={item.link}>
                 <S.IconContainer>{item.icon}</S.IconContainer>
-                <S.Text>{item.text}</S.Text>
+                <S.Text>
+                  <Translator>{item.text}</Translator>
+                </S.Text>
               </S.NavLink>
             </S.Item>
           ))}

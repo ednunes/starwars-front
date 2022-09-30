@@ -8,7 +8,12 @@ function CharactersPage() {
     return <CharacterContent character={character} />;
   }
   return (
-    <CardList text='characters' getCard={getCard} formatData={getCharacterList} resource='people' />
+    <CardList
+      text='pages.characters'
+      getCard={getCard}
+      formatData={getCharacterList}
+      resource='people'
+    />
   );
 }
 

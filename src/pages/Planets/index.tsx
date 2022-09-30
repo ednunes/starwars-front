@@ -9,7 +9,12 @@ function PlanetsPage() {
   }
 
   return (
-    <CardList text='planets' getCard={getCard} formatData={getPlanetList} resource='planets' />
+    <CardList
+      text='pages.planets'
+      getCard={getCard}
+      formatData={getPlanetList}
+      resource='planets'
+    />
   );
 }
 

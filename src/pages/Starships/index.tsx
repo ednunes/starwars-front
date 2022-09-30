@@ -10,7 +10,7 @@ function StarshipsPage() {
 
   return (
     <CardList
-      text='starships'
+      text='pages.starships'
       getCard={getCard}
       formatData={getStarshipList}
       resource='starships'

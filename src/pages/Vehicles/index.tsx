@@ -9,7 +9,12 @@ function VehiclesPage() {
   }
 
   return (
-    <CardList text='vehicles' getCard={getCard} formatData={getVehicleList} resource='vehicles' />
+    <CardList
+      text='pages.vehicles'
+      getCard={getCard}
+      formatData={getVehicleList}
+      resource='vehicles'
+    />
   );
 }
 
