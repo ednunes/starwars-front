@@ -1,7 +1,7 @@
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from './styles/global';
 import Header from './components/Header';
-import usePersistedState from './utils/usePersistedState';
+import usePersistedState from './hooks/usePersistedState';
 import { THEMES } from './utils/themes_dict';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { PageContainer } from './components/StyledComponents/styles';

@@ -15,6 +15,8 @@ import PlanetPage from './pages/Planet';
 import StarshipPage from './pages/Starship';
 import SpeciePage from './pages/Specie';
 import VehiclePage from './pages/Vehicle';
+import Loading from './components/Loading';
+import './i18n';
 
 const router = createBrowserRouter([
   {
@@ -76,6 +78,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <React.Suspense fallback={<Loading />}>
+      <RouterProvider router={router} />
+    </React.Suspense>
   </React.StrictMode>,
 );
