@@ -5,37 +5,39 @@ import { Character } from '~/utils/types';
 import useFetch from '~/hooks/useFetch';
 import { getInformations, getLink, getList } from '~/utils/utils';
 import * as S from './styles';
+import Translator from '~/utils/Translator';
+import Loading from '~/components/Loading';
 
 export default function CharacterPage() {
   const params = useParams();
   const [{ data, isLoading }]: any = useFetch(`people/${params.characterId}`, [], getCharacter);
   const infomations = [
     {
-      label: 'height',
+      label: 'generical.height',
       value: 'height',
     },
     {
-      label: 'mass',
+      label: 'character.mass',
       value: 'mass',
     },
     {
-      label: 'birth year',
+      label: 'character.birth_year',
       value: 'birth_year',
     },
     {
-      label: 'gender',
+      label: 'character.gender',
       value: 'gender',
     },
     {
-      label: 'eye color',
+      label: 'character.eye_color',
       value: 'eye_color',
     },
     {
-      label: 'hair color',
+      label: 'character.hair_color',
       value: 'hair_color',
     },
     {
-      label: 'skin color',
+      label: 'character.skin_color',
       value: 'skin_color',
     },
   ];
@@ -48,31 +50,45 @@ export default function CharacterPage() {
             <Global.Title>{character.name}</Global.Title>
           </S.Column>
           <S.Column>
-            <Global.TitleDescription>EDITED AT: {character.edited}</Global.TitleDescription>
-            <Global.TitleDescription>CREATED AT: {character.created}</Global.TitleDescription>
+            <Global.TitleDescription>
+              <Translator>generical.edited_at</Translator>: {character.edited}
+            </Global.TitleDescription>
+            <Global.TitleDescription>
+              <Translator>generical.created_at</Translator>: {character.created}
+            </Global.TitleDescription>
           </S.Column>
         </Global.TitleContainer>
         <S.Grid>
           <S.Fisic>
-            <Global.Subtitle>Fisic Informations</Global.Subtitle>
+            <Global.Subtitle>
+              <Translator>character.fisic_description</Translator>
+            </Global.Subtitle>
             <div>
               {getInformations(infomations, character)}
-              {getLink(character.homeworld, 'homeworlds', 'Homeworld')}
+              {getLink(character.homeworld, 'homeworlds', 'character.homeworld')}
             </div>
           </S.Fisic>
           <S.List>
-            <Global.Subtitle>Film Appears</Global.Subtitle>
+            <Global.Subtitle>
+              <Translator>character.film_appears</Translator>
+            </Global.Subtitle>
             {getList(character.films, 'movies', 'title')}
           </S.List>
           <S.VehiclesAndStarships>
-            <Global.Subtitle>Used vehicles and starships</Global.Subtitle>
+            <Global.Subtitle>
+              <Translator>character.used_vehicles_and_starships</Translator>
+            </Global.Subtitle>
             <S.LinksGrid>
               <S.VehiclesColumn>
-                <Global.Subsubtitle>Vehicles</Global.Subsubtitle>
+                <Global.Subsubtitle>
+                  <Translator>pages.vehicles</Translator>
+                </Global.Subsubtitle>
                 <S.Column>{getList(character.vehicles, 'vehicles')}</S.Column>
               </S.VehiclesColumn>
               <S.StarshipsColumn>
-                <Global.Subsubtitle>Starships</Global.Subsubtitle>
+                <Global.Subsubtitle>
+                  <Translator>pages.starships</Translator>
+                </Global.Subsubtitle>
                 <S.Column>{getList(character.starships, 'starships')}</S.Column>
               </S.StarshipsColumn>
             </S.LinksGrid>
@@ -82,5 +98,5 @@ export default function CharacterPage() {
     );
   }
 
-  return isLoading ? <h1>Loading...</h1> : getCharacterContent(data);
+  return isLoading ? <Loading /> : getCharacterContent(data);
 }

@@ -46,7 +46,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   animation: ${fly} 2s infinite;
-  fill: var(--secondary);
+  fill: var(--primary);
 `;
 
 export const TextContent = styled.div`
@@ -76,7 +76,7 @@ export const DotAnimation = styled.div`
     animation: ${pulse} 1s ease-in-out infinite;
     display: inline-block;
     margin: 0 0.5rem;
-    background-color: var(--secondary);
+    background-color: var(--primary);
   }
 
   div:nth-child(0) {

@@ -12,7 +12,6 @@ export default function Input({
   const [value, setValue] = useState('');
   const debouncedSave = useRef(
     debounce((nextValue: string) => {
-      console.log(nextValue);
       setFilter(resource, nextValue);
     }, 1000),
   ).current;

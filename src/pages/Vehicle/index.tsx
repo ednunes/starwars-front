@@ -4,54 +4,56 @@ import { getVehicle } from '~/utils/requests';
 import useFetch from '~/hooks/useFetch';
 import * as S from './styles';
 import { getInformations, getList } from '~/utils/utils';
+import Loading from '~/components/Loading';
+import Translator from '~/utils/Translator';
 
 export default function VehiclePage() {
   const params = useParams();
   const [{ data, isLoading }]: any = useFetch(`vehicles/${params.vehicleId}`, [], getVehicle);
   const infomations = [
     {
-      label: 'Consumables',
-      value: 'consumables',
-    },
-    {
-      label: 'Hyperdrive rating',
-      value: 'hyperdrive_rating',
-    },
-    {
-      label: 'Length',
-      value: 'length',
-    },
-    {
-      label: 'Crew',
-      value: 'crew',
-    },
-    {
-      label: 'Passengers',
-      value: 'passengers',
-    },
-    {
-      label: 'Model',
-      value: 'model',
-    },
-    {
-      label: 'Cargo capacity',
-      value: 'cargo_capacity',
-    },
-    {
-      label: 'Vehicle class',
+      label: 'vehicle.vehicle_class',
       value: 'vehicle_class',
     },
     {
-      label: 'Max atmosphering speed',
-      value: 'max_atmosphering_speed',
+      label: 'starship.consumables',
+      value: 'consumables',
     },
     {
-      label: 'Manufacturer',
+      label: 'starship.hyperdrive_rating',
+      value: 'hyperdrive_rating',
+    },
+    {
+      label: 'generical.length',
+      value: 'length',
+    },
+    {
+      label: 'starship.crew',
+      value: 'crew',
+    },
+    {
+      label: 'starship.passengers',
+      value: 'passengers',
+    },
+    {
+      label: 'generical.model',
+      value: 'model',
+    },
+    {
+      label: 'generical.cost_in_credits',
+      value: 'cost_in_credits',
+    },
+    {
+      label: 'starship.manufacturer',
       value: 'manufacturer',
     },
     {
-      label: 'Cost in credits',
-      value: 'cost_in_credits',
+      label: 'starship.cargo_capacity',
+      value: 'cargo_capacity',
+    },
+    {
+      label: 'starship.max_atmosphering_speed',
+      value: 'max_atmosphering_speed',
     },
   ];
 
@@ -63,21 +65,31 @@ export default function VehiclePage() {
             <Global.Title>{vehicle.name}</Global.Title>
           </S.Column>
           <S.Column>
-            <Global.TitleDescription>EDITED AT: {vehicle.edited}</Global.TitleDescription>
-            <Global.TitleDescription>CREATED AT: {vehicle.created}</Global.TitleDescription>
+            <Global.TitleDescription>
+              <Translator>generical.edited_at</Translator>: {vehicle.edited}
+            </Global.TitleDescription>
+            <Global.TitleDescription>
+              <Translator>generical.created_at</Translator>: {vehicle.created}
+            </Global.TitleDescription>
           </S.Column>
         </Global.TitleContainer>
         <S.Flex>
           <S.BasicInfo>
-            <Global.Subtitle>Basic Informations</Global.Subtitle>
+            <Global.Subtitle>
+              <Translator>generical.basic_informations</Translator>
+            </Global.Subtitle>
             <S.LinksGrid>
               <S.BasicInfoContent>{getInformations(infomations, vehicle)}</S.BasicInfoContent>
               <S.MoviesColumn>
-                <Global.Subsubtitle>Movies</Global.Subsubtitle>
+                <Global.Subsubtitle>
+                  <Translator>pages.movies</Translator>
+                </Global.Subsubtitle>
                 {getList(vehicle.films, 'movies', 'title')}
               </S.MoviesColumn>
               <S.CharactersColumn>
-                <Global.Subsubtitle>Pilots</Global.Subsubtitle>
+                <Global.Subsubtitle>
+                  <Translator>starship.pilots</Translator>
+                </Global.Subsubtitle>
                 {getList(vehicle.pilots, 'characters', 'name')}
               </S.CharactersColumn>
             </S.LinksGrid>
@@ -87,5 +99,5 @@ export default function VehiclePage() {
     );
   }
 
-  return isLoading ? <h1>Loading...</h1> : getVehicleContent(data);
+  return isLoading ? <Loading /> : getVehicleContent(data);
 }

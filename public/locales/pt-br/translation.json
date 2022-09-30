@@ -1,7 +1,22 @@
 {
+  "loading": "Carregando",
   "header": {
     "theme": "Tema",
     "language": "Linguagem"
+  },
+  "generical": {
+    "height": "Altura",
+    "details": "Detalhes",
+    "load_more": "Carregar mais",
+    "search": "Buscar",
+    "informations": "Informações",
+    "length": "Comprimento",
+    "model": "Modelo",
+    "cost_in_credits": "Custo em créditos",
+    "edited_at": "Editado em",
+    "created_at": "Criado em",
+    "basic_informations": "Informações básicas",
+    "characters_residents": "Personagens residentes"
   },
   "pages": {
     "movies": "Filmes",
@@ -9,6 +24,71 @@
     "starships": "Naves",
     "species": "Espécies",
     "characters": "Personagens",
-    "vehicles": "Veículos"
+    "vehicles": "Veículos",
+    "movie": "Filme",
+    "planet": "Planeta",
+    "starship": "Nave",
+    "specie": "Espécie",
+    "character": "Personagem",
+    "vehicle": "Veículo"
+  },
+  "character": {
+    "birth": "Nascimento",
+    "date": "Data",
+    "mass": "Massa",
+    "birth_year": "Ano de nascimento",
+    "fisic_description": "Descrição física",
+    "used_vehicles": "Veículos usados",
+    "gender": "Gênero",
+    "used_vehicles_and_starships": "Used vehicles and starships",
+    "film_appears": "Aparece nos filmes",
+    "skin_color": "Cor da pele",
+    "hair_color": "Cor do cabelo",
+    "eye_color": "Cor dos olhos",
+    "homeworld": "Planeta natal"
+  },
+  "movie": {
+    "episode": "Episódio",
+    "director": "Diretor",
+    "productors": "Produtores",
+    "release_date": "Lançamento",
+    "appear_in_this_movie": "Aparecem neste filme",
+    "datasheet": "Ficha técnica",
+    "opening": "Abertura"
+  },
+  "planet": {
+    "rotation_period": "Período de rotação",
+    "orbital_period": "Período orbital",
+    "diameter": "Diâmetro",
+    "population": "População",
+    "surface_water": "água da superfície",
+    "gravity": "Gravidade",
+    "climate": "Clima",
+    "terrain": "Terreno"
+  },
+  "starship": {
+    "hyperdrive_rating": "Classificação do hiperdrive",
+    "pilots": "Pilotos",
+    "crew": "Tripulação",
+    "passengers": "Passageiros",
+    "manufacturer": "Fabricante",
+    "consumables": "Consumíveis",
+    "MGLT": "MGLT",
+    "cargo_capacity": "Capacidade de carga",
+    "max_atmosphering_speed": "Velocidade máxima na atmosfera"
+  },
+  "vehicle": {
+    "vehicle_class": "Classe do veículo"
+  },
+  "specie": {
+    "name": "Nome",
+    "language": "Lígua",
+    "designation": "Designação",
+    "average_height": "Altura média",
+    "classification": "Classificação",
+    "average_lifespan": "Média de vida útil",
+    "skin_colors": "Cores da pele",
+    "hair_colors": "Cores dos cabelos",
+    "eye_colors": "Cores dos olhos"
   }
 }

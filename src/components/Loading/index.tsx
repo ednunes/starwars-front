@@ -1,3 +1,4 @@
+import Translator from '~/utils/Translator';
 import { ReactComponent as XWing } from '../../assets/icons/xwing.svg';
 import { Title } from '../StyledComponents/styles';
 import * as S from './styles';
@@ -9,7 +10,9 @@ export default function Loading() {
         <XWing />
       </S.Content>
       <S.TextContent>
-        <Title>Loading</Title>
+        <Title>
+          <Translator>loading</Translator>
+        </Title>
         <S.DotAnimation>
           <div></div>
           <div></div>

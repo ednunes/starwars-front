@@ -1,7 +1,22 @@
 {
+  "loading": "Loading",
   "header": {
     "theme": "Theme",
     "language": "Language"
+  },
+  "generical": {
+    "height": "Height",
+    "details": "Details",
+    "load_more": "Load more",
+    "search": "search",
+    "informations": "Informations",
+    "length": "Length",
+    "model": "Model",
+    "cost_in_credits": "Cost in credits",
+    "edited_at": "Edited at",
+    "created_at": "Created at",
+    "basic_informations": "Basic informations",
+    "characters_residents": "Characters residents"
   },
   "pages": {
     "movies": "Movies",
@@ -9,6 +24,71 @@
     "starships": "Starships",
     "species": "Species",
     "characters": "Characters",
-    "vehicles": "Vehicles"
+    "vehicles": "Vehicles",
+    "movie": "Movie",
+    "planet": "Planet",
+    "starship": "Starship",
+    "specie": "Specie",
+    "character": "Character",
+    "vehicle": "Vehicle"
+  },
+  "character": {
+    "birth": "Birth",
+    "date": "Date",
+    "mass": "Mass",
+    "birth_year": "Birth year",
+    "fisic_description": "Fisic description",
+    "used_vehicles": "Used vehicles",
+    "gender": "Gender",
+    "used_vehicles_and_starships": "Used vehicles and starships",
+    "film_appears": "Film appears",
+    "skin_color": "Skin color",
+    "hair_color": "Hair color",
+    "eye_color": "Eye color",
+    "homeworld": "Homeworld"
+  },
+  "movie": {
+    "episode": "Episode",
+    "director": "Director",
+    "productors": "Productors",
+    "release_date": "Release date",
+    "appear_in_this_movie": "Appear in this movie",
+    "datasheet": "Datasheet",
+    "opening": "Opening"
+  },
+  "planet": {
+    "rotation_period": "Rotation period",
+    "orbital_period": "Orbital period",
+    "diameter": "Diameter",
+    "population": "Population",
+    "surface_water": "Surface water",
+    "gravity": "Gravity",
+    "climate": "Climate",
+    "terrain": "Terrain"
+  },
+  "starship": {
+    "hyperdrive_rating": "Hyperdrive rating",
+    "pilots": "Pilots",
+    "crew": "Crew",
+    "passengers": "Passengers",
+    "manufacturer": "Manufacturer",
+    "consumables": "Consumables",
+    "MGLT": "MGLT",
+    "cargo_capacity": "Cargo capacity",
+    "max_atmosphering_speed": "Max atmosphering speed"
+  },
+  "vehicle": {
+    "vehicle_class": "Vehicle class"
+  },
+  "specie": {
+    "name": "Name",
+    "language": "Language",
+    "designation": "Designation",
+    "average_height": "Average height",
+    "classification": "Classification",
+    "average_lifespan": "Average lifespan",
+    "skin_colors": "Skin colors",
+    "hair_colors": "Hair colors",
+    "eye_colors": "Eye colors"
   }
 }

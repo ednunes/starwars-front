@@ -12,8 +12,8 @@ function MovieContent({ content }: { content: MovieCard }) {
       <S.Episode>
         <span>
           <Translator>movie.episode</Translator>
-        </span>
-        : {convertNumberToRomanNumeral(content.episode_id)}
+        </span>{' '}
+        {convertNumberToRomanNumeral(content.episode_id)}
       </S.Episode>
 
       <Card.ContentContainer>

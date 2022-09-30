@@ -4,41 +4,43 @@ import { getSpecie } from '~/utils/requests';
 import useFetch from '~/hooks/useFetch';
 import * as S from './styles';
 import { getInformations, getList } from '~/utils/utils';
+import Translator from '~/utils/Translator';
+import Loading from '~/components/Loading';
 
 export default function SpeciePage() {
   const params = useParams();
   const [{ data, isLoading }]: any = useFetch(`species/${params.specieId}`, [], getSpecie);
   const infomations = [
     {
-      label: 'Classification',
+      label: 'specie.classification',
       value: 'classification',
     },
     {
-      label: 'Designation',
+      label: 'specie.designation',
       value: 'designation',
     },
     {
-      label: 'Average height',
+      label: 'specie.average_height',
       value: 'average_height',
     },
     {
-      label: 'Average lifespan',
+      label: 'specie.average_lifespan',
       value: 'average_lifespan',
     },
     {
-      label: 'Language',
+      label: 'specie.language',
       value: 'language',
     },
     {
-      label: 'Skin colors',
+      label: 'specie.skin_colors',
       value: 'skin_colors',
     },
     {
-      label: 'Hair colors',
+      label: 'specie.hair_colors',
       value: 'hair_colors',
     },
     {
-      label: 'Eye colors',
+      label: 'specie.eye_colors',
       value: 'eye_colors',
     },
   ];
@@ -51,21 +53,31 @@ export default function SpeciePage() {
             <Global.Title>{specie.name}</Global.Title>
           </S.Column>
           <S.Column>
-            <Global.TitleDescription>EDITED AT: {specie.edited}</Global.TitleDescription>
-            <Global.TitleDescription>CREATED AT: {specie.created}</Global.TitleDescription>
+            <Global.TitleDescription>
+              <Translator>generical.edited_at</Translator>: {specie.edited}
+            </Global.TitleDescription>
+            <Global.TitleDescription>
+              <Translator>generical.created_at</Translator>: {specie.created}
+            </Global.TitleDescription>
           </S.Column>
         </Global.TitleContainer>
         <S.Flex>
           <S.BasicInfo>
-            <Global.Subtitle>Basic Informations</Global.Subtitle>
+            <Global.Subtitle>
+              <Translator>generical.basic_informations</Translator>
+            </Global.Subtitle>
             <S.LinksGrid>
               <S.BasicInfoContent>{getInformations(infomations, specie)}</S.BasicInfoContent>
               <S.MoviesColumn>
-                <Global.Subsubtitle>Movies</Global.Subsubtitle>
+                <Global.Subsubtitle>
+                  <Translator>pages.movies</Translator>
+                </Global.Subsubtitle>
                 {getList(specie.films, 'movies', 'title')}
               </S.MoviesColumn>
               <S.CharactersColumn>
-                <Global.Subsubtitle>People</Global.Subsubtitle>
+                <Global.Subsubtitle>
+                  <Translator>pages.character</Translator>
+                </Global.Subsubtitle>
                 {getList(specie.people, 'characters', 'name')}
               </S.CharactersColumn>
             </S.LinksGrid>
@@ -75,5 +87,5 @@ export default function SpeciePage() {
     );
   }
 
-  return isLoading ? <h1>Loading...</h1> : getSpecieContent(data);
+  return isLoading ? <Loading /> : getSpecieContent(data);
 }

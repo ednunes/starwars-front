@@ -10,6 +10,8 @@ import { getMovie } from '~/utils/requests';
 import useFetch from '~/hooks/useFetch';
 import * as S from './styles';
 import { convertNumberToRomanNumeral, getList } from '~/utils/utils';
+import Translator from '~/utils/Translator';
+import Loading from '~/components/Loading';
 
 export default function MoviePage() {
   const params = useParams();
@@ -21,56 +23,84 @@ export default function MoviePage() {
         <TitleContainer>
           <S.Column>
             <Title>{movie.title}</Title>
-            <S.Text>Episode {convertNumberToRomanNumeral(movie.episode_id)}</S.Text>
+            <S.Text>
+              <Translator>movie.episode</Translator> {convertNumberToRomanNumeral(movie.episode_id)}
+            </S.Text>
           </S.Column>
           <S.Column>
-            <TitleDescription>EDITED AT: {movie.edited}</TitleDescription>
-            <TitleDescription>CREATED AT: {movie.created}</TitleDescription>
+            <TitleDescription>
+              <Translator>generical.edited_at</Translator>: {movie.edited}
+            </TitleDescription>
+            <TitleDescription>
+              <Translator>generical.created_at</Translator>: {movie.created}
+            </TitleDescription>
           </S.Column>
         </TitleContainer>
         <S.Grid>
           <S.Sinopse>
-            <Subtitle>Sinopse</Subtitle>
+            <Subtitle>
+              <Translator>movie.opening</Translator>
+            </Subtitle>
             <S.Text>{movie.opening_crawl}</S.Text>
           </S.Sinopse>
           <S.List>
-            <Subtitle>Appear in this movie</Subtitle>
+            <Subtitle>
+              <Translator>movie.appear_in_this_movie</Translator>
+            </Subtitle>
             <S.LinksGrid>
               <S.CharactersColumn>
-                <Subsubtitle>Characters</Subsubtitle>
+                <Subsubtitle>
+                  <Translator>pages.characters</Translator>
+                </Subsubtitle>
                 <S.Column>{getList(movie.characters, 'characters')}</S.Column>
               </S.CharactersColumn>
               <S.SpeciesColumn>
-                <Subsubtitle>Species</Subsubtitle>
+                <Subsubtitle>
+                  <Translator>pages.species</Translator>
+                </Subsubtitle>
                 <S.Column>{getList(movie.species, 'species')}</S.Column>
               </S.SpeciesColumn>
               <S.VehiclesColumn>
-                <Subsubtitle>Vehicles</Subsubtitle>
+                <Subsubtitle>
+                  <Translator>pages.vehicles</Translator>
+                </Subsubtitle>
                 <S.Column>{getList(movie.vehicles, 'vehicles')}</S.Column>
               </S.VehiclesColumn>
               <S.StarshipsColumn>
-                <Subsubtitle>Starships</Subsubtitle>
+                <Subsubtitle>
+                  <Translator>pages.starships</Translator>
+                </Subsubtitle>
                 <S.Column>{getList(movie.starships, 'starships')}</S.Column>
               </S.StarshipsColumn>
               <S.PlanetsColumn>
-                <Subsubtitle>Planets</Subsubtitle>
+                <Subsubtitle>
+                  <Translator>pages.planets</Translator>
+                </Subsubtitle>
                 <S.Column>{getList(movie.planets, 'planets')}</S.Column>
               </S.PlanetsColumn>
             </S.LinksGrid>
           </S.List>
           <S.Technique>
-            <Subtitle>Datasheet</Subtitle>
+            <Subtitle>
+              <Translator>movie.datasheet</Translator>
+            </Subtitle>
             <S.ColumnsLayout>
               <S.Column>
-                <Subsubtitle>Director</Subsubtitle>
+                <Subsubtitle>
+                  <Translator>movie.director</Translator>
+                </Subsubtitle>
                 <S.Text>{movie.director}</S.Text>
               </S.Column>
               <S.Column>
-                <Subsubtitle>Productors</Subsubtitle>
-                <S.Text>{movie.director}</S.Text>
+                <Subsubtitle>
+                  <Translator>movie.productors</Translator>
+                </Subsubtitle>
+                <S.Text>{movie.productors}</S.Text>
               </S.Column>
               <S.Column>
-                <Subsubtitle>Release date</Subsubtitle>
+                <Subsubtitle>
+                  <Translator>movie.release_date</Translator>
+                </Subsubtitle>
                 <S.Text>{movie.release_date}</S.Text>
               </S.Column>
             </S.ColumnsLayout>
@@ -80,5 +110,5 @@ export default function MoviePage() {
     );
   }
 
-  return isLoading ? <h1>Loading...</h1> : getMovieContent(data);
+  return isLoading ? <Loading /> : getMovieContent(data);
 }

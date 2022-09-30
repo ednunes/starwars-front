@@ -4,41 +4,43 @@ import { getPlanet } from '~/utils/requests';
 import useFetch from '~/hooks/useFetch';
 import * as S from './styles';
 import { getInformations, getList } from '~/utils/utils';
+import Translator from '~/utils/Translator';
+import Loading from '~/components/Loading';
 
 export default function PlanetPage() {
   const params = useParams();
   const [{ data, isLoading }]: any = useFetch(`planets/${params.planetId}`, [], getPlanet);
   const infomations = [
     {
-      label: 'Rotation Period',
+      label: 'planet.rotation_period',
       value: 'rotation_period',
     },
     {
-      label: 'Orbital period',
+      label: 'planet.orbital_period',
       value: 'orbital_period',
     },
     {
-      label: 'Surface water',
+      label: 'planet.surface_water',
       value: 'surface_water',
     },
     {
-      label: 'Diameter',
+      label: 'planet.diameter',
       value: 'diameter',
     },
     {
-      label: 'Gravity',
+      label: 'planet.gravity',
       value: 'gravity',
     },
     {
-      label: 'Population',
+      label: 'planet.population',
       value: 'population',
     },
     {
-      label: 'Climate',
+      label: 'planet.climate',
       value: 'climate',
     },
     {
-      label: 'Terrain',
+      label: 'planet.terrain',
       value: 'terrain',
     },
   ];
@@ -51,21 +53,31 @@ export default function PlanetPage() {
             <Global.Title>{planet.name}</Global.Title>
           </S.Column>
           <S.Column>
-            <Global.TitleDescription>EDITED AT: {planet.edited}</Global.TitleDescription>
-            <Global.TitleDescription>CREATED AT: {planet.created}</Global.TitleDescription>
+            <Global.TitleDescription>
+              <Translator>generical.edited_at</Translator>: {planet.edited}
+            </Global.TitleDescription>
+            <Global.TitleDescription>
+              <Translator>generical.created_at</Translator>: {planet.created}
+            </Global.TitleDescription>
           </S.Column>
         </Global.TitleContainer>
         <S.Flex>
           <S.BasicInfo>
-            <Global.Subtitle>Basic Informations</Global.Subtitle>
+            <Global.Subtitle>
+              <Translator>generical.basic_informations</Translator>
+            </Global.Subtitle>
             <S.BasicInfoContent>{getInformations(infomations, planet)}</S.BasicInfoContent>
             <S.LinksGrid>
               <S.MoviesColumn>
-                <Global.Subsubtitle>Movies</Global.Subsubtitle>
+                <Global.Subsubtitle>
+                  <Translator>pages.movies</Translator>
+                </Global.Subsubtitle>
                 {getList(planet.films, 'movies', 'title')}
               </S.MoviesColumn>
               <S.CharactersColumn>
-                <Global.Subsubtitle>Characters residents</Global.Subsubtitle>
+                <Global.Subsubtitle>
+                  <Translator>generical.characters_residents</Translator>
+                </Global.Subsubtitle>
                 {getList(planet.residents, 'people', 'name')}
               </S.CharactersColumn>
             </S.LinksGrid>
@@ -75,5 +87,5 @@ export default function PlanetPage() {
     );
   }
 
-  return isLoading ? <h1>Loading...</h1> : getPlanetContent(data);
+  return isLoading ? <Loading /> : getPlanetContent(data);
 }

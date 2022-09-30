@@ -3,8 +3,9 @@ import * as Global from '~/components/StyledComponents/styles';
 import { getStarship } from '~/utils/requests';
 import useFetch from '~/hooks/useFetch';
 import * as S from './styles';
-// import { data, isLoading } from '../../utils/data';
 import { getInformations, getList } from '~/utils/utils';
+import Loading from '~/components/Loading';
+import Translator from '~/utils/Translator';
 
 export default function StarshipPage() {
   const params = useParams();
@@ -15,40 +16,44 @@ export default function StarshipPage() {
       value: 'MGLT',
     },
     {
-      label: 'Consumables',
+      label: 'starship.consumables',
       value: 'consumables',
     },
     {
-      label: 'Hyperdrive rating',
+      label: 'starship.hyperdrive_rating',
       value: 'hyperdrive_rating',
     },
     {
-      label: 'Length',
+      label: 'generical.length',
       value: 'length',
     },
     {
-      label: 'Crew',
+      label: 'starship.crew',
       value: 'crew',
     },
     {
-      label: 'Passengers',
+      label: 'starship.passengers',
       value: 'passengers',
     },
     {
-      label: 'Model',
+      label: 'generical.model',
       value: 'model',
     },
     {
-      label: 'Cost in credits',
+      label: 'generical.cost_in_credits',
       value: 'cost_in_credits',
     },
     {
-      label: 'Manufacturer',
+      label: 'starship.manufacturer',
       value: 'manufacturer',
     },
     {
-      label: 'Cargo capacity',
+      label: 'starship.cargo_capacity',
       value: 'cargo_capacity',
+    },
+    {
+      label: 'starship.max_atmosphering_speed',
+      value: 'max_atmosphering_speed',
     },
   ];
 
@@ -60,21 +65,31 @@ export default function StarshipPage() {
             <Global.Title>{starship.name}</Global.Title>
           </S.Column>
           <S.Column>
-            <Global.TitleDescription>EDITED AT: {starship.edited}</Global.TitleDescription>
-            <Global.TitleDescription>CREATED AT: {starship.created}</Global.TitleDescription>
+            <Global.TitleDescription>
+              <Translator>generical.edited_at</Translator>: {starship.edited}
+            </Global.TitleDescription>
+            <Global.TitleDescription>
+              <Translator>generical.created_at</Translator>: {starship.created}
+            </Global.TitleDescription>
           </S.Column>
         </Global.TitleContainer>
         <S.Flex>
           <S.BasicInfo>
-            <Global.Subtitle>Basic Informations</Global.Subtitle>
+            <Global.Subtitle>
+              <Translator>generical.basic_informations</Translator>
+            </Global.Subtitle>
             <S.LinksGrid>
               <S.BasicInfoContent>{getInformations(infomations, starship)}</S.BasicInfoContent>
               <S.MoviesColumn>
-                <Global.Subsubtitle>Movies</Global.Subsubtitle>
+                <Global.Subsubtitle>
+                  <Translator>pages.movies</Translator>
+                </Global.Subsubtitle>
                 {getList(starship.films, 'movies', 'title')}
               </S.MoviesColumn>
               <S.CharactersColumn>
-                <Global.Subsubtitle>Pilots</Global.Subsubtitle>
+                <Global.Subsubtitle>
+                  <Translator>starship.pilots</Translator>
+                </Global.Subsubtitle>
                 {getList(starship.pilots, 'characters', 'name')}
               </S.CharactersColumn>
             </S.LinksGrid>
@@ -84,5 +99,5 @@ export default function StarshipPage() {
     );
   }
 
-  return isLoading ? <h1>Loading...</h1> : getStarshipContent(data);
+  return isLoading ? <Loading /> : getStarshipContent(data);
 }

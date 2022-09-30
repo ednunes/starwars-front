@@ -1,12 +1,24 @@
 import { useEffect, useState } from 'react';
-import useFetch from '~/utils/useFetch';
+import useFetch from '~/hooks/useFetch';
 import Button from '../Button';
 import LightsaberCard from '../LightsaberCard';
 import * as Global from '~/components/StyledComponents/styles';
 import * as S from './styles';
 import Input from '../Input';
+import Loading from '../Loading';
+import Translator from '~/utils/Translator';
 
-export default function CardsList({ getCard, formatData, resource = 'people', text }) {
+export default function CardsList({
+  getCard,
+  formatData,
+  resource = 'people',
+  text,
+}: {
+  getCard: JSX.Element;
+  formatData: (data: any) => void;
+  resource: string;
+  text: string;
+}) {
   const [{ data, isLoading, url }, setUrl]: any = useFetch(resource, [], formatData);
   const [page, setPage] = useState(1);
 
@@ -26,12 +38,13 @@ export default function CardsList({ getCard, formatData, resource = 'people', te
   return (
     <>
       <Global.TitleContainer>
-        <Global.Title>{text}</Global.Title>
+        <Global.Title>
+          <Translator>{text}</Translator>
+        </Global.Title>
         <Input setFilter={setFilter} resource={resource} />
       </Global.TitleContainer>
-
       {isLoading && !url.includes('page=') ? (
-        <h1>Loading...</h1>
+        <Loading />
       ) : (
         <>
           <S.Grid>
@@ -42,9 +55,14 @@ export default function CardsList({ getCard, formatData, resource = 'people', te
 
           <S.CentralizedComponent>
             {isLoading && url.includes('page=') ? (
-              <h1>Loading...</h1>
+              <Loading />
             ) : (
-              !data.next || <Button handleClick={() => loadMore()} text={'Load more'} />
+              !data.next || (
+                <Button
+                  handleClick={() => loadMore()}
+                  text={<Translator>generical.load_more</Translator>}
+                />
+              )
             )}
           </S.CentralizedComponent>
         </>
