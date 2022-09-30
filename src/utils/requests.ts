@@ -246,6 +246,7 @@ export async function getStarship(starship: any) {
     model: starship.model,
     consumables: starship.consumables,
     cost_in_credits: formatNumber(starship.cost_in_credits),
+    max_atmosphering_speed: starship.max_atmosphering_speed,
     crew: starship.crew,
     passengers: formatNumber(starship.passengers),
     manufacturer: starship.manufacturer,

@@ -1,4 +1,5 @@
 import { ItemLink, ItemLinkContainer, Text } from '~/components/StyledComponents/styles';
+import Translator from './Translator';
 
 export const getFormattedDate = (date: string, regional = 'en-US') => {
   const newDate = new Date(date);
@@ -72,7 +73,8 @@ export function getLink(link = { url: '', name: '' }, resource: string, label: s
   const id = link.url.match(/\d+/);
   return (
     <Text key={resource}>
-      <span>{label}</span>:
+      <span>
+        <Translator>{label}</Translator></span>:
       <strong>
         <ItemLink to={`/${resource}/${id}`}> {link.name}</ItemLink>
       </strong>
@@ -102,7 +104,10 @@ export function getList(list: Array<any> = [], resource: string, item_key = 'nam
 export function getInformations(infos: any, data: any) {
   return infos.map((info: any) => (
     <Text key={info.value}>
-      <span>{info.label}</span>: <strong>{data[info.value]}</strong>
+      <span>
+        <Translator>{info.label}</Translator>
+      </span>
+      : <strong>{data[info.value]}</strong>
     </Text>
   ));
 }
