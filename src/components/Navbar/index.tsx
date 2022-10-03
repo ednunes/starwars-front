@@ -6,17 +6,18 @@ import { ReactComponent as SpeciesIcon } from '../../assets/icons/navbar/species
 import { ReactComponent as VehiclesIcon } from '../../assets/icons/navbar/vehicles_icon.svg';
 import { ReactComponent as StarshipsIcon } from '../../assets/icons/navbar/starships_icon.svg';
 import { ReactComponent as CharactersIcon } from '../../assets/icons/navbar/characters_icon.svg';
-
 import * as S from './styles';
 import Translator from '~/utils/Translator';
+import { useTranslation } from 'react-i18next';
 
 function Navbar() {
   const location = useLocation();
   const [selected, setSelected] = useState(location.pathname || '/movies/');
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     setSelected(location.pathname);
-  }, [location]);
+  }, [location, i18n.language]);
 
   const items = [
     {

@@ -46,7 +46,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   animation: ${fly} 2s infinite;
-  fill: var(--primary);
+  fill: var(--title-color);
 `;
 
 export const TextContent = styled.div`
