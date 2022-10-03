@@ -2,9 +2,9 @@ import usePersistedState from '~/hooks/usePersistedState';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { LanguageButton } from './styles';
-
 import { LANGUAGES_ICONS } from '~/utils/languages_icons';
 import { useNavigate } from 'react-router-dom';
+import { useSpring, animated } from '@react-spring/web';
 
 export default function SelectLanguage() {
   const { i18n } = useTranslation();
@@ -27,7 +27,27 @@ export default function SelectLanguage() {
     navigate(0);
   }
 
+  const [language_styles, language_api] = useSpring(
+    () => ({
+      y: 0,
+      config: {
+        tension: 100,
+        friction: 5,
+      },
+    }),
+    [],
+  );
+
+  const handleMouseEnter = () => {
+    language_api.start({
+      from: { y: 6 },
+      to: { y: 0 },
+    });
+  };
+
   return (
-    <LanguageButton onClick={() => changeLanguage()}>{LANGUAGES_ICONS[language]}</LanguageButton>
+    <animated.div onMouseEnter={handleMouseEnter} style={{ ...language_styles }}>
+      <LanguageButton onClick={() => changeLanguage()}>{LANGUAGES_ICONS[language]}</LanguageButton>
+    </animated.div>
   );
 }

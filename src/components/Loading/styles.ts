@@ -76,7 +76,7 @@ export const DotAnimation = styled.div`
     animation: ${pulse} 1s ease-in-out infinite;
     display: inline-block;
     margin: 0 0.5rem;
-    background-color: var(--primary);
+    background-color: var(--title-color);
   }
 
   div:nth-child(0) {

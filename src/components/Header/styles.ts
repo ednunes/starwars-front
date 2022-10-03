@@ -41,19 +41,9 @@ export const Action = styled.div`
   color: var(--text-color);
   font-size: 0.8rem;
   gap: 4px;
+
   @media ${device.laptop} {
     gap: 8px;
-  }
-`;
-
-const rotate = keyframes`
-  0% {
-    transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-  }
-  100% {
-    -moz-transform: rotate(360deg);
-    transform: rotate(360deg);
   }
 `;
 
@@ -64,11 +54,10 @@ export const ThemeButton = styled.div`
   border: 0;
   background: none;
   fill: var(--secondary);
+  border-radius: 50%;
 
   &:hover {
-    animation: ${rotate} 2s infinite;
     box-shadow: 0 0 20px var(--secondary), 0 0 40px var(--secondary);
-    border-radius: 50%;
   }
 `;
 
@@ -83,4 +72,7 @@ export const Link = styled.a`
 
 export const LogoContainer = styled.div`
   fill: var(--secondary);
+  :hover {
+    filter: drop-shadow(0 0 16px var(--secondary));
+  }
 `;

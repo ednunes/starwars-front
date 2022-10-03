@@ -4,9 +4,30 @@ import Navbar from '../Navbar';
 import SelectLanguage from '../SelectLanguage';
 import * as S from './styles';
 import { useTranslation } from 'react-i18next';
+import { useSpring, animated } from '@react-spring/web';
 
 function Header({ handleSetTheme, theme }: { handleSetTheme: () => void; theme: string }) {
   const { t } = useTranslation();
+
+  const [theme_styles, theme_api] = useSpring(
+    () => ({
+      rotateZ: 0,
+      transition: 'transform 250ms',
+      config: {
+        tension: 300,
+        friction: 10,
+      },
+    }),
+    [],
+  );
+
+  const handleMouseEnterTheme = () => {
+    theme_api.start({
+      from: { rotateZ: 180 },
+      to: { rotateZ: 0 },
+    });
+  };
+
   return (
     <S.Header>
       <S.Link href='/movies/'>
@@ -19,7 +40,9 @@ function Header({ handleSetTheme, theme }: { handleSetTheme: () => void; theme: 
       </S.NavbarContent>
       <S.Actions>
         <S.Action>
-          <S.ThemeButton onClick={() => handleSetTheme()}>{THEMES_ICONS[theme]}</S.ThemeButton>
+          <animated.div onMouseEnter={handleMouseEnterTheme} style={{ ...theme_styles }}>
+            <S.ThemeButton onClick={() => handleSetTheme()}>{THEMES_ICONS[theme]}</S.ThemeButton>
+          </animated.div>
           {t('header.theme')}
         </S.Action>
 
