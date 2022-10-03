@@ -1,7 +1,7 @@
 import { Lightsaber } from '../Lightsaber';
 import * as S from './styles';
 
-function LightsaberCard({ content }) {
+function LightsaberCard({ content }: { content: JSX.Element }) {
   return (
     <S.LightsaberCard>
       <Lightsaber />

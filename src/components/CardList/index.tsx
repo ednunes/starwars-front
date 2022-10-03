@@ -14,7 +14,7 @@ export default function CardsList({
   resource = 'people',
   text,
 }: {
-  getCard: JSX.Element;
+  getCard: (item: any) => JSX.Element;
   formatData: (data: any) => void;
   resource: string;
   text: string;
@@ -48,7 +48,7 @@ export default function CardsList({
       ) : (
         <>
           <S.Grid>
-            {(data.results || []).map((item) => {
+            {(data.results || []).map((item: any) => {
               return item?.url ? <LightsaberCard key={item.url} content={getCard(item)} /> : null;
             })}
           </S.Grid>
