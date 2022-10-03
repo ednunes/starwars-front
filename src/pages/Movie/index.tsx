@@ -93,9 +93,9 @@ export default function MoviePage() {
               </S.Column>
               <S.Column>
                 <Subsubtitle>
-                  <Translator>movie.productors</Translator>
+                  <Translator>movie.producer</Translator>
                 </Subsubtitle>
-                <S.Text>{movie.productors}</S.Text>
+                <S.Text>{movie.producer}</S.Text>
               </S.Column>
               <S.Column>
                 <Subsubtitle>

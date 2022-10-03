@@ -15,6 +15,7 @@ export default createGlobalStyle`
     font-size: 16px;
     background: ${({ theme }) => theme.color.background};
     font-family: 'RobotoRegular';
+    transition: all 0.5s ease-out;
   }
 
   :root {

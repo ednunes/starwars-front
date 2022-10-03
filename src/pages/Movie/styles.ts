@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Card } from '~/components/StyledComponents/styles';
 import { device } from '~/utils/device_sizes';
 
 export const Text = styled.pre`
@@ -62,12 +63,6 @@ export const LinksGrid = styled.div`
       'characters characters species'
       'vehicles starships planets';
   }
-`;
-
-export const Card = styled.div`
-  background: var(--primary);
-  padding: 0.5rem 1.4rem 1.4rem 1.4rem;
-  border-radius: 20px;
 `;
 
 export const Sinopse = styled(Card)`

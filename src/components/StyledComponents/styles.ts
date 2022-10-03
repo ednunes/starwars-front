@@ -81,3 +81,10 @@ export const ItemLink = styled(Link)`
 export const ItemLinkContainer = styled.div`
   margin: 0;
 `;
+
+export const Card = styled.div`
+  background: var(--primary);
+  padding: 0.5rem 1.4rem 1.4rem 1.4rem;
+  border-radius: 20px;
+  box-shadow: 0 0 10px;
+`;
