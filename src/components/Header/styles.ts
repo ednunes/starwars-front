@@ -4,12 +4,16 @@ import { device } from '~/utils/device_sizes';
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0 5%;
   background: var(--primary);
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
   min-height: 70px;
+
+  @media ${device.laptop} {
+    justify-content: space-between;
+  }
 `;
 
 export const NavbarContent = styled.div`
@@ -19,21 +23,37 @@ export const NavbarContent = styled.div`
 export const Actions = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 80px;
   height: 100%;
+  gap: 1rem;
+
+  @media ${device.laptop} {
+    gap: 1.4rem;
+  }
+`;
+
+export const Action = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+  font-size: 0.8rem;
+  gap: 4px;
+  @media ${device.laptop} {
+    gap: 8px;
+  }
 `;
 
 const rotate = keyframes`
   0% {
     transform: rotate(0deg);
     -moz-transform: rotate(0deg);
-    box-shadow: 0 0 20px var(--secondary), 0 0 40px var(--secondary);
   }
   100% {
     -moz-transform: rotate(360deg);
     transform: rotate(360deg);
-    box-shadow: 0 0 20px var(--secondary), 0 0 40px var(--secondary);
   }
 `;
 
@@ -47,6 +67,7 @@ export const ThemeButton = styled.div`
 
   &:hover {
     animation: ${rotate} 2s infinite;
+    box-shadow: 0 0 20px var(--secondary), 0 0 40px var(--secondary);
     border-radius: 50%;
   }
 `;

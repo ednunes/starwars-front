@@ -1,6 +1,7 @@
 import { debounce } from 'debounce';
 import { useRef, useState } from 'react';
 import * as S from './styles';
+import { useTranslation } from 'react-i18next';
 
 export default function Input({
   resource,
@@ -20,8 +21,13 @@ export default function Input({
     setValue(nextValue);
     debouncedSave(nextValue);
   };
+  const { t } = useTranslation();
 
   return (
-    <S.Input placeholder='Search...' value={value} onChange={(e) => handleChange(e.target.value)} />
+    <S.Input
+      placeholder={`${t('generical.search')}...`}
+      value={value}
+      onChange={(e) => handleChange(e.target.value)}
+    />
   );
 }

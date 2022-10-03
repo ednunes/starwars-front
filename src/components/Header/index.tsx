@@ -1,12 +1,12 @@
 import { ReactComponent as StarwarsLogo } from '../../assets/icons/starwars_logo.svg';
 import { THEMES_ICONS } from '~/utils/themes_icons';
 import Navbar from '../Navbar';
-import Tooltip from '../TooltipComponent';
-import Translator from '~/utils/Translator';
 import SelectLanguage from '../SelectLanguage';
 import * as S from './styles';
+import { useTranslation } from 'react-i18next';
 
 function Header({ handleSetTheme, theme }: { handleSetTheme: () => void; theme: string }) {
+  const { t } = useTranslation();
   return (
     <S.Header>
       <S.Link href='/movies/'>
@@ -18,13 +18,15 @@ function Header({ handleSetTheme, theme }: { handleSetTheme: () => void; theme: 
         <Navbar />
       </S.NavbarContent>
       <S.Actions>
-        <Tooltip
-          content={<Translator>header.theme</Translator>}
-          trigger={
-            <S.ThemeButton onClick={() => handleSetTheme()}>{THEMES_ICONS[theme]}</S.ThemeButton>
-          }
-        />
-        <Tooltip content={<Translator>header.language</Translator>} trigger={<SelectLanguage />} />
+        <S.Action>
+          <S.ThemeButton onClick={() => handleSetTheme()}>{THEMES_ICONS[theme]}</S.ThemeButton>
+          {t('header.theme')}
+        </S.Action>
+
+        <S.Action>
+          <SelectLanguage />
+          {t('header.language')}
+        </S.Action>
       </S.Actions>
     </S.Header>
   );

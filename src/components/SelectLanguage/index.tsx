@@ -4,10 +4,12 @@ import { useEffect } from 'react';
 import { LanguageButton } from './styles';
 
 import { LANGUAGES_ICONS } from '~/utils/languages_icons';
+import { useNavigate } from 'react-router-dom';
 
 export default function SelectLanguage() {
   const { i18n } = useTranslation();
   const [language, setLanguage] = usePersistedState('language', 'en-us');
+  const navigate = useNavigate();
 
   useEffect(() => {
     i18n.changeLanguage(language);
@@ -22,6 +24,7 @@ export default function SelectLanguage() {
         : languages_keys[next_language_index];
 
     setLanguage(new_language);
+    navigate(0);
   }
 
   return (

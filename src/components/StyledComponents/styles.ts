@@ -11,20 +11,29 @@ export const PageContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  letter-spacing: 1.6px;
+  letter-spacing: 1.2px;
   color: var(--title-color);
   font-family: 'Starwars';
   text-transform: capitalize;
-  font-size: 2.3rem;
+  font-size: 1.6rem;
+
+  @media ${device.laptop} {
+    font-size: 2.3rem;
+    letter-spacing: 1.6px;
+  }
 `;
 
 export const Subtitle = styled.h2`
   font-family: 'Starwars';
   letter-spacing: 1.6px;
   color: var(--subtitle-color);
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   text-transform: capitalize;
   margin-bottom: 0.8rem;
+
+  @media ${device.laptop} {
+    font-size: 1.6rem;
+  }
 `;
 
 export const Subsubtitle = styled.h3`
