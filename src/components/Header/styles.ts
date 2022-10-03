@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { device } from '~/utils/device_sizes';
 
 export const Header = styled.header`
