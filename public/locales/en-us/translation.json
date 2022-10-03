@@ -50,7 +50,7 @@
   "movie": {
     "episode": "Episode",
     "director": "Director",
-    "productors": "Productors",
+    "producer": "Producers",
     "release_date": "Release date",
     "appear_in_this_movie": "Appear in this movie",
     "datasheet": "Datasheet",

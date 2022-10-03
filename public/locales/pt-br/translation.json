@@ -50,7 +50,7 @@
   "movie": {
     "episode": "Episódio",
     "director": "Diretor",
-    "productors": "Produtores",
+    "producer": "Produtores",
     "release_date": "Lançamento",
     "appear_in_this_movie": "Aparecem neste filme",
     "datasheet": "Ficha técnica",
