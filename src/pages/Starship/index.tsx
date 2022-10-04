@@ -1,15 +1,12 @@
-import { useParams } from 'react-router-dom';
 import * as Global from '~/components/StyledComponents/styles';
 import { getStarship } from '~/utils/requests';
-import useFetch from '~/hooks/useFetch';
-import * as S from './styles';
 import { getInformations, getList } from '~/utils/utils';
-import Loading from '~/components/Loading';
 import Translator from '~/utils/Translator';
+import GenericDetailsPage from '../GenericDetailsPage';
+import { Starship, StarshipRequest } from './types';
+import MovieChartCard from '~/components/MovieChartCard';
 
 export default function StarshipPage() {
-  const params = useParams();
-  const [{ data, isLoading }]: any = useFetch(`starships/${params.starshipId}`, [], getStarship);
   const infomations = [
     {
       label: 'MGLT',
@@ -44,10 +41,6 @@ export default function StarshipPage() {
       value: 'cost_in_credits',
     },
     {
-      label: 'starship.manufacturer',
-      value: 'manufacturer',
-    },
-    {
       label: 'starship.cargo_capacity',
       value: 'cargo_capacity',
     },
@@ -55,49 +48,40 @@ export default function StarshipPage() {
       label: 'starship.max_atmosphering_speed',
       value: 'max_atmosphering_speed',
     },
+    {
+      label: 'starship.manufacturer',
+      value: 'manufacturer',
+    },
   ];
 
-  function getStarshipContent(starship) {
+  function getStarshipContent(starship: Starship) {
     return (
-      <>
-        <Global.TitleContainer>
-          <S.Column>
-            <Global.Title>{starship.name}</Global.Title>
-          </S.Column>
-          <S.Column>
-            <Global.TitleDescription>
-              <Translator>generical.edited_at</Translator>: {starship.edited}
-            </Global.TitleDescription>
-            <Global.TitleDescription>
-              <Translator>generical.created_at</Translator>: {starship.created}
-            </Global.TitleDescription>
-          </S.Column>
-        </Global.TitleContainer>
-        <S.Flex>
-          <S.BasicInfo>
-            <Global.Subtitle>
-              <Translator>generical.basic_informations</Translator>
-            </Global.Subtitle>
-            <S.LinksGrid>
-              <S.BasicInfoContent>{getInformations(infomations, starship)}</S.BasicInfoContent>
-              <S.MoviesColumn>
-                <Global.Subsubtitle>
-                  <Translator>pages.movies</Translator>
-                </Global.Subsubtitle>
-                {getList(starship.films, 'movies', 'title')}
-              </S.MoviesColumn>
-              <S.CharactersColumn>
-                <Global.Subsubtitle>
-                  <Translator>starship.pilots</Translator>
-                </Global.Subsubtitle>
-                {getList(starship.pilots, 'characters', 'name')}
-              </S.CharactersColumn>
-            </S.LinksGrid>
-          </S.BasicInfo>
-        </S.Flex>
-      </>
+      <Global.Flex>
+        <Global.BasicCard>
+          <Global.Subtitle>
+            <Translator>generical.basic_informations</Translator>
+          </Global.Subtitle>
+          <Global.BasicCardContent>
+            {getInformations(infomations, starship)}
+          </Global.BasicCardContent>
+        </Global.BasicCard>
+        <Global.BasicCard>
+          <Global.Subtitle>
+            <Translator>starship.pilots</Translator>
+          </Global.Subtitle>
+          {getList(starship.pilots, 'characters', 'name')}
+        </Global.BasicCard>
+        <MovieChartCard movies={starship.films} />
+      </Global.Flex>
     );
   }
 
-  return isLoading ? <Loading /> : getStarshipContent(data);
+  return (
+    <GenericDetailsPage
+      resource='starships'
+      resourceId='starshipId'
+      getContent={(data: Starship) => getStarshipContent(data)}
+      formatData={(starship: StarshipRequest) => getStarship(starship)}
+    />
+  );
 }
