@@ -1,6 +1,5 @@
 import * as Global from '~/components/StyledComponents/styles';
 import { getPlanet } from '~/utils/requests';
-import * as S from './styles';
 import { getInformations, getList } from '~/utils/utils';
 import Translator from '~/utils/Translator';
 import GenericDetailsPage from '../GenericDetailsPage';
@@ -46,18 +45,18 @@ export default function PlanetPage() {
   function getPlanetContent(planet: Planet) {
     return (
       <Global.Flex>
-        <S.BasicInfo>
+        <Global.BasicCard>
           <Global.Subtitle>
             <Translator>generical.basic_informations</Translator>
           </Global.Subtitle>
-          <S.BasicInfoContent>{getInformations(informations, planet)}</S.BasicInfoContent>
-        </S.BasicInfo>
-        <S.BasicInfo>
+          <Global.BasicCardContent>{getInformations(informations, planet)}</Global.BasicCardContent>
+        </Global.BasicCard>
+        <Global.BasicCard>
           <Global.Subtitle>
             <Translator>generical.characters_residents</Translator>
           </Global.Subtitle>
           {getList(planet.residents, 'people', 'name')}
-        </S.BasicInfo>
+        </Global.BasicCard>
         <MovieChartCard movies={planet.films} />
       </Global.Flex>
     );
