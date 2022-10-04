@@ -4,8 +4,8 @@ import { device } from '~/utils/device_sizes';
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 0 5%;
+  justify-content: space-between;
+  padding: 0 12% 0 5%;
   background: var(--primary);
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
@@ -13,6 +13,7 @@ export const Header = styled.header`
 
   @media ${device.laptop} {
     justify-content: space-between;
+    padding: 0 5%;
   }
 `;
 
