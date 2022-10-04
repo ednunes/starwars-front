@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import api from '../services/api';
 
-const useFetch = (resource: string, initialData: any, formatData: any) => {
+const useFetch = (resource: string, initialData: any, formatData: (data: any) => any) => {
   const [url, setUrl] = useState(resource);
   const [data, setData] = useState(initialData);
   const [isError, setIsError] = useState(false);
@@ -19,10 +19,7 @@ const useFetch = (resource: string, initialData: any, formatData: any) => {
 
         if (!didCancel) {
           if (formatData) {
-            const t0 = performance.now();
             responseData = await formatData(responseData);
-            const t1 = performance.now();
-            console.log(`Call took ${t1 - t0} milliseconds.`);
           }
 
           if (url.includes('page=')) {
