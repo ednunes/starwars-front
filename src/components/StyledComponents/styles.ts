@@ -16,6 +16,7 @@ export const Title = styled.h1`
   font-family: 'Starwars';
   text-transform: capitalize;
   font-size: 1.6rem;
+  line-height: 1.6rem;
 
   @media ${device.laptop} {
     font-size: 2.3rem;
@@ -28,6 +29,7 @@ export const Subtitle = styled.h2`
   letter-spacing: 1.6px;
   color: var(--subtitle-color);
   font-size: 1.2rem;
+  line-height: 1.8rem;
   text-transform: capitalize;
   margin-bottom: 0.8rem;
 
@@ -39,6 +41,7 @@ export const Subtitle = styled.h2`
 export const Subsubtitle = styled.h3`
   font-family: 'Starwars';
   letter-spacing: 1.6px;
+  line-height: 1.4rem;
   color: var(--text-color);
   font-size: 1.2rem;
   text-transform: capitalize;
@@ -65,10 +68,11 @@ export const TitleDescription = styled.p`
 export const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 10px;
 
   @media ${device.laptop} {
     flex-direction: row;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
   }
 `;
@@ -84,7 +88,15 @@ export const ItemLinkContainer = styled.div`
 
 export const Card = styled.div`
   background: var(--primary);
-  padding: 0.5rem 1.4rem 1.4rem 1.4rem;
+  padding: 1.5rem 1.4rem 1.4rem 1.4rem;
   border-radius: 20px;
   box-shadow: 0 0 10px;
+`;
+
+export const CentralizedComponent = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  height: 60vh;
 `;
