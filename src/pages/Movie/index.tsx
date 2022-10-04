@@ -95,7 +95,9 @@ export default function MoviePage() {
                 <Subsubtitle>
                   <Translator>movie.producer</Translator>
                 </Subsubtitle>
-                <S.Text>{movie.producer}</S.Text>
+                {(movie.producer || []).map((prod) => (
+                  <S.Text key={prod}>{prod}</S.Text>
+                ))}
               </S.Column>
               <S.Column>
                 <Subsubtitle>

@@ -169,12 +169,13 @@ export async function getVehicleList(vehicles: any) {
 
 export async function getMovie(movie: any) {
   const attributes_list = ['name', 'url'];
+  const producer = movie.producer.split(', ');
 
   const expanded_movie_promise = {
     url: movie.url,
     title: movie.title,
     director: movie.director,
-    producer: movie.producer,
+    producer: producer,
     episode_id: movie.episode_id,
     opening_crawl: movie.opening_crawl,
     edited: getFormattedDateTime(movie.edited),
