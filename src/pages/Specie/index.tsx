@@ -1,15 +1,12 @@
-import { useParams } from 'react-router-dom';
 import * as Global from '~/components/StyledComponents/styles';
 import { getSpecie } from '~/utils/requests';
-import useFetch from '~/hooks/useFetch';
-import * as S from './styles';
-import { getInformations, getList } from '~/utils/utils';
+import { getInformations, getLink, getList } from '~/utils/utils';
 import Translator from '~/utils/Translator';
-import Loading from '~/components/Loading';
+import GenericDetailsPage from '../GenericDetailsPage';
+import { Specie, SpecieRequest } from './types';
+import MovieChartCard from '~/components/MovieChartCard';
 
 export default function SpeciePage() {
-  const params = useParams();
-  const [{ data, isLoading }]: any = useFetch(`species/${params.specieId}`, [], getSpecie);
   const infomations = [
     {
       label: 'specie.classification',
@@ -45,47 +42,33 @@ export default function SpeciePage() {
     },
   ];
 
-  function getSpecieContent(specie) {
+  function getSpecieContent(specie: Specie) {
     return (
-      <>
-        <Global.TitleContainer>
-          <S.Column>
-            <Global.Title>{specie.name}</Global.Title>
-          </S.Column>
-          <S.Column>
-            <Global.TitleDescription>
-              <Translator>generical.edited_at</Translator>: {specie.edited}
-            </Global.TitleDescription>
-            <Global.TitleDescription>
-              <Translator>generical.created_at</Translator>: {specie.created}
-            </Global.TitleDescription>
-          </S.Column>
-        </Global.TitleContainer>
-        <S.Flex>
-          <S.BasicInfo>
-            <Global.Subtitle>
-              <Translator>generical.basic_informations</Translator>
-            </Global.Subtitle>
-            <S.LinksGrid>
-              <S.BasicInfoContent>{getInformations(infomations, specie)}</S.BasicInfoContent>
-              <S.MoviesColumn>
-                <Global.Subsubtitle>
-                  <Translator>pages.movies</Translator>
-                </Global.Subsubtitle>
-                {getList(specie.films, 'movies', 'title')}
-              </S.MoviesColumn>
-              <S.CharactersColumn>
-                <Global.Subsubtitle>
-                  <Translator>pages.character</Translator>
-                </Global.Subsubtitle>
-                {getList(specie.people, 'characters', 'name')}
-              </S.CharactersColumn>
-            </S.LinksGrid>
-          </S.BasicInfo>
-        </S.Flex>
-      </>
+      <Global.Flex>
+        <Global.BasicCard>
+          <Global.Subtitle>
+            <Translator>generical.basic_informations</Translator>
+          </Global.Subtitle>
+          <Global.BasicCardContent>
+            {getInformations(infomations, specie)}
+            {getLink(specie.homeworld, 'planets', 'character.homeworld')}
+          </Global.BasicCardContent>
+          <Global.Subtitle>
+            <Translator>pages.character</Translator>
+          </Global.Subtitle>
+          {getList(specie.people, 'characters', 'name')}
+        </Global.BasicCard>
+        <MovieChartCard movies={specie.films} />
+      </Global.Flex>
     );
   }
 
-  return isLoading ? <Loading /> : getSpecieContent(data);
+  return (
+    <GenericDetailsPage
+      resource='species'
+      resourceId='specieId'
+      getContent={(data) => getSpecieContent(data)}
+      formatData={(species: SpecieRequest) => getSpecie(species)}
+    />
+  );
 }
