@@ -69,7 +69,6 @@ export const HiltDark = styled.div`
     z-index: 1;
   }
 
-  cursor: pointer;
   display: block;
   width: 0.75rem;
   height: 5rem;
@@ -115,13 +114,12 @@ export const HiltLight = styled.div`
     top: 4.7px;
     left: 2px;
     display: block;
-    width: 0.53rem;
-    height: 6.8px;
+    width: 0.48rem;
+    height: 6.6px;
     z-index: 1;
     background: #887948;
   }
 
-  cursor: pointer;
   display: block;
   width: 0.75rem;
   height: 5rem;

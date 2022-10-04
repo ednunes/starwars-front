@@ -9,10 +9,11 @@ export const LightsaberCard = styled.div`
 
   & > :first-child {
     align-self: start;
-    transform: rotate(180deg);
+    transform: rotateX(180deg);
   }
   & > :last-child {
     align-self: end;
+    transform: rotateY(180deg);
   }
 
   &:hover ${Lightsaber} ${Blade} {
