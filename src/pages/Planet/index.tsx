@@ -45,7 +45,7 @@ export default function PlanetPage() {
 
   function getPlanetContent(planet: Planet) {
     return (
-      <S.Flex>
+      <Global.Flex>
         <S.BasicInfo>
           <Global.Subtitle>
             <Translator>generical.basic_informations</Translator>
@@ -59,7 +59,7 @@ export default function PlanetPage() {
           {getList(planet.residents, 'people', 'name')}
         </S.BasicInfo>
         <MovieChartCard movies={planet.films} />
-      </S.Flex>
+      </Global.Flex>
     );
   }
 

@@ -100,3 +100,14 @@ export const CentralizedComponent = styled.div`
   padding: 40px 0;
   height: 60vh;
 `;
+
+export const Flex = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  gap: 20px;
+
+  @media ${device.laptop} {
+    flex-direction: row;
+  }
+`;
