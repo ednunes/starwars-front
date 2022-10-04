@@ -1,15 +1,12 @@
-import { useParams } from 'react-router-dom';
 import * as Global from '~/components/StyledComponents/styles';
 import { getVehicle } from '~/utils/requests';
-import useFetch from '~/hooks/useFetch';
-import * as S from './styles';
 import { getInformations, getList } from '~/utils/utils';
-import Loading from '~/components/Loading';
 import Translator from '~/utils/Translator';
+import GenericDetailsPage from '../GenericDetailsPage';
+import { Vehicle, VehicleRequest } from './types';
+import MovieChartCard from '~/components/MovieChartCard';
 
 export default function VehiclePage() {
-  const params = useParams();
-  const [{ data, isLoading }]: any = useFetch(`vehicles/${params.vehicleId}`, [], getVehicle);
   const infomations = [
     {
       label: 'vehicle.vehicle_class',
@@ -57,47 +54,30 @@ export default function VehiclePage() {
     },
   ];
 
-  function getVehicleContent(vehicle) {
+  function getVehicleContent(vehicle: Vehicle) {
     return (
-      <>
-        <Global.TitleContainer>
-          <S.Column>
-            <Global.Title>{vehicle.name}</Global.Title>
-          </S.Column>
-          <S.Column>
-            <Global.TitleDescription>
-              <Translator>generical.edited_at</Translator>: {vehicle.edited}
-            </Global.TitleDescription>
-            <Global.TitleDescription>
-              <Translator>generical.created_at</Translator>: {vehicle.created}
-            </Global.TitleDescription>
-          </S.Column>
-        </Global.TitleContainer>
-        <S.Flex>
-          <S.BasicInfo>
-            <Global.Subtitle>
-              <Translator>generical.basic_informations</Translator>
-            </Global.Subtitle>
-            <S.LinksGrid>
-              <S.BasicInfoContent>{getInformations(infomations, vehicle)}</S.BasicInfoContent>
-              <S.MoviesColumn>
-                <Global.Subsubtitle>
-                  <Translator>pages.movies</Translator>
-                </Global.Subsubtitle>
-                {getList(vehicle.films, 'movies', 'title')}
-              </S.MoviesColumn>
-              <S.CharactersColumn>
-                <Global.Subsubtitle>
-                  <Translator>starship.pilots</Translator>
-                </Global.Subsubtitle>
-                {getList(vehicle.pilots, 'characters', 'name')}
-              </S.CharactersColumn>
-            </S.LinksGrid>
-          </S.BasicInfo>
-        </S.Flex>
-      </>
+      <Global.Flex>
+        <Global.BasicCard>
+          <Global.Subtitle>
+            <Translator>generical.basic_informations</Translator>
+          </Global.Subtitle>
+          <Global.BasicCardContent>{getInformations(infomations, vehicle)}</Global.BasicCardContent>
+          <Global.Subtitle>
+            <Translator>starship.pilots</Translator>
+          </Global.Subtitle>
+          {getList(vehicle.pilots, 'characters', 'name')}
+        </Global.BasicCard>
+        <MovieChartCard movies={vehicle.films} />
+      </Global.Flex>
     );
   }
 
-  return isLoading ? <Loading /> : getVehicleContent(data);
+  return (
+    <GenericDetailsPage
+      resource='vehicles'
+      resourceId='vehicleId'
+      getContent={(data) => getVehicleContent(data)}
+      formatData={(vehicles: VehicleRequest) => getVehicle(vehicles)}
+    />
+  );
 }
