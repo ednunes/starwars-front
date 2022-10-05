@@ -2,24 +2,6 @@ import styled from 'styled-components';
 import { Card } from '~/components/StyledComponents/styles';
 import { device } from '~/utils/device_sizes';
 
-export const Text = styled.pre`
-  font-size: 1rem;
-  color: var(--text-color);
-  font-family: 'RobotoRegular';
-  width: 100%;
-`;
-
-export const ColumnsLayout = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  gap: 1.4rem;
-  @media ${device.laptop} {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-`;
-
 export const Column = styled.span`
   display: flex;
   flex-direction: column;
@@ -37,14 +19,16 @@ export const Grid = styled.div`
   gap: 1.4rem;
   grid-template-areas:
     'fisic'
+    'movie_list'
     'vehicles_and_starships'
-    'list';
+    'species';
   @media ${device.laptop} {
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 60% 40%;
     grid-template-rows: auto;
     grid-template-areas:
-      'fisic list'
-      'vehicles_and_starships list';
+      'fisic movie_list'
+      'species movie_list'
+      'vehicles_and_starships movie_list';
   }
 `;
 
@@ -69,8 +53,12 @@ export const Fisic = styled(Card)`
   }
 `;
 
-export const List = styled(Card)`
-  grid-area: list;
+export const MovieList = styled.div`
+  grid-area: movie_list;
+`;
+
+export const Species = styled(Card)`
+  grid-area: species;
 `;
 
 export const VehiclesAndStarships = styled(Card)`

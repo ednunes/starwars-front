@@ -1,12 +1,13 @@
 import { useParams } from 'react-router-dom';
 import * as Global from '~/components/StyledComponents/styles';
 import { getCharacter } from '~/utils/requests';
-import { Character } from '~/utils/types';
 import useFetch from '~/hooks/useFetch';
 import { getInformations, getLink, getList } from '~/utils/utils';
 import * as S from './styles';
 import Translator from '~/utils/Translator';
 import Loading from '~/components/Loading';
+import MovieChartCard from '~/components/MovieChartCard';
+import { Character } from './types';
 
 export default function CharacterPage() {
   const params = useParams();
@@ -65,15 +66,17 @@ export default function CharacterPage() {
             </Global.Subtitle>
             <div>
               {getInformations(infomations, character)}
-              {getLink(character.homeworld, 'homeworlds', 'character.homeworld')}
+              {getLink(character.homeworld, 'planets', 'character.homeworld')}
             </div>
           </S.Fisic>
-          <S.List>
+
+          <S.Species>
             <Global.Subtitle>
-              <Translator>character.film_appears</Translator>
+              <Translator>pages.species</Translator>
             </Global.Subtitle>
-            {getList(character.films, 'movies', 'title')}
-          </S.List>
+            {getList(character.species, 'species', 'name')}
+          </S.Species>
+
           <S.VehiclesAndStarships>
             <Global.Subtitle>
               <Translator>character.used_vehicles_and_starships</Translator>
@@ -93,10 +96,20 @@ export default function CharacterPage() {
               </S.StarshipsColumn>
             </S.LinksGrid>
           </S.VehiclesAndStarships>
+
+          <S.MovieList>
+            <MovieChartCard movies={character.films} />
+          </S.MovieList>
         </S.Grid>
       </>
     );
   }
 
-  return isLoading ? <Loading /> : getCharacterContent(data);
+  return isLoading ? (
+    <Global.CentralizedComponent>
+      <Loading />
+    </Global.CentralizedComponent>
+  ) : (
+    getCharacterContent(data)
+  );
 }

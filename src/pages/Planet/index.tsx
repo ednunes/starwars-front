@@ -55,7 +55,7 @@ export default function PlanetPage() {
           <Global.Subtitle>
             <Translator>generical.characters_residents</Translator>
           </Global.Subtitle>
-          {getList(planet.residents, 'people', 'name')}
+          {getList(planet.residents, 'characters', 'name')}
         </Global.BasicCard>
         <MovieChartCard movies={planet.films} />
       </Global.Flex>
