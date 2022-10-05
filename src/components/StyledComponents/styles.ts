@@ -6,7 +6,7 @@ export const PageContainer = styled.div`
   width: 90%;
   margin: 10px auto 120px auto;
   @media ${device.laptop} {
-    margin: 30px auto;
+    margin: 30px auto 0 auto;
   }
 `;
 

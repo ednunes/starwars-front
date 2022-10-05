@@ -1,5 +1,5 @@
 import { ReactComponent as StarwarsLogo } from '../../assets/icons/starwars_logo.svg';
-import { THEMES_ICONS } from '~/utils/themes_icons';
+import { THEMES_ICONS } from '~/styles/themes/themes_icons';
 import Navbar from '../Navbar';
 import SelectLanguage from '../SelectLanguage';
 import * as S from './styles';
