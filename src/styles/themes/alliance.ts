@@ -4,7 +4,7 @@ export default {
   color: {
     background: '#FC2F00',
     primary: '#EDF2EF',
-    secondary: '#FC2F00',
+    secondary: '#0C2030',
     nav_text: '#FFFFFF',
     nav_text_indicator: '#FFFFFF',
     title: '#0C2030',

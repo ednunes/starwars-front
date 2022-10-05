@@ -114,7 +114,6 @@ export const Flex = styled.div`
 
 export const BasicCard = styled(Card)`
   width: 100%;
-  height: 100%;
 `;
 
 export const BasicCardContent = styled.div`

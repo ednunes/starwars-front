@@ -16,7 +16,10 @@
     "edited_at": "Edited at",
     "created_at": "Created at",
     "basic_informations": "Basic informations",
-    "characters_residents": "Characters residents"
+    "characters_residents": "Characters residents",
+    "appearances_in_movies": "Appearances in movies",
+    "appears_in": "Appears in",
+    "of": "of"
   },
   "pages": {
     "movies": "Movies",
