@@ -1,11 +1,5 @@
 import { useParams } from 'react-router-dom';
-import {
-  Title,
-  Subtitle,
-  TitleContainer,
-  Subsubtitle,
-  TitleDescription,
-} from '~/components/StyledComponents/styles';
+import * as Global from '~/components/StyledComponents/styles';
 import { getMovie } from '~/utils/requests';
 import useFetch from '~/hooks/useFetch';
 import * as S from './styles';
@@ -20,89 +14,89 @@ export default function MoviePage() {
   function getMovieContent(movie) {
     return (
       <>
-        <TitleContainer>
+        <Global.TitleContainer>
           <S.Column>
-            <Title>{movie.title}</Title>
-            <S.Text>
+            <Global.Title>{movie.title}</Global.Title>
+            <S.EpisodeText>
               <Translator>movie.episode</Translator> {convertNumberToRomanNumeral(movie.episode_id)}
-            </S.Text>
+            </S.EpisodeText>
           </S.Column>
           <S.Column>
-            <TitleDescription>
+            <Global.TitleDescription>
               <Translator>generical.edited_at</Translator>: {movie.edited}
-            </TitleDescription>
-            <TitleDescription>
+            </Global.TitleDescription>
+            <Global.TitleDescription>
               <Translator>generical.created_at</Translator>: {movie.created}
-            </TitleDescription>
+            </Global.TitleDescription>
           </S.Column>
-        </TitleContainer>
+        </Global.TitleContainer>
         <S.Grid>
           <S.Sinopse>
-            <Subtitle>
+            <Global.Subtitle>
               <Translator>movie.opening</Translator>
-            </Subtitle>
+            </Global.Subtitle>
             <S.Text>{movie.opening_crawl}</S.Text>
           </S.Sinopse>
           <S.List>
-            <Subtitle>
+            <Global.Subtitle>
               <Translator>movie.appear_in_this_movie</Translator>
-            </Subtitle>
+            </Global.Subtitle>
             <S.LinksGrid>
               <S.CharactersColumn>
-                <Subsubtitle>
+                <Global.Subsubtitle>
                   <Translator>pages.characters</Translator>
-                </Subsubtitle>
+                </Global.Subsubtitle>
                 <S.Column>{getList(movie.characters, 'characters')}</S.Column>
               </S.CharactersColumn>
               <S.SpeciesColumn>
-                <Subsubtitle>
+                <Global.Subsubtitle>
                   <Translator>pages.species</Translator>
-                </Subsubtitle>
+                </Global.Subsubtitle>
                 <S.Column>{getList(movie.species, 'species')}</S.Column>
               </S.SpeciesColumn>
               <S.VehiclesColumn>
-                <Subsubtitle>
+                <Global.Subsubtitle>
                   <Translator>pages.vehicles</Translator>
-                </Subsubtitle>
+                </Global.Subsubtitle>
                 <S.Column>{getList(movie.vehicles, 'vehicles')}</S.Column>
               </S.VehiclesColumn>
               <S.StarshipsColumn>
-                <Subsubtitle>
+                <Global.Subsubtitle>
                   <Translator>pages.starships</Translator>
-                </Subsubtitle>
+                </Global.Subsubtitle>
                 <S.Column>{getList(movie.starships, 'starships')}</S.Column>
               </S.StarshipsColumn>
               <S.PlanetsColumn>
-                <Subsubtitle>
+                <Global.Subsubtitle>
                   <Translator>pages.planets</Translator>
-                </Subsubtitle>
+                </Global.Subsubtitle>
                 <S.Column>{getList(movie.planets, 'planets')}</S.Column>
               </S.PlanetsColumn>
             </S.LinksGrid>
           </S.List>
           <S.Technique>
-            <Subtitle>
+            <Global.Subtitle>
               <Translator>movie.datasheet</Translator>
-            </Subtitle>
+            </Global.Subtitle>
             <S.ColumnsLayout>
               <S.Column>
-                <Subsubtitle>
+                <Global.Subsubtitle>
                   <Translator>movie.director</Translator>
-                </Subsubtitle>
+                </Global.Subsubtitle>
                 <S.Text>{movie.director}</S.Text>
               </S.Column>
               <S.Column>
-                <Subsubtitle>
+                <Global.Subsubtitle>
                   <Translator>movie.producer</Translator>
-                </Subsubtitle>
+                </Global.Subsubtitle>
                 {(movie.producer || []).map((prod) => (
                   <S.Text key={prod}>{prod}</S.Text>
                 ))}
               </S.Column>
               <S.Column>
-                <Subsubtitle>
+                <Global.Subsubtitle>
                   <Translator>movie.release_date</Translator>
-                </Subsubtitle>
+                </Global.Subsubtitle>
                 <S.Text>{movie.release_date}</S.Text>
               </S.Column>
             </S.ColumnsLayout>
@@ -112,5 +106,11 @@ export default function MoviePage() {
     );
   }
 
-  return isLoading ? <Loading /> : getMovieContent(data);
+  return isLoading ? (
+    <Global.CentralizedComponent>
+      <Loading />
+    </Global.CentralizedComponent>
+  ) : (
+    getMovieContent(data)
+  );
 }

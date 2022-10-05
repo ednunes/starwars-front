@@ -8,6 +8,13 @@ export const Text = styled.pre`
   font-family: 'RobotoRegular';
 `;
 
+export const EpisodeText = styled.pre`
+  font-size: 1rem;
+  color: var(--title-color);
+  font-family: 'RobotoRegular';
+  margin-top: 8px;
+`;
+
 export const ColumnsLayout = styled.div`
   display: flex;
   flex-wrap: wrap;

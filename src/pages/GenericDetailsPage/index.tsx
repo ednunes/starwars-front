@@ -4,7 +4,6 @@ import useFetch from '~/hooks/useFetch';
 import Loading from '~/components/Loading';
 import Translator from '~/utils/Translator';
 import * as S from './styles';
-import { Planet, PlanetRequest } from '../Planet/types';
 
 export default function GenericDetailsPage({
   resource,
@@ -15,7 +14,7 @@ export default function GenericDetailsPage({
   resource: string;
   resourceId: string;
   getContent: (data: any) => JSX.Element;
-  formatData: (planet: PlanetRequest) => Promise<Planet>;
+  formatData: (planet: any) => Promise<any>;
 }) {
   const params = useParams();
   const [{ data, isLoading }]: any = useFetch(`${resource}/${params[resourceId]}`, [], formatData);
