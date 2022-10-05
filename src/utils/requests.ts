@@ -1,4 +1,9 @@
 import axios from 'axios';
+import { CharacterRequest } from '~/pages/Character/types';
+import { PlanetRequest } from '~/pages/Planet/types';
+import { SpecieRequest } from '~/pages/Specie/types';
+import { StarshipRequest } from '~/pages/Starship/types';
+import { VehicleRequest } from '~/pages/Vehicle/types';
 import {
   convertToKm,
   formatHeight,
@@ -24,6 +29,10 @@ export function expandList(list: any, attributes_list: any = []) {
 }
 
 export async function expandLink(resource: string) {
+  if (!resource) {
+    return { name: 'N/A', url: '' };
+  }
+
   return axios
     .get(resource)
     .then((response) => ({ name: response.data.name, url: response.data.url }));
@@ -191,7 +200,7 @@ export async function getMovie(movie: any) {
   return expanded_movie_promise;
 }
 
-export async function getCharacter(character: any) {
+export async function getCharacter(character: CharacterRequest) {
   const attributes_list = ['name', 'url'];
 
   const expanded_character_promise = {
@@ -216,7 +225,7 @@ export async function getCharacter(character: any) {
   return expanded_character_promise;
 }
 
-export async function getPlanet(planet: any) {
+export async function getPlanet(planet: PlanetRequest) {
   const attributes_list = ['name', 'url'];
   const expanded_planet_promise = {
     url: planet.url,
@@ -238,7 +247,7 @@ export async function getPlanet(planet: any) {
   return expanded_planet_promise;
 }
 
-export async function getStarship(starship: any) {
+export async function getStarship(starship: StarshipRequest) {
   const attributes_list = ['name', 'url'];
   const expanded_starship_promise = {
     url: starship.url,
@@ -263,7 +272,7 @@ export async function getStarship(starship: any) {
   return expanded_starship_promise;
 }
 
-export async function getVehicle(vehicle: any) {
+export async function getVehicle(vehicle: VehicleRequest) {
   const attributes_list = ['name', 'url'];
   const expanded_vehicle_promise = {
     url: vehicle.url,
@@ -287,7 +296,7 @@ export async function getVehicle(vehicle: any) {
   return expanded_vehicle_promise;
 }
 
-export async function getSpecie(specie: any) {
+export async function getSpecie(specie: SpecieRequest) {
   const attributes_list = ['name', 'url'];
 
   const expanded_specie_promise = {

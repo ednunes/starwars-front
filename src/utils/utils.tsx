@@ -1,13 +1,16 @@
 import { ItemLink, ItemLinkContainer, Text } from '~/components/StyledComponents/styles';
 import Translator from './Translator';
 
-export const getFormattedDate = (date: string, regional = 'en-US') => {
+export const getFormattedDate = (date: string) => {
+  const regional = localStorage.getItem('i18nextLng');
   const newDate = new Date(date);
-  return `${newDate.toLocaleDateString(regional)}`;
+  return `${regional ? newDate.toLocaleDateString(regional) : newDate}`;
 };
 
-export const getFormattedDateTime = (date: string, regional = 'en-US') => {
+export const getFormattedDateTime = (date: string) => {
+  let regional = localStorage.getItem('i18nextLng');
   const newDate = new Date(date);
+  regional = regional ? regional : '';
   return `${newDate.toLocaleDateString(regional)} - ${newDate.toLocaleTimeString(regional)}`;
 };
 
@@ -69,14 +72,16 @@ export const formatList = (list: Array<any> = [], default_value = 'N/A') => {
   return list.join(', ');
 };
 
-export function getLink(link = { url: '', name: '' }, resource: string, label: string) {
-  const id = link.url.match(/\d+/);
+export function getLink(link = { url: '', name: 'N/A' }, resource: string, label: string) {
+  const id = link.url ? link.url.match(/\d+/) : '';
   return (
     <Text key={resource}>
       <span>
-        <Translator>{label}</Translator></span>:
+        <Translator>{label}</Translator>
+      </span>
+      :{' '}
       <strong>
-        <ItemLink to={`/${resource}/${id}`}> {link.name}</ItemLink>
+        {link.url ? <ItemLink to={`/${resource}/${id}`}> {link.name}</ItemLink> : link.name}
       </strong>
     </Text>
   );
