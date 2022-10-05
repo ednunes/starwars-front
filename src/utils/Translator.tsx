@@ -1,7 +1,9 @@
-import { Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
-const Translator = ({ children }: { children: JSX.Element | string }) => {
-  return <Trans>{children}</Trans>;
+const Translator = ({ children }: { children: string }) => {
+  const { t } = useTranslation();
+
+  return <>{t(children)}</>;
 };
 
 export default Translator;

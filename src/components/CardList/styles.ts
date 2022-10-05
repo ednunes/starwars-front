@@ -17,5 +17,5 @@ export const CentralizedComponent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 0;
+  padding: 40px 0 0 0;
 `;

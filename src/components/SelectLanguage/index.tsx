@@ -3,17 +3,15 @@ import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { LanguageButton } from './styles';
 import { LANGUAGES_ICONS } from '~/utils/languages_icons';
-import { useNavigate } from 'react-router-dom';
 import { useSpring, animated } from '@react-spring/web';
 
 export default function SelectLanguage() {
   const { i18n } = useTranslation();
   const [language, setLanguage] = usePersistedState('language', 'en-us');
-  const navigate = useNavigate();
 
   useEffect(() => {
     i18n.changeLanguage(language);
-  }, [language, i18n]);
+  }, [language, i18n.language]);
 
   function changeLanguage() {
     const languages_keys = Object.keys(LANGUAGES_ICONS);
@@ -24,7 +22,6 @@ export default function SelectLanguage() {
         : languages_keys[next_language_index];
 
     setLanguage(new_language);
-    navigate(0);
   }
 
   const [language_styles, language_api] = useSpring(

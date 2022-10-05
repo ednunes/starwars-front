@@ -8,6 +8,8 @@ import { useSpring, animated } from '@react-spring/web';
 
 function Header({ handleSetTheme, theme }: { handleSetTheme: () => void; theme: string }) {
   const { t } = useTranslation();
+  const theme_label = t('header.theme');
+  const language_label = t('header.language');
 
   const [theme_styles, theme_api] = useSpring(
     () => ({
@@ -43,12 +45,12 @@ function Header({ handleSetTheme, theme }: { handleSetTheme: () => void; theme: 
           <animated.div onMouseEnter={handleMouseEnterTheme} style={{ ...theme_styles }}>
             <S.ThemeButton onClick={() => handleSetTheme()}>{THEMES_ICONS[theme]}</S.ThemeButton>
           </animated.div>
-          {t('header.theme')}
+          {theme_label}
         </S.Action>
 
         <S.Action>
           <SelectLanguage />
-          {t('header.language')}
+          {language_label}
         </S.Action>
       </S.Actions>
     </S.Header>
