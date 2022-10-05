@@ -18,12 +18,17 @@ export interface VehicleLink {
   url: string;
 }
 
-export interface FilmLink {
-  name: string;
+export interface MovieLink {
+  title: string;
   url: string;
 }
 
 export interface HomeworldLink {
+  name: string;
+  url: string;
+}
+
+export interface CharacterLink {
   name: string;
   url: string;
 }
@@ -79,15 +84,4 @@ export interface StarshipCard {
   length: string;
   cost_in_credits: string;
   hyperdrive_rating: string;
-}
-
-export interface Character {
-  name: string;
-  url: string;
-  edited: string;
-  created: string;
-  homeworld: HomeworldLink;
-  films: Array<FilmLink>;
-  starships: Array<StarshipLink>;
-  vehicles: Array<VehicleLink>;
 }
