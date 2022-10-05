@@ -29,7 +29,7 @@ export const Subtitle = styled.h2`
   letter-spacing: 1.6px;
   color: var(--subtitle-color);
   font-size: 1.2rem;
-  line-height: 1.8rem;
+  line-height: 1.4rem;
   text-transform: capitalize;
   margin-bottom: 0.8rem;
 
@@ -110,4 +110,15 @@ export const Flex = styled.div`
   @media ${device.laptop} {
     flex-direction: row;
   }
+`;
+
+export const BasicCard = styled(Card)`
+  width: 100%;
+  height: 100%;
+`;
+
+export const BasicCardContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 `;
