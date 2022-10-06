@@ -8,22 +8,22 @@ import { useTranslation } from 'react-i18next';
 
 export default function MovieChartCard({ movies }: { movies: MovieLink[] }) {
   const { t } = useTranslation();
-  const movies_number_total = 7;
+  const total_movies_number_ = 6;
   const movies_number = movies?.length ? movies.length : 0;
-  const movies_number_percent = (movies_number / movies_number_total) * 100;
+  const movies_number_percent = (movies_number / total_movies_number_) * 100;
 
   const data = [
     { name: 'movies_number', value: movies_number, color: 'var(--secondary)' },
     {
-      name: 'movies_number_total',
-      value: movies_number_total - movies_number,
+      name: 'total_movies_number_',
+      value: total_movies_number_ - movies_number,
       color: 'var(--background)',
     },
   ];
 
   const legend = `${movies_number_percent.toFixed(2)}% (${movies_number} ${t(
     'generical.of',
-  )} ${movies_number_total} ${t('pages.movies')})`;
+  )} ${total_movies_number_} ${t('pages.movies')})`;
 
   return (
     <Global.BasicCard>

@@ -50,8 +50,8 @@ export const Action = styled.div`
 
 export const ThemeButton = styled.div`
   cursor: pointer;
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
   border: 0;
   background: none;
   fill: var(--secondary);
@@ -59,6 +59,11 @@ export const ThemeButton = styled.div`
 
   &:hover {
     box-shadow: 0 0 20px var(--secondary), 0 0 40px var(--secondary);
+  }
+
+  @media ${device.laptop} {
+    width: 30px;
+    height: 30px;
   }
 `;
 

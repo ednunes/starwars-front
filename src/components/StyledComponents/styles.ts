@@ -49,7 +49,7 @@ export const Subsubtitle = styled.h3`
 `;
 
 export const Text = styled.p`
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--text-color);
   font-family: var(--font-terciary);
   margin-top: 4px;
@@ -57,6 +57,10 @@ export const Text = styled.p`
 
   & > span {
     text-transform: uppercase;
+  }
+
+  @media ${device.laptop} {
+    font-size: 0.9rem;
   }
 `;
 
@@ -69,17 +73,24 @@ export const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-top: 20px;
 
   @media ${device.laptop} {
     flex-direction: row;
     align-items: start;
     justify-content: space-between;
+    margin-top: 0px;
   }
 `;
 
 export const ItemLink = styled(Link)`
   color: var(--text-color);
   text-decoration: underline;
+  font-size: 0.9rem;
+
+  @media ${device.laptop} {
+    font-size: 1rem;
+  }
 `;
 
 export const ItemLinkContainer = styled.div`

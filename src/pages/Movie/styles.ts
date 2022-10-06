@@ -3,12 +3,16 @@ import { Card } from '~/components/StyledComponents/styles';
 import { device } from '~/utils/device_sizes';
 
 export const Text = styled.pre`
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: var(--text-color);
   font-family: 'RobotoRegular';
+
+  @media ${device.laptop} {
+    font-size: 1rem;
+  }
 `;
 
-export const EpisodeText = styled.pre`
+export const EpisodeText = styled.p`
   font-size: 1rem;
   color: var(--title-color);
   font-family: 'RobotoRegular';
@@ -20,6 +24,7 @@ export const ColumnsLayout = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   gap: 1.4rem;
+
   @media ${device.laptop} {
     flex-direction: row;
     justify-content: space-between;
