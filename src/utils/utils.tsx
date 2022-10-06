@@ -1,5 +1,5 @@
 import { ItemLink, ItemLinkContainer, Text } from '~/components/StyledComponents/styles';
-import Translator from './Translator';
+import Translator from '../components/Translator';
 
 export const getFormattedDate = (date: string) => {
   const regional = localStorage.getItem('i18nextLng');

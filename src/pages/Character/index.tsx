@@ -4,7 +4,7 @@ import { getCharacter } from '~/utils/requests';
 import useFetch from '~/hooks/useFetch';
 import { getInformations, getLink, getList } from '~/utils/utils';
 import * as S from './styles';
-import Translator from '~/utils/Translator';
+import Translator from '~/components/Translator';
 import Loading from '~/components/Loading';
 import MovieChartCard from '~/components/MovieChartCard';
 import { Character } from './types';

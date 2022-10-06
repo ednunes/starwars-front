@@ -7,7 +7,7 @@ import { ReactComponent as VehiclesIcon } from '../../assets/icons/navbar/vehicl
 import { ReactComponent as StarshipsIcon } from '../../assets/icons/navbar/starships_icon.svg';
 import { ReactComponent as CharactersIcon } from '../../assets/icons/navbar/characters_icon.svg';
 import * as S from './styles';
-import Translator from '~/utils/Translator';
+import Translator from '~/components/Translator';
 import { useTranslation } from 'react-i18next';
 
 function Navbar() {

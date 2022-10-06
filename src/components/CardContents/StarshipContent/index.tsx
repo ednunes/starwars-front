@@ -1,4 +1,4 @@
-import Translator from '~/utils/Translator';
+import Translator from '~/components/Translator';
 import { StarshipCard } from '~/utils/types';
 import { formatUrl } from '~/utils/utils';
 import * as Card from '../../LightsaberCard/styles';

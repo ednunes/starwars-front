@@ -2,7 +2,7 @@ import { convertNumberToRomanNumeral, formatUrl } from '~/utils/utils';
 import * as Card from '../../LightsaberCard/styles';
 import * as S from './styles';
 import { MovieCard } from '~/utils/types';
-import Translator from '~/utils/Translator';
+import Translator from '~/components/Translator';
 
 function MovieContent({ content }: { content: MovieCard }) {
   const formatted_url = formatUrl('movies', content.url);

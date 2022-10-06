@@ -1,7 +1,7 @@
 import * as Global from '~/components/StyledComponents/styles';
 import { getSpecie } from '~/utils/requests';
 import { getInformations, getLink, getList } from '~/utils/utils';
-import Translator from '~/utils/Translator';
+import Translator from '~/components/Translator';
 import GenericDetailsPage from '../GenericDetailsPage';
 import { Specie, SpecieRequest } from './types';
 import MovieChartCard from '~/components/MovieChartCard';

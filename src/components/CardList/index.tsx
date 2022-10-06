@@ -6,7 +6,7 @@ import * as Global from '~/components/StyledComponents/styles';
 import * as S from './styles';
 import Input from '../Input';
 import Loading from '../Loading';
-import Translator from '~/utils/Translator';
+import Translator from '~/components/Translator';
 
 export default function CardsList({
   getCard,

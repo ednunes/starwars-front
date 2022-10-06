@@ -1,7 +1,7 @@
 import * as Global from '~/components/StyledComponents/styles';
 import { getStarship } from '~/utils/requests';
 import { getInformations, getList } from '~/utils/utils';
-import Translator from '~/utils/Translator';
+import Translator from '~/components/Translator';
 import GenericDetailsPage from '../GenericDetailsPage';
 import { Starship, StarshipRequest } from './types';
 import MovieChartCard from '~/components/MovieChartCard';

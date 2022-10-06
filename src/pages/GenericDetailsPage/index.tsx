@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import * as Global from '~/components/StyledComponents/styles';
 import useFetch from '~/hooks/useFetch';
 import Loading from '~/components/Loading';
-import Translator from '~/utils/Translator';
+import Translator from '~/components/Translator';
 import * as S from './styles';
 
 export default function GenericDetailsPage({

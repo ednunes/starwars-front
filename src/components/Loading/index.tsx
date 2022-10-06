@@ -1,4 +1,4 @@
-import Translator from '~/utils/Translator';
+import Translator from '~/components/Translator';
 import { ReactComponent as XWing } from '../../assets/icons/xwing.svg';
 import { Title } from '../StyledComponents/styles';
 import * as S from './styles';

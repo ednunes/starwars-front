@@ -1,4 +1,4 @@
-import Translator from '~/utils/Translator';
+import Translator from '~/components/Translator';
 import * as Global from '~/components/StyledComponents/styles';
 import { getList } from '~/utils/utils';
 import { MovieLink } from '~/utils/types';

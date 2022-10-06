@@ -2,7 +2,7 @@ import { formatList, formatUrl } from '~/utils/utils';
 import * as Card from '~/components/LightsaberCard/styles';
 import PropTypes from 'prop-types';
 import { CharacterCard } from '~/utils/types';
-import Translator from '~/utils/Translator';
+import Translator from '~/components/Translator';
 
 function CharacterContent({ character }: { character: CharacterCard }) {
   const formatted_url = formatUrl('characters', character.url);

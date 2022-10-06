@@ -4,7 +4,7 @@ import { getMovie } from '~/utils/requests';
 import useFetch from '~/hooks/useFetch';
 import * as S from './styles';
 import { convertNumberToRomanNumeral, getList } from '~/utils/utils';
-import Translator from '~/utils/Translator';
+import Translator from '~/components/Translator';
 import Loading from '~/components/Loading';
 
 export default function MoviePage() {
