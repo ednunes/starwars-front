@@ -1,6 +1,6 @@
 # Sobre o projeto
 
-O projeto foi criado com o intuito de servir como portfólio, mostrando algumas habilidades que possuo no desenvolvimento de aplicações web. O Star Wars Front-end trata-se de uma aplicação que exibe algumas informações a respeito dos 6 primeiros filmes do universo cinematográfico do Star Wars. A ideia foi criar um site que consumisse as informações fornecidas pela API [SWAPI](https://swapi.dev/) e mostrasse essas de uma forma criativa e que fizesse referência a elementos existentes no mundo do Star Wars.
+O projeto foi criado com o intuito de servir como portfólio, mostrando algumas habilidades que possuo no desenvolvimento de aplicações web. O [Star Wars Front-end](https://starwars-front.vercel.app/) trata-se de uma aplicação que exibe algumas informações a respeito dos 6 primeiros filmes do universo cinematográfico do Star Wars. A ideia foi criar um site que consumisse as informações fornecidas pela API [SWAPI](https://swapi.dev/) e mostrasse essas de uma forma criativa e que fizesse referência a elementos existentes no mundo do Star Wars.
 
 # Funcionalidades
 
@@ -15,19 +15,19 @@ As informações exibidas na plataforma são fornecidas somente pela [SWAPI](htt
 [Personagens](https://starwars-front.vercel.app/characters/) e
 [Veículos](https://starwars-front.vercel.app/vehicles/).
 
-<img src="./docs/assets/informations.gif" alt="info" style="height: auto; width:400px;"/>
+<img src="./docs/assets/informations.gif" alt="info" style="height:auto; width: auto"/>
 
 ## Filtro dos conteúdos das categorias
 
-<img src="./docs/assets/filter.gif" alt="filter" style="height: auto; width:400px;"/>
+<img src="./docs/assets/filter.gif" alt="filter" style="height: auto; width: auto;"/>
 
 ## Paginação das informações
 
-<img src="./docs/assets/pagination.gif" alt="inpaginationfo" style="height: auto; width:400px;"/>
+<img src="./docs/assets/pagination.gif" alt="inpaginationfo" style="height: auto; width: auto;"/>
 
 ## Conteúdo detalhado
 
-<img src="./docs/assets/details.png" alt="details" style="height: auto; width:400px;"/>
+<img src="./docs/assets/details.png" alt="details" style="height: auto; width: auto;"/>
 
 ## Troca de temas
 
@@ -35,13 +35,13 @@ Com o intuito de fornecer uma experiência visual mais interessante para diverso
 
 **_Sith, Jedi, Império, Aliança, R2D2_**
 
-<img src="./docs/assets/themes.gif" alt="themes" style="height: auto; width:400px;"/>
+<img src="./docs/assets/themes.gif" alt="themes" style="height: auto; width: auto;"/>
 
 ## Tradução dos campos estáticos
 
 Infelizmente a SWAPI não possui portabilidade para diferentes tipos de idiomas, desta forma foi feita somente a tradução dos campos definidos no front-end em dois idiomas: Inglês americano e em Português Brasileiro.
 
-<img src="./docs/assets/translations.gif" alt="translation" style="height: auto; width:400px;"/>
+<img src="./docs/assets/translations.gif" alt="translation" style="height: auto; width: auto;"/>
 
 ## Tecnologias utilizadas
 
@@ -50,7 +50,7 @@ O projeto foi desenvolvido utilizando as ferramentas: ReactJs, Typespcript, Vite
 # Executando o projeto
 
 1. Instalar as depedências com: `npm install`
-2. Rodar o projeto na porta 3000 com o comando: `npm run dev`
+2. Executar o projeto na porta 3000 com o comando: `npm run dev`
 3. Gerar a build do projeto: `npm run build`
 
 # Curtiu o projeto? Você pode contribuir com:
