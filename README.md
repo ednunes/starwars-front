@@ -45,11 +45,11 @@ Infelizmente a SWAPI não possui portabilidade para diferentes tipos de idiomas,
 
 ## Tecnologias utilizadas
 
-O projeto foi desenvolvido utilizando as ferramentas: ReactJs, Typespcript, Vite, Recharts, Styled-components, React-router, I18next e React-spring.
+O projeto foi desenvolvido utilizando as ferramentas: ReactJs, Typescript, Vite, Recharts, Styled-components, React-router, I18next e React-spring.
 
 # Executando o projeto
 
-1. Instalar as depedências com: `npm install`
+1. Instalar as dependências com: `npm install`
 2. Executar o projeto na porta 3000 com o comando: `npm run dev`
 3. Gerar a build do projeto: `npm run build`
 
