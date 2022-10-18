@@ -37,14 +37,16 @@ export const Nav = styled.nav`
   }
 `;
 
-export const List = styled.ul`
+const ListWrapper = styled.ul`
   display: flex;
-  width: calc(55px * 6);
+  width: calc(55px * ${({ numberOfItems }: { numberOfItems: number }) => numberOfItems});
 
   @media ${device.laptop} {
-    width: calc(70px * 6);
+    width: calc(70px * ${({ numberOfItems }: { numberOfItems: number }) => numberOfItems});
   }
 `;
+
+export const List = (props: any) => <ListWrapper {...props}></ListWrapper>;
 
 export const Item = styled.li`
   position: relative;

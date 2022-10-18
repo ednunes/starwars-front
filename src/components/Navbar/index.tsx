@@ -55,7 +55,7 @@ function Navbar() {
   return (
     <S.Container>
       <S.Nav>
-        <S.List>
+        <S.List numberOfItems={items.length}>
           {items.map((item) => (
             <S.Item
               key={item.link}
