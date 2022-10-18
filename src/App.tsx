@@ -30,7 +30,7 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={THEMES[theme]}>
+    <ThemeProvider theme={THEMES[theme].style}>
       <GlobalStyle />
       <Header handleSetTheme={handleSetTheme} theme={theme} />
       <PageContainer>

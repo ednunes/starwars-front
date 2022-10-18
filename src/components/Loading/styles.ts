@@ -42,6 +42,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin: 50px;
 `;
 
 export const Content = styled.div`
@@ -52,6 +53,7 @@ export const Content = styled.div`
 export const TextContent = styled.div`
   display: flex;
   align-items: end;
+  margin: 20px 0;
 `;
 
 const pulse = keyframes`
@@ -67,7 +69,6 @@ const pulse = keyframes`
 `;
 
 export const DotAnimation = styled.div`
-  margin-bottom: 10px;
   div {
     height: 10px;
     width: 10px;

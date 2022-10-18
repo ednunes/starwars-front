@@ -1,5 +1,5 @@
 import { ReactComponent as StarwarsLogo } from '../../assets/icons/starwars_logo.svg';
-import { THEMES_ICONS } from '~/styles/themes/themes_icons';
+import { THEMES } from '~/styles/themes/themes_dict';
 import Navbar from '../Navbar';
 import SelectLanguage from '../SelectLanguage';
 import * as S from './styles';
@@ -43,7 +43,7 @@ function Header({ handleSetTheme, theme }: { handleSetTheme: () => void; theme: 
       <S.Actions>
         <S.Action>
           <animated.div onMouseEnter={handleMouseEnterTheme} style={{ ...theme_styles }}>
-            <S.ThemeButton onClick={() => handleSetTheme()}>{THEMES_ICONS[theme]}</S.ThemeButton>
+            <S.ThemeButton onClick={() => handleSetTheme()}>{THEMES[theme].icon}</S.ThemeButton>
           </animated.div>
           {theme_label}
         </S.Action>
