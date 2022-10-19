@@ -6,7 +6,7 @@ export interface Movie {
   edited: string;
   created: string;
   director: string;
-  producer: string;
+  producer: string[];
   episode_id: string;
   release_date: string;
   opening_crawl: string;

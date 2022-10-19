@@ -1,11 +1,15 @@
-import { convertNumberToRomanNumeral, formatUrl } from '~/utils/utils';
+import { convertNumberToRomanNumeral, formatUrl, getFormattedDate } from '~/utils/utils';
 import * as Card from '../../LightsaberCard/styles';
 import * as S from './styles';
 import { MovieCard } from '~/utils/types';
 import Translator from '~/components/Translator';
+import { useTranslation } from 'react-i18next';
 
 function MovieContent({ content }: { content: MovieCard }) {
-  const formatted_url = formatUrl('movies', content.url);
+  const formattedUrl = formatUrl('movies', content.url);
+  const { i18n } = useTranslation();
+  const releaseDate = getFormattedDate(content.release_date, i18n.language);
+
   return (
     <>
       <Card.Title>{content.title}</Card.Title>
@@ -30,11 +34,11 @@ function MovieContent({ content }: { content: MovieCard }) {
           <span>
             <Translator>movie.release_date</Translator>
           </span>
-          : {content.release_date}
+          : {releaseDate}
         </Card.Text>
       </Card.ContentContainer>
 
-      <Card.LinkButton to={formatted_url}>
+      <Card.LinkButton to={formattedUrl}>
         <Translator>generical.details</Translator>
       </Card.LinkButton>
     </>

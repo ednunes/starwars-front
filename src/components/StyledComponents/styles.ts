@@ -29,7 +29,7 @@ export const Subtitle = styled.h2`
   letter-spacing: 1.6px;
   color: var(--subtitle-color);
   font-size: 1.2rem;
-  line-height: 1.4rem;
+  line-height: 1.8rem;
   text-transform: capitalize;
   margin-bottom: 0.8rem;
 

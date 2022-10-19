@@ -1,5 +1,5 @@
 import StarshipContent from '~/components/CardContents/StarshipContent';
-import CardList from '~/components/CardList';
+import GenericListPage from '~/pages/GenericListPage';
 import { getStarshipList } from '~/utils/requests';
 import { StarshipCard } from '~/utils/types';
 
@@ -9,7 +9,7 @@ function StarshipsPage() {
   }
 
   return (
-    <CardList
+    <GenericListPage
       text='pages.starships'
       getCard={getCard}
       formatData={getStarshipList}

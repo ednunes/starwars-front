@@ -1,5 +1,5 @@
 import PlanetContent from '~/components/CardContents/PlanetContent';
-import CardList from '~/components/CardList';
+import GenericListPage from '~/pages/GenericListPage';
 import { getPlanetList } from '~/utils/requests';
 import { PlanetCard } from '~/utils/types';
 
@@ -9,7 +9,7 @@ function PlanetsPage() {
   }
 
   return (
-    <CardList
+    <GenericListPage
       text='pages.planets'
       getCard={getCard}
       formatData={getPlanetList}

@@ -1,5 +1,5 @@
 import SpecieContent from '~/components/CardContents/SpecieContent';
-import CardList from '~/components/CardList';
+import GenericListPage from '~/pages/GenericListPage';
 import { getSpecieList } from '~/utils/requests';
 import { SpecieCard } from '~/utils/types';
 
@@ -9,7 +9,7 @@ function SpeciesPage() {
   }
 
   return (
-    <CardList
+    <GenericListPage
       text='pages.species'
       getCard={getCard}
       formatData={getSpecieList}

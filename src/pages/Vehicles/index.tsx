@@ -1,5 +1,5 @@
 import VehicleContent from '~/components/CardContents/VehicleContent';
-import CardList from '~/components/CardList';
+import GenericListPage from '~/pages/GenericListPage';
 import { getVehicleList } from '~/utils/requests';
 import { VehicleCard } from '~/utils/types';
 
@@ -9,7 +9,7 @@ function VehiclesPage() {
   }
 
   return (
-    <CardList
+    <GenericListPage
       text='pages.vehicles'
       getCard={getCard}
       formatData={getVehicleList}

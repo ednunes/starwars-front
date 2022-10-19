@@ -1,5 +1,5 @@
 import CharacterContent from '~/components/CardContents/CharacterContent';
-import CardList from '~/components/CardList';
+import GenericListPage from '~/pages/GenericListPage';
 import { getCharacterList } from '~/utils/requests';
 import { CharacterCard } from '~/utils/types';
 
@@ -8,7 +8,7 @@ function CharactersPage() {
     return <CharacterContent character={character} />;
   }
   return (
-    <CardList
+    <GenericListPage
       text='pages.characters'
       getCard={getCard}
       formatData={getCharacterList}

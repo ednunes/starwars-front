@@ -1,5 +1,5 @@
 import MovieContent from '~/components/CardContents/MovieContent';
-import CardList from '~/components/CardList';
+import GenericListPage from '~/pages/GenericListPage';
 import { getMovieList } from '~/utils/requests';
 import { MovieCard } from '~/utils/types';
 
@@ -9,7 +9,12 @@ function MoviesPage() {
   }
 
   return (
-    <CardList text='pages.movies' getCard={getCard} formatData={getMovieList} resource='films' />
+    <GenericListPage
+      text='pages.movies'
+      getCard={getCard}
+      formatData={getMovieList}
+      resource='films'
+    />
   );
 }
 
