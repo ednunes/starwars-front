@@ -1,6 +1,6 @@
 # Sobre o projeto
 
-O projeto foi criado com o intuito de servir como portfólio, mostrando algumas habilidades que possuo no desenvolvimento de aplicações web. O [Star Wars Front-end](https://starwars-front.vercel.app/) trata-se de uma aplicação que exibe algumas informações a respeito dos 6 primeiros filmes do universo cinematográfico do Star Wars. A ideia foi criar um site que consumisse as informações fornecidas pela API [SWAPI](https://swapi.dev/) e mostrasse essas de uma forma criativa e que fizesse referência a elementos existentes no mundo do Star Wars.
+O [Star Wars Front-end](https://starwars-front.vercel.app/) trata-se de uma aplicação que exibe algumas informações a respeito dos 6 primeiros filmes do universo cinematográfico do Star Wars. A ideia foi criar um site, como portfólio, que consumisse as informações fornecidas pela API [SWAPI](https://swapi.dev/) e mostrasse essas de uma forma criativa e que fizesse referência a elementos existentes no mundo do Star Wars.
 
 # Funcionalidades
 
