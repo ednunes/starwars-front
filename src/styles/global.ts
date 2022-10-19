@@ -1,7 +1,15 @@
 import { createGlobalStyle } from 'styled-components';
-import Starjedi from '../assets/fonts/Starjedi.ttf';
-import RobotoBold from '../assets/fonts/RobotoBold.ttf';
-import RobotoRegular from '../assets/fonts/RobotoRegular.ttf';
+import Starjedi from '../assets/fonts/Starjedi.woff';
+
+import RobotoBoldWoff from '../assets/fonts/RobotoBold.woff';
+import RobotoBoldWoff2 from '../assets/fonts/RobotoBold.woff2';
+import RobotoBoldTtf from '../assets/fonts/RobotoBold.ttf';
+import RobotoBoldSvg from '../assets/fonts/RobotoBold.svg';
+
+import RobotoRegularWoff from '../assets/fonts/RobotoRegular.woff';
+import RobotoRegularWoff2 from '../assets/fonts/RobotoRegular.woff2';
+import RobotoRegularTtf from '../assets/fonts/RobotoRegular.ttf';
+import RobotoRegularSvg from '../assets/fonts/RobotoRegular.svg';
 
 export default createGlobalStyle`
   * {
@@ -45,20 +53,32 @@ export default createGlobalStyle`
 
   @font-face {
     font-family: 'Starwars';
-    src: url(${Starjedi}) format('truetype');
+    src: local("Starjedi"), url(${Starjedi}) format("woff");
     font-style: normal;
     letter-spacing: 0.6px;
   }
-  @font-face {
-    font-family: 'RobotoBold';
-    src: url(${RobotoBold}) format('truetype');
-    font-style: normal;
-    letter-spacing: 0.6px;
-  }
+
   @font-face {
     font-family: 'RobotoRegular';
-    src: url(${RobotoRegular}) format('truetype');
     font-style: normal;
+    font-weight: 400;
     letter-spacing: 0.6px;
+    src: local(''),
+        url(${RobotoRegularWoff2}) format('woff2'),
+        url(${RobotoRegularWoff}) format('woff'); 
+        url(${RobotoRegularTtf}) format('truetype'),
+        url(${RobotoRegularSvg}) format('svg');
+  }
+
+  @font-face {
+    font-family: 'RobotoBold';
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    src: local(''),
+        url(${RobotoBoldWoff2}) format('woff2'),
+        url(${RobotoBoldWoff}) format('woff'); 
+        url(${RobotoBoldTtf}) format('truetype'),
+        url(${RobotoBoldSvg}) format('svg');
   }
 `;
