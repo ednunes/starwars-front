@@ -1,4 +1,4 @@
-import { MovieLink, CharacterLink, HomeworldLink } from '~/utils/types';
+import { MovieLink, CharacterLink, PlanetLink } from '~/utils/types';
 
 export interface Specie {
   url: string;
@@ -13,7 +13,7 @@ export interface Specie {
   eye_colors: string;
   average_lifespan: string;
   language: string;
-  homeworld: HomeworldLink;
+  homeworld: PlanetLink;
   films: MovieLink[];
   people: CharacterLink[];
 }

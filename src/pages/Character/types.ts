@@ -1,4 +1,4 @@
-import { HomeworldLink, MovieLink, SpecieLink, StarshipLink, VehicleLink } from '~/utils/types';
+import { PlanetLink, MovieLink, SpecieLink, StarshipLink, VehicleLink } from '~/utils/types';
 
 export interface Character {
   name: string;
@@ -14,7 +14,7 @@ export interface Character {
   height: string;
   species: SpecieLink[];
   films: MovieLink[];
-  homeworld: HomeworldLink;
+  homeworld: PlanetLink;
   starships: StarshipLink[];
   vehicles: VehicleLink[];
 }

@@ -4,6 +4,8 @@ import useFetch from '~/hooks/useFetch';
 import Loading from '~/components/Loading';
 import Translator from '~/components/Translator';
 import * as S from './styles';
+import { getFormattedDateTime } from '~/utils/utils';
+import { useTranslation } from 'react-i18next';
 
 export default function GenericDetailsPage({
   resource,
@@ -18,6 +20,9 @@ export default function GenericDetailsPage({
 }) {
   const params = useParams();
   const [{ data, isLoading }]: any = useFetch(`${resource}/${params[resourceId]}`, [], formatData);
+  const { i18n } = useTranslation();
+  const edited = getFormattedDateTime(data.edited, i18n.language);
+  const created = getFormattedDateTime(data.created, i18n.language);
 
   return isLoading ? (
     <Global.CentralizedComponent>
@@ -31,10 +36,10 @@ export default function GenericDetailsPage({
         </S.Column>
         <S.Column>
           <Global.TitleDescription>
-            <Translator>generical.edited_at</Translator>: {data.edited}
+            <Translator>generical.edited_at</Translator>: {edited}
           </Global.TitleDescription>
           <Global.TitleDescription>
-            <Translator>generical.created_at</Translator>: {data.created}
+            <Translator>generical.created_at</Translator>: {created}
           </Global.TitleDescription>
         </S.Column>
       </Global.TitleContainer>

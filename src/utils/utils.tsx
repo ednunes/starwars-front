@@ -1,17 +1,17 @@
 import { ItemLink, ItemLinkContainer, Text } from '~/components/StyledComponents/styles';
 import Translator from '../components/Translator';
 
-export const getFormattedDate = (date: string) => {
-  const regional = localStorage.getItem('i18nextLng');
+export const getFormattedDate = (date: string, languageCode = 'en-us') => {
   const newDate = new Date(date);
-  return `${regional ? newDate.toLocaleDateString(regional) : newDate}`;
+  return `${languageCode ? newDate.toLocaleDateString(languageCode) : newDate}`;
 };
 
-export const getFormattedDateTime = (date: string) => {
-  let regional = localStorage.getItem('i18nextLng');
+export const getFormattedDateTime = (date: string, languageCode = 'en-us') => {
   const newDate = new Date(date);
-  regional = regional ? regional : '';
-  return `${newDate.toLocaleDateString(regional)} - ${newDate.toLocaleTimeString(regional)}`;
+  languageCode = languageCode ? languageCode : '';
+  return `${newDate.toLocaleDateString(languageCode)} - ${newDate.toLocaleTimeString(
+    languageCode,
+  )}`;
 };
 
 export const convertNumberToRomanNumeral = (number = '') => {
