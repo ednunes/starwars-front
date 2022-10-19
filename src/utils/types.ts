@@ -23,7 +23,7 @@ export interface MovieLink {
   url: string;
 }
 
-export interface HomeworldLink {
+export interface PlanetLink {
   name: string;
   url: string;
 }
@@ -38,7 +38,7 @@ export interface CharacterCard {
   url: string;
   birth_year: string;
   height: string;
-  homeworld: HomeworldLink;
+  homeworld: PlanetLink;
   species: Array<SpecieLink>;
   vehicles: Array<VehicleLink>;
 }

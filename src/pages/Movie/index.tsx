@@ -3,15 +3,19 @@ import * as Global from '~/components/StyledComponents/styles';
 import { getMovie } from '~/utils/requests';
 import useFetch from '~/hooks/useFetch';
 import * as S from './styles';
-import { convertNumberToRomanNumeral, getList } from '~/utils/utils';
+import { convertNumberToRomanNumeral, getFormattedDate, getList } from '~/utils/utils';
 import Translator from '~/components/Translator';
 import Loading from '~/components/Loading';
+import { useTranslation } from 'react-i18next';
+import { Movie } from './types';
 
 export default function MoviePage() {
   const params = useParams();
   const [{ data, isLoading }]: any = useFetch(`films/${params.movieId}`, [], getMovie);
+  const { i18n } = useTranslation();
 
-  function getMovieContent(movie) {
+  function getMovieContent(movie: Movie) {
+    const releaseDate = getFormattedDate(movie.release_date, i18n.language);
     return (
       <>
         <Global.TitleContainer>
@@ -97,7 +101,7 @@ export default function MoviePage() {
                 <Global.Subsubtitle>
                   <Translator>movie.release_date</Translator>
                 </Global.Subsubtitle>
-                <S.Text>{movie.release_date}</S.Text>
+                <S.Text>{releaseDate}</S.Text>
               </S.Column>
             </S.ColumnsLayout>
           </S.Technique>

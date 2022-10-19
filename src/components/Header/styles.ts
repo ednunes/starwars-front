@@ -69,7 +69,6 @@ export const ThemeButton = styled.div`
 
 export const Link = styled.a`
   width: 80px;
-  min-height: 70x;
 
   @media ${device.laptop} {
     width: 110px;

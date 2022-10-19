@@ -6,7 +6,7 @@ export const ChartContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px; ;
+  margin-bottom: 20px;
 `;
 
 export const ChartLegend = styled(Text)`
