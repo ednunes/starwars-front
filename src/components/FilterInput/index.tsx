@@ -3,14 +3,16 @@ import { useRef, useState } from 'react';
 import * as S from './styles';
 import { useTranslation } from 'react-i18next';
 
-export default function Input({
+export default function FilterInput({
   resource,
   setFilter,
 }: {
   resource: string;
   setFilter: (resource: string, nextValue: string) => void;
 }) {
+  const { t } = useTranslation();
   const [value, setValue] = useState('');
+
   const debouncedSave = useRef(
     debounce((nextValue: string) => {
       setFilter(resource, nextValue);
@@ -21,10 +23,9 @@ export default function Input({
     setValue(nextValue);
     debouncedSave(nextValue);
   };
-  const { t } = useTranslation();
 
   return (
-    <S.Input
+    <S.FilterInput
       placeholder={`${t('generical.search')}...`}
       value={value}
       onChange={(e) => handleChange(e.target.value)}

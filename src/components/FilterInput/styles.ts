@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Input = styled.input`
+export const FilterInput = styled.input`
   padding: 10px;
   border-radius: 20px;
   border: 2px solid var(--button-color);
