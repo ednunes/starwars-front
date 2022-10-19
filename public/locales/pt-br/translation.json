@@ -19,7 +19,8 @@
     "characters_residents": "Personagens residentes",
     "appearances_in_movies": "Aparições em filmes",
     "appears_in": "Aparece em",
-    "of": "de"
+    "of": "de",
+    "error_message": "Desculpe, a força não está tão forte conosco hoje. Por favor tente novamente."
   },
   "pages": {
     "movies": "Filmes",

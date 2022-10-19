@@ -19,7 +19,8 @@
     "characters_residents": "Characters residents",
     "appearances_in_movies": "Appearances in movies",
     "appears_in": "Appears in",
-    "of": "of"
+    "of": "of",
+    "error_message": "Sorry, the force is not that strong with us today! Please try again."
   },
   "pages": {
     "movies": "Movies",
