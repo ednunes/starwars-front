@@ -1,16 +1,11 @@
 import axios from 'axios';
 import { CharacterRequest } from '~/pages/Character/types';
+import { MovieRequest } from '~/pages/Movie/types';
 import { PlanetRequest } from '~/pages/Planet/types';
 import { SpecieRequest } from '~/pages/Specie/types';
 import { StarshipRequest } from '~/pages/Starship/types';
 import { VehicleRequest } from '~/pages/Vehicle/types';
-import {
-  convertToKm,
-  formatHeight,
-  formatNumber,
-  getFormattedDate,
-  getFormattedDateTime,
-} from './utils';
+import { convertToKm, formatHeight, formatNumber } from './utils';
 
 export function expandList(list: any, attributes_list: any = []) {
   const promises = list.map((resource: string) => {
@@ -69,7 +64,7 @@ export async function getMovieList(movies: any) {
       title: movie.title,
       director: movie.director,
       episode_id: movie.episode_id,
-      release_date: getFormattedDate(movie.release_date),
+      release_date: movie.release_date,
     };
     return new_movie;
   });
@@ -176,7 +171,7 @@ export async function getVehicleList(vehicles: any) {
   return vehicle_list;
 }
 
-export async function getMovie(movie: any) {
+export async function getMovie(movie: MovieRequest) {
   const attributes_list = ['name', 'url'];
   const producer = movie.producer.split(', ');
 
@@ -187,9 +182,9 @@ export async function getMovie(movie: any) {
     producer: producer,
     episode_id: movie.episode_id,
     opening_crawl: movie.opening_crawl,
-    edited: getFormattedDateTime(movie.edited),
-    created: getFormattedDateTime(movie.created),
-    release_date: getFormattedDate(movie.release_date),
+    edited: movie.edited,
+    created: movie.created,
+    release_date: movie.release_date,
     species: await Promise.all(expandList(movie.species, attributes_list)),
     planets: await Promise.all(expandList(movie.planets, attributes_list)),
     vehicles: await Promise.all(expandList(movie.vehicles, attributes_list)),
@@ -213,8 +208,8 @@ export async function getCharacter(character: CharacterRequest) {
     skin_color: character.skin_color,
     birth_year: character.birth_year,
     height: formatHeight(character.height),
-    edited: getFormattedDateTime(character.edited),
-    created: getFormattedDateTime(character.created),
+    edited: character.edited,
+    created: character.created,
     homeworld: await expandLink(character.homeworld),
     films: await Promise.all(expandList(character.films, ['title', 'url'])),
     species: await Promise.all(expandList(character.species, attributes_list)),
@@ -238,8 +233,8 @@ export async function getPlanet(planet: PlanetRequest) {
     rotation_period: planet.rotation_period,
     diameter: convertToKm(planet.diameter),
     population: formatNumber(planet.population),
-    edited: getFormattedDateTime(planet.edited),
-    created: getFormattedDateTime(planet.created),
+    edited: planet.edited,
+    created: planet.created,
     films: await Promise.all(expandList(planet.films, ['title', 'url'])),
     residents: await Promise.all(expandList(planet.residents, attributes_list)),
   };
@@ -263,8 +258,8 @@ export async function getStarship(starship: StarshipRequest) {
     hyperdrive_rating: starship.hyperdrive_rating,
     length: `${formatNumber(starship.length)} m`,
     cargo_capacity: formatNumber(starship.cargo_capacity),
-    edited: getFormattedDateTime(starship.edited),
-    created: getFormattedDateTime(starship.created),
+    edited: starship.edited,
+    created: starship.created,
     films: await Promise.all(expandList(starship.films, ['title', 'url'])),
     pilots: await Promise.all(expandList(starship.pilots, attributes_list)),
   };
@@ -284,8 +279,8 @@ export async function getVehicle(vehicle: VehicleRequest) {
     vehicle_class: vehicle.vehicle_class,
     length: `${formatNumber(vehicle.length)} m`,
     passengers: formatNumber(vehicle.passengers),
-    edited: getFormattedDateTime(vehicle.edited),
-    created: getFormattedDateTime(vehicle.created),
+    edited: vehicle.edited,
+    created: vehicle.created,
     cargo_capacity: formatNumber(vehicle.cargo_capacity),
     cost_in_credits: formatNumber(vehicle.cost_in_credits),
     max_atmosphering_speed: vehicle.max_atmosphering_speed,
@@ -310,8 +305,8 @@ export async function getSpecie(specie: SpecieRequest) {
     eye_colors: specie.eye_colors,
     average_lifespan: specie.average_lifespan,
     language: specie.language,
-    edited: getFormattedDateTime(specie.edited),
-    created: getFormattedDateTime(specie.created),
+    edited: specie.edited,
+    created: specie.created,
     homeworld: await expandLink(specie.homeworld),
     films: await Promise.all(expandList(specie.films, ['title', 'url'])),
     people: await Promise.all(expandList(specie.people, attributes_list)),
