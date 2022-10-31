@@ -16,7 +16,7 @@ function App() {
     if (location.pathname === '/') {
       return navigate('/movies/');
     }
-  }, []);
+  }, [location.pathname, navigate]);
 
   const handleSetTheme = () => {
     setTheme((theme: string) => {

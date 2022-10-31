@@ -20,12 +20,14 @@ export default function GenericListPage({
   resource: string;
   text: string;
 }) {
-  const [{ data, isLoading, isError, url }, setUrl]: any = useFetch(resource, [], formatData);
   const [page, setPage] = useState(1);
+  const [{ data, isLoading, isError, url }, setUrl]: any = useFetch(resource, [], formatData);
 
   useEffect(() => {
-    setUrl(`${resource}?page=${page}`);
-  }, [page]);
+    if (page !== 1) {
+      setUrl(`${resource}?page=${page}`);
+    }
+  }, [page, resource, setUrl]);
 
   function loadMore() {
     setPage((page) => page + 1);
