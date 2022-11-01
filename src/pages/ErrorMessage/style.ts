@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ErrorContainer = styled.div`
-  margin: 0 auto;
+  margin: 2rem auto;
   max-width: 800px;
   h1 {
     text-align: center;
