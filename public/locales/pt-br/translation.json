@@ -20,7 +20,10 @@
     "appearances_in_movies": "Aparições em filmes",
     "appears_in": "Aparece em",
     "of": "de",
-    "error_message": "Desculpe, a força não está tão forte conosco hoje. Por favor tente novamente."
+    "error_message": "Desculpe, a força não está tão forte conosco hoje. Por favor tente novamente.",
+    "hours": "horas",
+    "days": "dias",
+    "years": "anos"
   },
   "pages": {
     "movies": "Filmes",
