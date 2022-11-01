@@ -9,9 +9,9 @@ function StarshipContent({ content }: { content: StarshipCard }) {
   function getInformations(data: StarshipCard) {
     const infos = [
       { value: 'model', label: 'generical.model' },
+      { value: 'length', label: 'generical.length' },
       { value: 'hyperdrive_rating', label: 'starship.hyperdrive_rating' },
       { value: 'cost_in_credits', label: 'generical.cost_in_credits' },
-      { value: 'length', label: 'generical.length' },
     ];
     return infos.map((info) => {
       return (
@@ -19,7 +19,7 @@ function StarshipContent({ content }: { content: StarshipCard }) {
           <span>
             <Translator>{info.label}</Translator>
           </span>
-          : {data[info.value]}
+          : <strong>{data[info.value]}</strong>
         </Card.Text>
       );
     });
@@ -28,12 +28,7 @@ function StarshipContent({ content }: { content: StarshipCard }) {
   return (
     <>
       <Card.Title>{content.name}</Card.Title>
-      <Card.ContentContainer>
-        <Card.Subtitle>
-          <Translator>generical.informations</Translator>
-        </Card.Subtitle>
-        {getInformations(content)}
-      </Card.ContentContainer>
+      <Card.ContentContainer>{getInformations(content)}</Card.ContentContainer>
 
       <Card.LinkButton to={formatted_url}>
         <Translator>generical.details</Translator>

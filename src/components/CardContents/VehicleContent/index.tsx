@@ -9,8 +9,8 @@ function VehicleContent({ content }: { content: VehicleCard }) {
   function getInformations(data: VehicleCard) {
     const infos = [
       { value: 'model', label: 'generical.model' },
-      { value: 'cost_in_credits', label: 'generical.cost_in_credits' },
       { value: 'length', label: 'generical.length' },
+      { value: 'cost_in_credits', label: 'generical.cost_in_credits' },
     ];
     return infos.map((info) => {
       return (
@@ -18,7 +18,7 @@ function VehicleContent({ content }: { content: VehicleCard }) {
           <span>
             <Translator>{info.label}</Translator>
           </span>
-          : {data[info.value]}
+          : <strong>{data[info.value]}</strong>
         </Card.Text>
       );
     });
@@ -27,12 +27,7 @@ function VehicleContent({ content }: { content: VehicleCard }) {
   return (
     <>
       <Card.Title>{content.name}</Card.Title>
-      <Card.ContentContainer>
-        <Card.Subtitle>
-          <Translator>generical.informations</Translator>
-        </Card.Subtitle>
-        {getInformations(content)}
-      </Card.ContentContainer>
+      <Card.ContentContainer>{getInformations(content)}</Card.ContentContainer>
 
       <Card.LinkButton to={formatted_url}>
         <Translator>generical.details</Translator>

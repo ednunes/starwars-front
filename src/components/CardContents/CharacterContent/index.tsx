@@ -18,13 +18,13 @@ function CharacterContent({ character }: { character: CharacterCard }) {
           <span>
             <Translator>pages.planet</Translator>
           </span>
-          : {character.homeworld.name}
+          : <strong>{character.homeworld.name}</strong>
         </Card.Text>
         <Card.Text key={`${character.url}_birth_year`}>
           <span>
             <Translator>character.date</Translator>
           </span>
-          : {character.birth_year}
+          : <strong>{character.birth_year}</strong>
         </Card.Text>
 
         <Card.Subtitle>
@@ -34,13 +34,13 @@ function CharacterContent({ character }: { character: CharacterCard }) {
           <span>
             <Translator>generical.height</Translator>
           </span>
-          : {character.height}
+          : <strong>{character.height}</strong>
         </Card.Text>
         <Card.Text key={`${character.url}_species`}>
           <span>
             <Translator>pages.specie</Translator>
           </span>
-          : {formatList(character.species, 'Human')}
+          : <strong>{formatList(character.species, 'Human')}</strong>
         </Card.Text>
 
         <Card.Subtitle>
@@ -50,7 +50,7 @@ function CharacterContent({ character }: { character: CharacterCard }) {
           <span>
             <Translator>pages.vehicles</Translator>
           </span>
-          : {formatList(character.vehicles, 'N/A')}
+          : <strong>{formatList(character.vehicles, 'N/A')}</strong>
         </Card.Text>
       </Card.ContentContainer>
 

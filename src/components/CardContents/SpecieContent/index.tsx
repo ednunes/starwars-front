@@ -20,7 +20,7 @@ function SpecieContent({ content }: { content: SpecieCard }) {
           <span>
             <Translator>{info.label}</Translator>
           </span>
-          : {data[info.value]}
+          : <strong>{data[info.value]}</strong>
         </Card.Text>
       );
     });
@@ -29,12 +29,7 @@ function SpecieContent({ content }: { content: SpecieCard }) {
   return (
     <>
       <Card.Title>{content.name}</Card.Title>
-      <Card.ContentContainer>
-        <Card.Subtitle>
-          <Translator>generical.informations</Translator>
-        </Card.Subtitle>
-        {getInformations(content)}
-      </Card.ContentContainer>
+      <Card.ContentContainer>{getInformations(content)}</Card.ContentContainer>
 
       <Card.LinkButton to={formatted_url}>
         <Translator>generical.details</Translator>

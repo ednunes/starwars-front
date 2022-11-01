@@ -17,24 +17,21 @@ function MovieContent({ content }: { content: MovieCard }) {
         <span>
           <Translator>movie.episode</Translator>
         </span>{' '}
-        {convertNumberToRomanNumeral(content.episode_id)}
+        <strong>{convertNumberToRomanNumeral(content.episode_id)}</strong>
       </S.Episode>
 
       <Card.ContentContainer>
-        <Card.Subtitle>
-          <Translator>generical.informations</Translator>
-        </Card.Subtitle>
         <Card.Text key={`${content.title}_director`}>
           <span>
             <Translator>movie.director</Translator>
           </span>
-          : {content.director}
+          : <strong>{content.director}</strong>
         </Card.Text>
         <Card.Text key={`${content.title}_release_date`}>
           <span>
             <Translator>movie.release_date</Translator>
           </span>
-          : {releaseDate}
+          : <strong>{releaseDate}</strong>
         </Card.Text>
       </Card.ContentContainer>
 
