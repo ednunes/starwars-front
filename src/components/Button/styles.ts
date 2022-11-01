@@ -11,6 +11,7 @@ export const Button = styled.button`
   border-radius: 40px;
   color: var(--button-color);
   font-family: var(--font-secondary);
+  font-weight: 700;
   :visited {
     color: var(--link-text-color);
   }

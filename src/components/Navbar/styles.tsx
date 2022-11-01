@@ -107,7 +107,7 @@ export const Text = styled.div`
   position: absolute;
   transition: 0.5s;
   font-size: 0.6em;
-  font-family: 'RobotoRegular';
+  font-family: 'Roboto';
   letter-spacing: 0.05em;
   transform: translate(8px, 1.5em);
   color: var(--nav-text-color);

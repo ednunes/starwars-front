@@ -5,7 +5,7 @@ import { device } from '~/utils/device_sizes';
 export const Text = styled.pre`
   font-size: 0.8rem;
   color: var(--text-color);
-  font-family: 'RobotoRegular';
+  font-family: 'Roboto';
 
   @media ${device.laptop} {
     font-size: 1rem;
@@ -15,7 +15,7 @@ export const Text = styled.pre`
 export const EpisodeText = styled.p`
   font-size: 1rem;
   color: var(--title-color);
-  font-family: 'RobotoRegular';
+  font-family: 'Roboto';
   margin-top: 8px;
 `;
 

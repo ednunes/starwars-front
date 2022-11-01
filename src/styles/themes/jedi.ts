@@ -18,8 +18,7 @@ export default {
     input_text: '#3C201B',
   },
   font: {
-    title: 'Starwars',
-    text: 'RobotoBold',
-    simple_text: 'RobotoRegular',
+    title: 'StarWars',
+    text: 'Roboto',
   },
 };

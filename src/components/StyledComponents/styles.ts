@@ -13,7 +13,7 @@ export const PageContainer = styled.div`
 export const Title = styled.h1`
   letter-spacing: 1.2px;
   color: var(--title-color);
-  font-family: 'Starwars';
+  font-family: var(--font-primary);
   font-size: 1.6rem;
   line-height: 1.6rem;
   &:first-letter {
@@ -27,7 +27,7 @@ export const Title = styled.h1`
 `;
 
 export const Subtitle = styled.h2`
-  font-family: 'Starwars';
+  font-family: var(--font-primary);
   letter-spacing: 1.6px;
   color: var(--subtitle-color);
   font-size: 1.2rem;
@@ -43,7 +43,7 @@ export const Subtitle = styled.h2`
 `;
 
 export const Subsubtitle = styled.h3`
-  font-family: 'Starwars';
+  font-family: var(--font-primary);
   letter-spacing: 1.6px;
   line-height: 1.4rem;
   color: var(--text-color);

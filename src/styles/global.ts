@@ -1,15 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import Starjedi from '../assets/fonts/Starjedi.woff';
-
-import RobotoBoldWoff from '../assets/fonts/RobotoBold.woff';
-import RobotoBoldWoff2 from '../assets/fonts/RobotoBold.woff2';
-import RobotoBoldTtf from '../assets/fonts/RobotoBold.ttf';
-import RobotoBoldSvg from '../assets/fonts/RobotoBold.svg';
-
-import RobotoRegularWoff from '../assets/fonts/RobotoRegular.woff';
-import RobotoRegularWoff2 from '../assets/fonts/RobotoRegular.woff2';
-import RobotoRegularTtf from '../assets/fonts/RobotoRegular.ttf';
-import RobotoRegularSvg from '../assets/fonts/RobotoRegular.svg';
+import Starjedi from '../assets/fonts/StarWars.otf';
 
 export default createGlobalStyle`
   * {
@@ -22,7 +12,8 @@ export default createGlobalStyle`
   body {
     font-size: 16px;
     background: ${({ theme }) => theme.color.background};
-    font-family: 'RobotoRegular';
+    font-family: 'Roboto';
+    font-weight: 400;
     transition: all 0.5s ease-out;
   }
 
@@ -46,39 +37,15 @@ export default createGlobalStyle`
     --input-color: ${({ theme }) => theme.color.input};
 
 
-    --font-primary: 'Starwars';
-    --font-secondary: 'RobotoBold';
-    --font-terciary: 'RobotoRegular';
+    --font-primary: ${({ theme }) => theme.font.title};
+    --font-secondary: ${({ theme }) => theme.font.text};
+    --font-terciary: ${({ theme }) => theme.font.text};
   }
 
   @font-face {
-    font-family: 'Starwars';
-    src: local("Starjedi"), url(${Starjedi}) format("woff");
+    font-family: 'StarWars';
+    src: local("StarWars"), url(${Starjedi}) format("truetype");
     font-style: normal;
     letter-spacing: 0.6px;
-  }
-
-  @font-face {
-    font-family: 'RobotoRegular';
-    font-style: normal;
-    font-weight: 400;
-    letter-spacing: 0.6px;
-    src: local(''),
-        url(${RobotoRegularWoff2}) format('woff2'),
-        url(${RobotoRegularWoff}) format('woff'); 
-        url(${RobotoRegularTtf}) format('truetype'),
-        url(${RobotoRegularSvg}) format('svg');
-  }
-
-  @font-face {
-    font-family: 'RobotoBold';
-    font-style: normal;
-    font-weight: 700;
-    letter-spacing: 0.6px;
-    src: local(''),
-        url(${RobotoBoldWoff2}) format('woff2'),
-        url(${RobotoBoldWoff}) format('woff'); 
-        url(${RobotoBoldTtf}) format('truetype'),
-        url(${RobotoBoldSvg}) format('svg');
   }
 `;

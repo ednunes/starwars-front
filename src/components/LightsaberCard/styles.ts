@@ -51,6 +51,7 @@ export const Subtitle = styled.h3`
   color: var(--text-color);
   text-transform: uppercase;
   font-family: var(--font-secondary);
+  font-weight: 700;
 `;
 
 export const Text = styled.p`
@@ -74,6 +75,7 @@ export const LinkButton = styled(Link)`
   border-radius: 40px;
   color: var(--link-text-color);
   font-family: var(--font-secondary);
+  font-weight: 700;
   :visited {
     color: var(--link-text-color);
   }
