@@ -25,7 +25,7 @@ export interface PlanetRequest {
   gravity: string;
   terrain: string;
   created: string;
-  diameter: number;
+  diameter: string;
   population: string;
   surface_water: string;
   orbital_period: string;

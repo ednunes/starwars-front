@@ -41,8 +41,9 @@ export const convertNumberToRomanNumeral = (number = '') => {
   return romanNumeral;
 };
 
-export const convertToKm = (value: number): string => {
-  return `${value / 1000} Km`;
+export const convertToKm = (value: string): string => {
+  if (value.includes('nknown')) return 'Unknown';
+  return `${parseFloat(value) / 1000} Km`;
 };
 
 export const formatUrl = (resource: string, url = '') => {
@@ -65,6 +66,26 @@ export const formatNumber = (number: string) => {
     : 'Unknown';
 };
 
+export const formatValueAndUnit = (value: string, unit: string): JSX.Element => {
+  const unit_label = `generical.${unit}`;
+  return (
+    <span>
+      {formatNumber(value)} <Translator>{unit_label}</Translator>
+    </span>
+  );
+};
+
+export const capitalizeString = (str: string): string => {
+  return `${str[0].toUpperCase()}${str.slice(1)}`;
+};
+
+export const capitalizeStringList = (str_list: string): string => {
+  return str_list
+    .split(', ')
+    .map((str) => capitalizeString(str))
+    .join(', ');
+};
+
 export const formatList = (list: Array<any> = [], default_value = 'N/A') => {
   if (list.length === 0) {
     return default_value;
@@ -81,7 +102,7 @@ export function getLink(link = { url: '', name: 'N/A' }, resource: string, label
       </span>
       :{' '}
       <strong>
-        {link.url ? <ItemLink to={`/${resource}/${id}`}> {link.name}</ItemLink> : link.name}
+        {link.url ? <ItemLink to={`/${resource}/${id}`}>{link.name}</ItemLink> : link.name}
       </strong>
     </Text>
   );

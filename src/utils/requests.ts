@@ -5,7 +5,14 @@ import { PlanetRequest } from '~/pages/Planet/types';
 import { SpecieRequest } from '~/pages/Specie/types';
 import { StarshipRequest } from '~/pages/Starship/types';
 import { VehicleRequest } from '~/pages/Vehicle/types';
-import { convertToKm, formatHeight, formatNumber } from './utils';
+import {
+  capitalizeString,
+  capitalizeStringList,
+  convertToKm,
+  formatHeight,
+  formatNumber,
+  formatValueAndUnit,
+} from './utils';
 
 export function expandList(list: any, attributes_list: any = []) {
   const promises = list.map((resource: string) => {
@@ -84,8 +91,8 @@ export async function getPlanetList(planets: any) {
     const new_planet = {
       url: planet.url,
       name: planet.name,
-      rotation_period: planet.rotation_period,
-      orbital_period: planet.orbital_period,
+      rotation_period: formatValueAndUnit(planet.rotation_period, 'hours'),
+      orbital_period: formatValueAndUnit(planet.orbital_period, 'days'),
       diameter: convertToKm(planet.diameter),
       population: formatNumber(planet.population),
     };
@@ -108,9 +115,9 @@ export async function getSpecieList(species: any) {
       url: specie.url,
       name: specie.name,
       language: specie.language,
-      designation: specie.designation,
+      designation: capitalizeString(specie.designation),
       average_height: formatHeight(specie.average_height),
-      classification: specie.classification,
+      classification: capitalizeString(specie.classification),
     };
     return new_specie;
   });
@@ -202,10 +209,10 @@ export async function getCharacter(character: CharacterRequest) {
     url: character.url,
     name: character.name,
     mass: `${character.mass} Kg`,
-    gender: character.gender,
-    eye_color: character.eye_color,
-    hair_color: character.hair_color,
-    skin_color: character.skin_color,
+    gender: capitalizeString(character.gender),
+    eye_color: capitalizeString(character.eye_color),
+    hair_color: capitalizeStringList(character.hair_color),
+    skin_color: capitalizeStringList(character.skin_color),
     birth_year: character.birth_year,
     height: formatHeight(character.height),
     edited: character.edited,
@@ -229,8 +236,8 @@ export async function getPlanet(planet: PlanetRequest) {
     gravity: planet.gravity,
     terrain: planet.terrain,
     surface_water: planet.surface_water,
-    orbital_period: planet.orbital_period,
-    rotation_period: planet.rotation_period,
+    orbital_period: formatValueAndUnit(planet.orbital_period, 'days'),
+    rotation_period: formatValueAndUnit(planet.rotation_period, 'hours'),
     diameter: convertToKm(planet.diameter),
     population: formatNumber(planet.population),
     edited: planet.edited,
@@ -297,13 +304,13 @@ export async function getSpecie(specie: SpecieRequest) {
   const expanded_specie_promise = {
     url: specie.url,
     name: specie.name,
-    classification: specie.classification,
-    designation: specie.designation,
+    classification: capitalizeString(specie.classification),
+    designation: capitalizeString(specie.designation),
     average_height: formatHeight(specie.average_height),
-    skin_colors: specie.skin_colors,
-    hair_colors: specie.hair_colors,
-    eye_colors: specie.eye_colors,
-    average_lifespan: specie.average_lifespan,
+    skin_colors: capitalizeStringList(specie.skin_colors),
+    hair_colors: capitalizeStringList(specie.hair_colors),
+    eye_colors: capitalizeStringList(specie.eye_colors),
+    average_lifespan: formatValueAndUnit(specie.average_lifespan, 'years'),
     language: specie.language,
     edited: specie.edited,
     created: specie.created,
