@@ -1,3 +1,5 @@
+[:us: English Version](./README.en-us.md)
+
 # Sobre o projeto
 
 O [Star Wars Front-end](https://starwars-front.vercel.app/) trata-se de uma aplicação que exibe algumas informações a respeito dos 6 primeiros filmes do universo cinematográfico do Star Wars. A ideia foi criar um site, como portfólio, que consumisse as informações fornecidas pela API [SWAPI](https://swapi.dev/) e mostrasse essas de uma forma criativa e que fizesse referência a elementos existentes no mundo do Star Wars.
@@ -39,7 +41,7 @@ Com o intuito de fornecer uma experiência visual mais interessante para diverso
 
 ## Tradução dos campos estáticos
 
-Infelizmente a SWAPI não possui portabilidade para diferentes tipos de idiomas, desta forma foi feita somente a tradução dos campos definidos no front-end em dois idiomas: Inglês americano e em Português Brasileiro.
+Infelizmente a [SWAPI](https://swapi.dev/) não possui portabilidade para diferentes tipos de idiomas, desta forma foi feita somente a tradução dos campos definidos no front-end em dois idiomas: Inglês americano e em Português Brasileiro.
 
 <img src="./docs/assets/translations.gif" alt="translation" style="height: auto; width: auto;"/>
 

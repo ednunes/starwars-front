@@ -1,3 +1,5 @@
+[:brazil: Versão em Português](./README.md)
+
 # About the project
 
 The [Star Wars Front-end](https://starwars-front.vercel.app/) is an application that displays some information about the first 6 films of the Star Wars cinematic universe. The idea was to create a website, as a portfolio, that consumes the information provided by the API [SWAPI](https://swapi.dev/) and displays it in a creative way that makes reference to existing elements in the world of Star Wars.
