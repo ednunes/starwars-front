@@ -26,9 +26,9 @@ function Navbar() {
       link: '/movies/',
     },
     {
-      icon: <PlanetIcon />,
-      text: 'pages.planets',
-      link: '/planets/',
+      icon: <CharactersIcon />,
+      text: 'pages.characters',
+      link: '/characters/',
     },
     {
       icon: <StarshipsIcon />,
@@ -36,19 +36,19 @@ function Navbar() {
       link: '/starships/',
     },
     {
-      icon: <SpeciesIcon />,
-      text: 'pages.species',
-      link: '/species/',
-    },
-    {
-      icon: <CharactersIcon />,
-      text: 'pages.characters',
-      link: '/characters/',
-    },
-    {
       icon: <VehiclesIcon />,
       text: 'pages.vehicles',
       link: '/vehicles/',
+    },
+    {
+      icon: <PlanetIcon />,
+      text: 'pages.planets',
+      link: '/planets/',
+    },
+    {
+      icon: <SpeciesIcon />,
+      text: 'pages.species',
+      link: '/species/',
     },
   ];
 

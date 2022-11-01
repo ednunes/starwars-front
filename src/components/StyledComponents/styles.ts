@@ -80,7 +80,7 @@ export const TitleDescription = styled.p`
 export const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 24px;
   margin-top: 20px;
 
   @media ${device.laptop} {
