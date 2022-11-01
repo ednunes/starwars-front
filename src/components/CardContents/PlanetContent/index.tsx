@@ -24,7 +24,7 @@ function PlanetContent({ content }: { content: PlanetCard }) {
           <span>
             <Translator>{info.label}</Translator>
           </span>
-          : {data[info.value]}
+          : <strong>{data[info.value]}</strong>
         </Card.Text>
       );
     });
@@ -33,12 +33,7 @@ function PlanetContent({ content }: { content: PlanetCard }) {
   return (
     <>
       <Card.Title>{content.name}</Card.Title>
-      <Card.ContentContainer>
-        <Card.Subtitle>
-          <Translator>generical.informations</Translator>
-        </Card.Subtitle>
-        {getInformations(content)}
-      </Card.ContentContainer>
+      <Card.ContentContainer>{getInformations(content)}</Card.ContentContainer>
 
       <Card.LinkButton to={formatted_url}>
         <Translator>generical.details</Translator>

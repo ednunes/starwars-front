@@ -14,9 +14,11 @@ export const Title = styled.h1`
   letter-spacing: 1.2px;
   color: var(--title-color);
   font-family: 'Starwars';
-  text-transform: capitalize;
   font-size: 1.6rem;
   line-height: 1.6rem;
+  &:first-letter {
+    text-transform: capitalize;
+  }
 
   @media ${device.laptop} {
     font-size: 2.3rem;
@@ -30,8 +32,10 @@ export const Subtitle = styled.h2`
   color: var(--subtitle-color);
   font-size: 1.2rem;
   line-height: 1.8rem;
-  text-transform: capitalize;
   margin-bottom: 0.8rem;
+  &:first-letter {
+    text-transform: capitalize;
+  }
 
   @media ${device.laptop} {
     font-size: 1.6rem;
@@ -44,8 +48,10 @@ export const Subsubtitle = styled.h3`
   line-height: 1.4rem;
   color: var(--text-color);
   font-size: 1.2rem;
-  text-transform: capitalize;
   margin-bottom: 0.8rem;
+  &:first-letter {
+    text-transform: capitalize;
+  }
 `;
 
 export const Text = styled.p`
@@ -53,7 +59,9 @@ export const Text = styled.p`
   color: var(--text-color);
   font-family: var(--font-terciary);
   margin-top: 4px;
-  text-transform: capitalize;
+  &:first-letter {
+    text-transform: capitalize;
+  }
 
   & > span {
     text-transform: uppercase;
