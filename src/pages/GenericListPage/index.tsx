@@ -22,6 +22,7 @@ export default function GenericListPage({
 }) {
   const [page, setPage] = useState(1);
   const [{ data, isLoading, isError, url }, setUrl]: any = useFetch(resource, [], formatData);
+  const loadingAllPage = isLoading && !url.includes('page=') && !url.includes('?search=');
 
   useEffect(() => {
     if (page !== 1) {
@@ -38,21 +39,18 @@ export default function GenericListPage({
     setUrl(filter_url);
   }
 
-  function getPage() {
+  function getPageContent() {
     return (
       <>
-        <Global.TitleContainer>
-          <Global.Title>
-            <Translator>{text}</Translator>
-          </Global.Title>
-          <FilterInput setFilter={setFilter} resource={resource} />
-        </Global.TitleContainer>
-
-        <S.Grid>
-          {(data.results || []).map((item: any) => {
-            return item?.url ? <LightsaberCard key={item.url} content={getCard(item)} /> : null;
-          })}
-        </S.Grid>
+        {isLoading && url.includes('?search=') ? (
+          <Loading />
+        ) : (
+          <S.Grid>
+            {(data.results || []).map((item: any) => {
+              return <LightsaberCard key={item.url} content={getCard(item)} />;
+            })}
+          </S.Grid>
+        )}
 
         <S.CentralizedComponent>
           {isLoading && url.includes('page=') ? (
@@ -70,9 +68,18 @@ export default function GenericListPage({
     );
   }
 
-  return (
+  return loadingAllPage ? (
+    <Loading />
+  ) : (
     <>
-      {isLoading && !url.includes('page=') ? <Loading /> : isError ? <ErrorMessage /> : getPage()}
+      <Global.TitleContainer>
+        <Global.Title>
+          <Translator>{text}</Translator>
+        </Global.Title>
+        {isError || <FilterInput setFilter={setFilter} resource={resource} />}
+      </Global.TitleContainer>
+
+      {isError ? <ErrorMessage /> : getPageContent()}
     </>
   );
 }
