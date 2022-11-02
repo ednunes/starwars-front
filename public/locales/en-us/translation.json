@@ -21,6 +21,7 @@
     "appears_in": "Appears in",
     "of": "of",
     "error_message": "Sorry, the force is not that strong with us today! Please try again.",
+    "error_not_found": "No results were found.",
     "hours": "hours",
     "days": "days",
     "years": "years"

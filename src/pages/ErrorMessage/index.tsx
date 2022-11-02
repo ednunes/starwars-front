@@ -1,13 +1,13 @@
-import { Subtitle } from '~/components/StyledComponents/styles';
+import { Title } from '~/components/StyledComponents/styles';
 import Translator from '~/components/Translator';
 import { ErrorContainer } from './style';
 
-export default function ErrorMessage() {
+export default function ErrorMessage({ message }: { message: string }) {
   return (
     <ErrorContainer>
-      <Subtitle>
-        <Translator>generical.error_message</Translator>
-      </Subtitle>
+      <Title>
+        <Translator>{message}</Translator>
+      </Title>
     </ErrorContainer>
   );
 }

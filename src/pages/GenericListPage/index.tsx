@@ -49,6 +49,8 @@ export default function GenericListPage({
             {(data.results || []).map((item: any) => {
               return <LightsaberCard key={item.url} content={getCard(item)} />;
             })}
+
+            {data.results?.length === 0 && <ErrorMessage message='generical.error_not_found' />}
           </S.Grid>
         )}
 
@@ -56,12 +58,13 @@ export default function GenericListPage({
           {isLoading && url.includes('page=') ? (
             <Loading />
           ) : (
-            !data.next || (
+            !isLoading &&
+            (!data.next || (
               <Button
                 handleClick={() => loadMore()}
                 text={<Translator>generical.load_more</Translator>}
               />
-            )
+            ))
           )}
         </S.CentralizedComponent>
       </>
@@ -79,7 +82,7 @@ export default function GenericListPage({
         {isError || <FilterInput setFilter={setFilter} resource={resource} />}
       </Global.TitleContainer>
 
-      {isError ? <ErrorMessage /> : getPageContent()}
+      {isError ? <ErrorMessage message='generical.error_message' /> : getPageContent()}
     </>
   );
 }
