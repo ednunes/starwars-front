@@ -157,8 +157,9 @@ export const Indicator = styled.div`
   }
 `;
 
-export const IndicatorContainer = styled.div`
+export const IndicatorContainer = styled.li`
   position: absolute;
+  list-style-type: none;
   top: -25px;
   transition: 0.5s;
   border-radius: 50%;

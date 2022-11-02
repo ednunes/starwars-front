@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
-import Starjedi from '../assets/fonts/StarWars.woff';
+import StarWarsWoff from '../assets/fonts/StarWars.woff';
+import StarWarsWoff2 from '../assets/fonts/StarWars.woff2';
 
 export default createGlobalStyle`
   * {
@@ -13,6 +14,7 @@ export default createGlobalStyle`
     font-size: 16px;
     background: ${({ theme }) => theme.color.background};
     font-family: 'Roboto';
+    font-display: swap;
     font-weight: 400;
     transition: all 0.5s ease-out;
   }
@@ -44,7 +46,8 @@ export default createGlobalStyle`
 
   @font-face {
     font-family: 'StarWars';
-    src: local("StarWars"), url(${Starjedi}) format("woff");
+    src: local("StarWars"), url(${StarWarsWoff2}) format("woff2"), url(${StarWarsWoff}) format("woff");
+    font-display: swap;
     font-style: normal;
     letter-spacing: 0.6px;
   }

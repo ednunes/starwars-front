@@ -32,7 +32,7 @@ function Header({ handleSetTheme, theme }: { handleSetTheme: () => void; theme: 
 
   return (
     <S.Header>
-      <S.Link href='/movies/'>
+      <S.Link href='/movies/' aria-label='Go to homepage'>
         <S.LogoContainer>
           <StarwarsLogo />
         </S.LogoContainer>
