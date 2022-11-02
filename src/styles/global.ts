@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import Starjedi from '../assets/fonts/StarWars.otf';
+import Starjedi from '../assets/fonts/StarWars.woff';
 
 export default createGlobalStyle`
   * {
@@ -44,7 +44,7 @@ export default createGlobalStyle`
 
   @font-face {
     font-family: 'StarWars';
-    src: local("StarWars"), url(${Starjedi}) format("truetype");
+    src: local("StarWars"), url(${Starjedi}) format("woff");
     font-style: normal;
     letter-spacing: 0.6px;
   }

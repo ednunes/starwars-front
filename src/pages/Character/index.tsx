@@ -2,12 +2,13 @@ import { useParams } from 'react-router-dom';
 import * as Global from '~/components/StyledComponents/styles';
 import { getCharacter } from '~/utils/requests';
 import useFetch from '~/hooks/useFetch';
-import { getInformations, getLink, getList } from '~/utils/utils';
+import { getFormattedDateTime, getInformations, getLink, getList } from '~/utils/utils';
 import * as S from './styles';
 import Translator from '~/components/Translator';
 import Loading from '~/components/Loading';
 import MovieChartCard from '~/components/MovieChartCard';
 import { Character } from './types';
+import { useTranslation } from 'react-i18next';
 
 export default function CharacterPage() {
   const params = useParams();
@@ -43,7 +44,11 @@ export default function CharacterPage() {
     },
   ];
 
+  const { i18n } = useTranslation();
+
   function getCharacterContent(character: Character) {
+    const edited = getFormattedDateTime(character.edited, i18n.language);
+    const created = getFormattedDateTime(character.created, i18n.language);
     return (
       <>
         <Global.TitleContainer>
@@ -52,10 +57,10 @@ export default function CharacterPage() {
           </S.Column>
           <S.Column>
             <Global.TitleDescription>
-              <Translator>generical.edited_at</Translator>: {character.edited}
+              <Translator>generical.edited_at</Translator>: {edited}
             </Global.TitleDescription>
             <Global.TitleDescription>
-              <Translator>generical.created_at</Translator>: {character.created}
+              <Translator>generical.created_at</Translator>: {created}
             </Global.TitleDescription>
           </S.Column>
         </Global.TitleContainer>
